@@ -1,0 +1,23 @@
+{
+  "name": "minterjs-tx",
+  "version": "1.0.0",
+  "description": "An simple module for creating, manipulating and signing minter transactions",
+  "main": "es5/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MinterTeam/minterjs-tx.git"
+  },
+  "keywords": [
+    "minter",
+    "blockchain"
+  ],
+  "author": "Daniil Lashin",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/MinterTeam/minterjs-tx/issues"
+  },
+  "homepage": "https://github.com/MinterTeam/minterjs-tx#readme"
+}
