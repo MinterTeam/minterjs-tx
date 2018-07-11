@@ -1,3 +1,3 @@
 export default {
-  nodeUrl: 'https://minter-node-1.testnet.minter.network',
-}
+    nodeUrl: 'https://minter-node-1.testnet.minter.network',
+};
