@@ -1,6 +1,6 @@
 import {BigNumber} from 'bignumber.js';
 
-const DECIMALS = 8;
+const DECIMALS = 18;
 
 export default {
     convert(num, to) {
