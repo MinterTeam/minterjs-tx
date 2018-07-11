@@ -1,3 +1,4 @@
+import {Buffer} from 'safe-buffer'
 import MinterSendTxData from '../src/data/send'
 import MinterTx from '../src/index'
 import converter from '../src/converter'

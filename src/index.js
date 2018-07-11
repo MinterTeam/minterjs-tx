@@ -1,5 +1,6 @@
 import ethUtil from 'ethereumjs-util'
 import BN from '../node_modules/bn.js/lib/bn'
+import {Buffer} from 'safe-buffer'
 
 // secp256k1n/2
 const N_DIV_2 = new BN('7fffffffffffffffffffffffffffffff5d576e7357a4501ddfe92f46681b20a0', 16)

@@ -1,3 +1,6 @@
+import ethUtil from 'ethereumjs-util'
+import {Buffer} from 'safe-buffer'
+
 export function formatCoin (coinSymbol) {
     let buf = new Buffer(10)
     Buffer.from(coinSymbol).copy(buf, 0, 0, 10)
@@ -19,4 +22,17 @@ export function mPrefixToHex(value) {
  */
 export function mPrefixStrip(value) {
     return value.replace(/^(Mx|Mp|Mt|Mc|Mh)/, '')
+}
+
+/**
+ * Converts Minter prefixed value to Buffer
+ * @param value
+ * @return {Buffer}
+ */
+export function mToBuffer(value) {
+    if (typeof value === 'string') {
+        value = mPrefixToHex(value)
+    }
+
+    return ethUtil.toBuffer(value)
 }

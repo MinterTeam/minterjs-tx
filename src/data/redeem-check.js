@@ -1,4 +1,5 @@
 import ethUtil from 'ethereumjs-util'
+import {Buffer} from 'safe-buffer'
 
 class RedeemCheckTransactionData {
   constructor (data) {
