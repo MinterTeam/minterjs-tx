@@ -1,8 +1,11 @@
 {
   "name": "minterjs-tx",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An simple module for creating, manipulating and signing minter transactions",
   "main": "src/index.js",
+  "files": [
+    "/src/"
+  ],
   "scripts": {
     "test": "jest"
   },
