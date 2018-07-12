@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {Buffer} from 'safe-buffer';
 import config from './config';
 import MinterSendTxData from '../src/tx-data/send';
 import MinterTx from '../src/index';
