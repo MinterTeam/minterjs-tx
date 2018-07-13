@@ -1,6 +1,6 @@
 {
   "name": "minterjs-tx",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "An simple module for creating, manipulating and signing minter transactions",
   "main": "src/index.js",
   "files": [
@@ -29,6 +29,7 @@
     "bignumber.js": "^7.2.1",
     "bn.js": "^4.11.8",
     "ethereumjs-util": "^5.2.0",
+    "minterjs-util": "0.0.3",
     "safe-buffer": "^5.1.2"
   },
   "devDependencies": {

@@ -1,9 +1,10 @@
 import {Buffer} from 'safe-buffer';
+import {mPrefixToHex} from 'minterjs-util';
 import MinterSendTxData from '../src/tx-data/send';
 import MinterTx from '../src/index';
 import {TX_TYPE_SEND} from '../src/tx-types';
 import converter from '../src/converter';
-import {formatCoin, mPrefixToHex} from '../src/helpers';
+import {formatCoin} from '../src/helpers';
 
 const PRIVATE_KEY = new Buffer('5fa3a8b186f6cc2d748ee2d8c0eb7a905a7b73de0f2c34c5e7857c3b46f187da', 'hex');
 const ADDRESS = 'Mx7633980c000139dd3bd24a3f54e06474fa941e16';
