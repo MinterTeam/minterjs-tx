@@ -1,4 +1,4 @@
-# Minter JS TX
+# minterjs-tx
 
 [![NPM Package](https://img.shields.io/npm/v/minterjs-tx.svg?style=flat-square)](https://www.npmjs.org/package/minterjs-tx)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/MinterTeam/minterjs-tx/blob/master/LICENSE)
@@ -8,10 +8,11 @@ A simple module for creating, manipulating and signing Minter transactions.
 It is complemented by the following packages:
 - [minter-js-sdk](https://github.com/MinterTeam/minter-js-sdk) complete JS solution to work with Minter
 - [minterjs-wallet](https://github.com/MinterTeam/minterjs-wallet) to create wallet
+- [minterjs-util](https://github.com/MinterTeam/minterjs-util) utility functions
 
 ## Install
 
-`npm install ethereumjs-tx`
+`npm install minterjs-tx`
 
 ## Usage
 
