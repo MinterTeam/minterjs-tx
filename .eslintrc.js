@@ -37,6 +37,7 @@ module.exports = {
     "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
     'no-use-before-define' : 0,
     'object-curly-newline': 0,
+    'import/prefer-default-export': 1,
   },
   overrides: [
     {
