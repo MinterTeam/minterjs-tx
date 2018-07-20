@@ -5,4 +5,7 @@ module.exports = {
     transform: {
         '^.+\\.jsx?$': 'babel-jest',
     },
+    transformIgnorePatterns: [
+        'node_modules/(?!(minterjs-util|other-module)/)',
+    ],
 };

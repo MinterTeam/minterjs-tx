@@ -1,15 +1,17 @@
 {
   "name": "minterjs-tx",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "A simple module for creating, manipulating and signing Minter transactions",
   "main": "src/index.js",
   "files": [
     "/src/"
   ],
   "scripts": {
-    "lint": "eslint --ext .js ./",
-    "lint:fix": "eslint --ext .js ./ --fix",
-    "test": "jest"
+    "prepublishOnly": "npm run lint && npm run test",
+    "lint": "eslint --ext .js ./src ./test",
+    "lint:fix": "eslint --ext .js ./src ./test --fix",
+    "test": "jest",
+    "coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -29,7 +31,7 @@
     "bignumber.js": "^7.2.1",
     "bn.js": "^4.11.8",
     "ethereumjs-util": "^5.2.0",
-    "minterjs-util": "0.0.3",
+    "minterjs-util": "0.0.6",
     "safe-buffer": "^5.1.2"
   },
   "devDependencies": {
