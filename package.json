@@ -1,6 +1,6 @@
 {
   "name": "minterjs-tx",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A simple module for creating, manipulating and signing Minter transactions",
   "main": "src/index.js",
   "files": [
@@ -39,9 +39,9 @@
     "babel-core": "^6.26.3",
     "babel-jest": "^23.4.0",
     "babel-preset-env": "^1.7.0",
-    "eslint": "^5.1.0",
+    "eslint": "^5.2.0",
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-import": "^2.13.0",
-    "jest": "^23.4.0"
+    "jest": "^23.4.1"
   }
 }

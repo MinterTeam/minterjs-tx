@@ -20,6 +20,11 @@ class Transaction {
             allowLess: true,
             default: new Buffer([]),
         }, {
+            name: 'gasCoin',
+            length: 10,
+            allowLess: true,
+            default: new Buffer([]),
+        }, {
             name: 'type',
             length: 1,
             allowLess: true,
@@ -94,7 +99,7 @@ class Transaction {
         if (includeSignature) {
             items = this.raw;
         } else {
-            items = this.raw.slice(0, 6);
+            items = this.raw.slice(0, 7);
         }
 
         // create hash
