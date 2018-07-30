@@ -22,7 +22,7 @@
     "blockchain"
   ],
   "author": "MinterTeam (https://github.com/MinterTeam)",
-  "license": "MPL-2.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/MinterTeam/minterjs-tx/issues"
   },
