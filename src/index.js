@@ -88,7 +88,9 @@ class Transaction {
      * @return {Buffer}
      */
     hash(includeSignature) {
-        if (includeSignature === undefined) includeSignature = true;
+        if (includeSignature === undefined) {
+            includeSignature = true;
+        }
 
         // EIP155 spec:
         // when computing the hash of a transaction for purposes of signing or recovering,
@@ -125,7 +127,9 @@ class Transaction {
      */
     getSenderPublicKey() {
         if (!this._senderPubKey || !this._senderPubKey.length) {
-            if (!this.verifySignature()) throw new Error('Invalid Signature');
+            if (!this.verifySignature()) {
+                throw new Error('Invalid Signature');
+            }
         }
         return this._senderPubKey;
     }

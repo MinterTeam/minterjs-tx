@@ -3,6 +3,12 @@ import {BigNumber} from 'bignumber.js';
 const DECIMALS = 18;
 
 export default {
+    /**
+     *
+     * @param {number,string,BigNumber} num
+     * @param to
+     * @return {BigNumber}
+     */
     convert(num, to) {
         if (num === '0x') {
             num = '0x0';
