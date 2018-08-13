@@ -1,6 +1,8 @@
 # minterjs-tx
 
 [![NPM Package](https://img.shields.io/npm/v/minterjs-tx.svg?style=flat-square)](https://www.npmjs.org/package/minterjs-tx)
+[![Build Status](https://img.shields.io/travis/com/MinterTeam/minterjs-tx/master.svg?style=flat-square)](https://travis-ci.com/MinterTeam/minterjs-tx)
+[![Coverage Status](https://img.shields.io/coveralls/github/MinterTeam/minterjs-tx/master.svg?style=flat-square)](https://coveralls.io/github/MinterTeam/minterjs-tx?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/MinterTeam/minterjs-tx/blob/master/LICENSE)
 
 A simple module for creating, manipulating and signing Minter transactions.
