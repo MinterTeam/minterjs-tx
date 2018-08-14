@@ -84,7 +84,7 @@ class Transaction {
 
     /**
      * Computes a sha3-256 hash of the serialized tx
-     * @param {Boolean} [includeSignature=true] whether or not to inculde the signature
+     * @param {Boolean} [includeSignature=true] whether or not to include the signature
      * @return {Buffer}
      */
     hash(includeSignature) {

@@ -2,7 +2,7 @@ import MinterCreateCoinTxData from '../../src/tx-data/create-coin';
 import {formatCoin} from '../../src/helpers';
 import decodeToArray from '../decode-to-array';
 
-describe('MinterBuyCoinTxData', () => {
+describe('MinterCreateCoinTxData', () => {
     test('rlp encoded fields', () => {
         const serializedTxData = (new MinterCreateCoinTxData({
             name: 'My coin',

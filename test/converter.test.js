@@ -6,9 +6,19 @@ describe('converter', () => {
         expect(converter.convert(bips, 'pip').toString()).toEqual('1234000000000000000');
     });
 
+    test('bip to pip', () => {
+        const bips = 1.234;
+        expect(converter.bipToPip(bips).toString()).toEqual('1234000000000000000');
+    });
+
     test('convert to bip', () => {
         const pips = 1234;
         expect(converter.convert(pips, 'bip').toString()).toEqual((0.000000000000001234).toString());
+    });
+
+    test('pip to bip', () => {
+        const pips = 1234;
+        expect(converter.pipToBip(pips).toString()).toEqual((0.000000000000001234).toString());
     });
 
     test('convert 0x', () => {

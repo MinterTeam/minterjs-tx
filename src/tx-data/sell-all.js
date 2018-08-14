@@ -1,7 +1,7 @@
 import ethUtil from 'ethereumjs-util';
 import {Buffer} from 'safe-buffer';
 
-class SellAllCoinTransactionData {
+class SellAllTransactionData {
     constructor(data) {
         data = data || {};
         // Define Properties
@@ -31,4 +31,4 @@ class SellAllCoinTransactionData {
     }
 }
 
-export default SellAllCoinTransactionData;
+export default SellAllTransactionData;

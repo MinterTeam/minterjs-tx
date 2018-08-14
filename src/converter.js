@@ -24,4 +24,10 @@ export default {
 
         throw String('Unknown type');
     },
+    bipToPip(num) {
+        return this.convert(num, 'pip');
+    },
+    pipToBip(num) {
+        return this.convert(num, 'bip');
+    },
 };

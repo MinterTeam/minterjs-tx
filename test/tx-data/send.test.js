@@ -3,7 +3,7 @@ import MinterSendTxData from '../../src/tx-data/send';
 import {formatCoin} from '../../src/helpers';
 import decodeToArray from '../decode-to-array';
 
-describe('MinterBuyCoinTxData', () => {
+describe('MinterSendTxData', () => {
     test('rlp encoded fields', () => {
         const serializedTxData = (new MinterSendTxData({
             coin: formatCoin('MNT'),

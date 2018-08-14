@@ -1,26 +1,26 @@
 import ethUtil from 'ethereumjs-util';
 import {Buffer} from 'safe-buffer';
 
-class SellCoinTransactionData {
+class SellTransactionData {
     constructor(data) {
         data = data || {};
         // Define Properties
         const fields = [
             {
-                name: 'coin_to_buy',
+                name: 'coin_to_sell',
                 allowZero: true,
                 length: 10,
                 default: new Buffer([]),
             },
             {
-                name: 'value_to_buy',
+                name: 'value_to_sell',
                 length: 32,
                 allowZero: true,
                 allowLess: true,
                 default: new Buffer([]),
             },
             {
-                name: 'coin_to_sell',
+                name: 'coin_to_buy',
                 allowZero: true,
                 length: 10,
                 default: new Buffer([]),
@@ -38,4 +38,4 @@ class SellCoinTransactionData {
     }
 }
 
-export default SellCoinTransactionData;
+export default SellTransactionData;

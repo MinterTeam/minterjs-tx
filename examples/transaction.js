@@ -31,6 +31,7 @@ getNonce().then((nonce) => {
     const txParams = {
         nonce: `0x${nonce.toString(16)}`,
         gasPrice: '0x01',
+        gasCoin: formatCoin(FORM_DATA.coin),
         type: TX_TYPE_SEND,
         data: txData.serialize(),
     };
