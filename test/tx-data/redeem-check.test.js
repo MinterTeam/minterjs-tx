@@ -3,7 +3,7 @@ import {Buffer} from 'safe-buffer';
 import MinterRedeemCheckTxData from '../../src/tx-data/redeem-check';
 import decodeToArray from '../decode-to-array';
 
-describe('MinterBuyTxData', () => {
+describe('MinterRedeemCheckTxData', () => {
     test('rlp encoded fields', () => {
         const serializedTxData = (new MinterRedeemCheckTxData({
             rawCheck: toBuffer('Mcf89f01830f423f8a4d4e5400000000000000888ac7230489e80000b841ada7ad273bef8a1d22f3e314fdfad1e19b90b1fe8dc7eeb30bd1d391e89af8642af029c138c2e379b95d6bc71b26c531ea155d9435e156a3d113a14c912dfebf001ca0781a7b7d781634bcf632579b99d583887ab093dfbd50b65de5c0e5813028a277a071272d8e1be721f5307f40f87daa4ab632781640f18fd424839396442cc7ff17'),
