@@ -7,7 +7,7 @@ class DelegateData {
         // Define Properties
         const fields = [
             {
-                name: 'pubkey',
+                name: 'pubKey',
                 allowZero: true,
                 default: new Buffer([]),
             },

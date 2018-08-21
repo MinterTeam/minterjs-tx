@@ -13,7 +13,7 @@ class DeclareCandidacyData {
                 default: new Buffer([]),
             },
             {
-                name: 'pubkey',
+                name: 'pubKey',
                 allowZero: true,
                 default: new Buffer([]),
             },

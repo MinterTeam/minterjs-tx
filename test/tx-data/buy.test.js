@@ -5,9 +5,9 @@ import decodeToArray from '../decode-to-array';
 describe('MinterBuyTxData', () => {
     test('rlp encoded fields', () => {
         const serializedTxData = (new MinterBuyTxData({
-            coin_to_buy: formatCoin('MNT'),
-            value_to_buy: 10,
-            coin_to_sell: formatCoin('BELTCOIN'),
+            coinToBuy: formatCoin('MNT'),
+            valueToBuy: 10,
+            coinToSell: formatCoin('BELTCOIN'),
         })).serialize();
 
         expect(decodeToArray(serializedTxData))

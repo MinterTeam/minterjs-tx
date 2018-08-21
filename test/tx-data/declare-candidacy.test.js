@@ -7,7 +7,7 @@ describe('MinterDeclareCandidacyTxData', () => {
     test('rlp encoded fields', () => {
         const serializedTxData = (new MinterDeclareCandidacyTxData({
             address: toBuffer('Mx7633980c000139dd3bd24a3f54e06474fa941e16'),
-            pubkey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
+            pubKey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
             commission: 10,
             coin: formatCoin('MNT'),
             stake: 1000,

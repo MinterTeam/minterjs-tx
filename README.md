@@ -1,7 +1,7 @@
 # minterjs-tx
 
 [![NPM Package](https://img.shields.io/npm/v/minterjs-tx.svg?style=flat-square)](https://www.npmjs.org/package/minterjs-tx)
-[![Build Status](https://img.shields.io/travis/com/MinterTeam/minterjs-tx/master.svg?style=flat-square)](https://travis-ci.com/MinterTeam/minterjs-tx)
+[![Build Status](https://img.shields.io/travis/MinterTeam/minterjs-tx/master.svg?style=flat-square)](https://travis-ci.org/MinterTeam/minterjs-tx)
 [![Coverage Status](https://img.shields.io/coveralls/github/MinterTeam/minterjs-tx/master.svg?style=flat-square)](https://coveralls.io/github/MinterTeam/minterjs-tx?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/MinterTeam/minterjs-tx/blob/master/LICENSE)
 
@@ -161,9 +161,9 @@ import MinterSellTxData from 'minterjs-tx/src/tx-data/sell';
 import {formatCoin} from 'minterjs-tx/src/helpers';
 
 const txData = new MinterSellTxData({
-   coin_to_sell: formatCoin('MNT'),
-   value_to_sell: 10,
-   coin_to_buy: formatCoin('BELTCOIN'),
+   coinToSell: formatCoin('MNT'),
+   valueToSell: 10,
+   coinToBuy: formatCoin('BELTCOIN'),
 });
 ```
 
@@ -173,8 +173,8 @@ import MinterSellAllTxData from 'minterjs-tx/src/tx-data/sell-all';
 import {formatCoin} from 'minterjs-tx/src/helpers';
 
 const txData = new MinterSellAllTxData({
-   coin_to_sell: formatCoin('MNT'),
-   coin_to_buy: formatCoin('BELTCOIN'),
+   coinToSell: formatCoin('MNT'),
+   coinToBuy: formatCoin('BELTCOIN'),
 });
 ```
 
@@ -184,9 +184,9 @@ import MinterBuyTxData from 'minterjs-tx/src/tx-data/buy';
 import {formatCoin} from 'minterjs-tx/src/helpers';
 
 const txData = new MinterBuyTxData({
-     coin_to_buy: formatCoin('MNT'),
-     value_to_buy: 10,
-     coin_to_sell: formatCoin('BELTCOIN'),
+     coinToBuy: formatCoin('MNT'),
+     valueToBuy: 10,
+     coinToSell: formatCoin('BELTCOIN'),
  });
 ```
 
@@ -200,7 +200,7 @@ const txData = new MinterCreateCoinTxData({
    symbol: formatCoin('MYCOIN'),
    initialAmount: 10,
    initialReserve: 50,
-   crr: 100,
+   constantReserveRatio: 100,
 });
 ```
 
@@ -212,7 +212,7 @@ import {formatCoin} from 'minterjs-tx/src/helpers';
 
 const txData = new MinterDeclareCandidacyTxData({
    address: toBuffer('Mx7633980c000139dd3bd24a3f54e06474fa941e16'),
-   pubkey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
+   pubKey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
    commission: 10,
    coin: formatCoin('MNT'),
    stake: 1000,
@@ -226,7 +226,7 @@ import MinterDelegateTxData from 'minterjs-tx/src/tx-data/delegate';
 import {formatCoin} from 'minterjs-tx/src/helpers';
 
 const txData = new MinterDelegateTxData({
-   pubkey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
+   pubKey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
    coin: formatCoin('MNT'),
    stake: 1000,
 });
@@ -239,7 +239,7 @@ import MinterUnbondTxData from 'minterjs-tx/src/tx-data/unbond';
 import {formatCoin} from 'minterjs-tx/src/helpers';
 
 const txData = new MinterUnbondTxData({
-   pubkey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
+   pubKey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
    coin: formatCoin('MNT'),
    stake: 1000,
 });
@@ -252,7 +252,7 @@ import {Buffer} from 'safe-buffer';
 import MinterRedeemCheckTxData from 'minterjs-tx/src/tx-data/redeem-check';
 
 const txData = new MinterRedeemCheckTxData({
-   check: toBuffer('Mcf89f01830f423f8a4d4e5400000000000000888ac7230489e80000b841ada7ad273bef8a1d22f3e314fdfad1e19b90b1fe8dc7eeb30bd1d391e89af8642af029c138c2e379b95d6bc71b26c531ea155d9435e156a3d113a14c912dfebf001ca0781a7b7d781634bcf632579b99d583887ab093dfbd50b65de5c0e5813028a277a071272d8e1be721f5307f40f87daa4ab632781640f18fd424839396442cc7ff17'),
+   rawCheck: toBuffer('Mcf89f01830f423f8a4d4e5400000000000000888ac7230489e80000b841ada7ad273bef8a1d22f3e314fdfad1e19b90b1fe8dc7eeb30bd1d391e89af8642af029c138c2e379b95d6bc71b26c531ea155d9435e156a3d113a14c912dfebf001ca0781a7b7d781634bcf632579b99d583887ab093dfbd50b65de5c0e5813028a277a071272d8e1be721f5307f40f87daa4ab632781640f18fd424839396442cc7ff17'),
    proof: Buffer.from('7f8b6d3ed18d2fe131bbdc9f9bce3b96724ac354ce2cfb49b4ffc4bd71aabf580a8dfed407a34122e45d290941d855d744a62110fa1c11448078b13d3117bdfc01', 'hex'),
 });
 ```
@@ -263,7 +263,7 @@ import {toBuffer} from 'minterjs-util';
 import MinterSetCandidateOnTxData from 'minterjs-tx/src/tx-data/set-candidate-on';
 
 const txData = new MinterSetCandidateOnTxData({
-   pubkey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
+   pubKey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
 });
 ```
 
@@ -273,7 +273,7 @@ import {toBuffer} from 'minterjs-util';
 import MinterSetCandidateOffTxData from 'minterjs-tx/src/tx-data/set-candidate-off';
 
 const txData = new MinterSetCandidateOffTxData({
-   pubkey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
+   pubKey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
 });
 ```
 

@@ -28,7 +28,7 @@ class CreateCoinTransactionData {
                 allowLess: true,
                 default: new Buffer([]),
             }, {
-                name: 'crr',
+                name: 'constantReserveRatio',
                 length: 1,
                 allowZero: true,
                 allowLess: true,

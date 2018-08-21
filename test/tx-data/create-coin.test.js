@@ -9,7 +9,7 @@ describe('MinterCreateCoinTxData', () => {
             symbol: formatCoin('MYCOIN'),
             initialAmount: 10,
             initialReserve: 50,
-            crr: 100,
+            constantReserveRatio: 100,
         })).serialize();
 
         expect(decodeToArray(serializedTxData))

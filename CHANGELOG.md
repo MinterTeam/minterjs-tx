@@ -1,3 +1,6 @@
+## 1.5.0 - 2018-08-21
+- **BREAKING** rename tx-data fields according to [minter-go-node docs](https://minter-go-node.readthedocs.io/en/dev/transactions.html) 
+
 ## 1.4.0 - 2018-08-14
 - **BREAKING** rename tx-data files: `sell-coin` -> `sell`, `sell-all-coin` -> `sell-all`, `buy-coin` -> `buy` 
 - add `converter.bipToPip` and `converter.pipToBip` alias methods

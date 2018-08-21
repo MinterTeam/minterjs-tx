@@ -7,7 +7,7 @@ class RedeemCheckTransactionData {
         // Define Properties
         const fields = [
             {
-                name: 'check',
+                name: 'rawCheck',
                 allowZero: true,
                 default: new Buffer([]),
             },

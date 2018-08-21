@@ -7,20 +7,20 @@ class BuyTransactionData {
         // Define Properties
         const fields = [
             {
-                name: 'coin_to_buy',
+                name: 'coinToBuy',
                 allowZero: true,
                 length: 10,
                 default: new Buffer([]),
             },
             {
-                name: 'value_to_buy',
+                name: 'valueToBuy',
                 length: 32,
                 allowZero: true,
                 allowLess: true,
                 default: new Buffer([]),
             },
             {
-                name: 'coin_to_sell',
+                name: 'coinToSell',
                 allowZero: true,
                 length: 10,
                 default: new Buffer([]),
