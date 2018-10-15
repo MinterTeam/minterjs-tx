@@ -11,7 +11,8 @@
     "lint": "eslint --ext .js ./src ./test",
     "lint:fix": "eslint --ext .js ./src ./test --fix",
     "test": "jest",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "precommit": "npm run lint"
   },
   "repository": {
     "type": "git",

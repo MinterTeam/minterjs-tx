@@ -1,7 +1,7 @@
 # minterjs-tx
 
 [![NPM Package](https://img.shields.io/npm/v/minterjs-tx.svg?style=flat-square)](https://www.npmjs.org/package/minterjs-tx)
-[![Build Status](https://img.shields.io/travis/MinterTeam/minterjs-tx/master.svg?style=flat-square)](https://travis-ci.org/MinterTeam/minterjs-tx)
+[![Build Status](https://img.shields.io/travis/MinterTeam/minterjs-tx.svg?style=flat-square)](https://travis-ci.org/MinterTeam/minterjs-tx)
 [![Coverage Status](https://img.shields.io/coveralls/github/MinterTeam/minterjs-tx/master.svg?style=flat-square)](https://coveralls.io/github/MinterTeam/minterjs-tx?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/MinterTeam/minterjs-tx/blob/master/LICENSE)
 
@@ -22,7 +22,7 @@ It is complemented by the following packages:
 
 [example](https://github.com/MinterTeam/minterjs-tx/blob/master/examples/transaction.js)
 
-```javascript
+```js
 import MinterTx from 'minterjs-tx';
 import MinterSendTxData from 'minterjs-tx/src/data/send';
 import {TX_TYPE_SEND} from 'minterjs-tx/src/tx-types';
@@ -51,11 +51,11 @@ const serializedTx = tx.serialize();
 
 
 ### Initialization
-```javascript
+```js
 import MinterTx from 'minterjs-tx';
 
 const tx = new MinterTx(txParams);
-````
+```
 
 ### Tx params
 All tx params can be passed as Buffer or Hex string
@@ -76,7 +76,7 @@ All tx params can be passed as Buffer or Hex string
 Sign a transaction with a given private key.
 `privateKey` - 32 bytes Buffer.
 
-```javascript
+```js
 tx.sign(privateKey);
 ```
 
@@ -84,7 +84,7 @@ tx.sign(privateKey);
 Determines if the signature is valid.
 Returns boolean.
 
-```javascript
+```js
 const isValid = tx.verifySignature();
 ```
 
@@ -93,7 +93,7 @@ Validates the signature.
 `stringError` - whether to return a string with a description of why the validation failed.
 Return boolean or string with errors.
 
-```javascript
+```js
 const isValid = tx.validate();
 const validationErrors = tx.validate(true);
 ```
@@ -103,7 +103,7 @@ Computes a sha3-256 hash of the serialized tx.
 `includeSignature` - whether or not to include the signature, default true.
 Returns Buffer.
 
-```javascript
+```js
 // hash of tx with signature
 const hash = tx.hash();
 // hash of tx without signature
@@ -114,7 +114,7 @@ const hashWithoutSignature = tx.hash(false);
 Returns the sender's address.
 Returns Buffer.
 
-```javascript
+```js
 const address = tx.getSenderAddress();
 ```
 
@@ -122,7 +122,7 @@ const address = tx.getSenderAddress();
 Returns the sender's public key.
 Returns Buffer.
 
-```javascript
+```js
 const publicKey = tx.getSenderPublicKey();
 ```
 
@@ -143,7 +143,7 @@ const publicKey = tx.getSenderPublicKey();
 ### Tx data
 
 #### Send
-```javascript
+```js
 import {toBuffer} from 'minterjs-util';
 import MinterSendTxData from 'minterjs-tx/src/tx-data/send';
 import {formatCoin} from 'minterjs-tx/src/helpers';
@@ -156,7 +156,7 @@ const txData = new MinterSendTxData({
 ```
 
 #### Sell
-```javascript
+```js
 import MinterSellTxData from 'minterjs-tx/src/tx-data/sell';
 import {formatCoin} from 'minterjs-tx/src/helpers';
 
@@ -168,7 +168,7 @@ const txData = new MinterSellTxData({
 ```
 
 #### Sell All
-```javascript
+```js
 import MinterSellAllTxData from 'minterjs-tx/src/tx-data/sell-all';
 import {formatCoin} from 'minterjs-tx/src/helpers';
 
@@ -179,7 +179,7 @@ const txData = new MinterSellAllTxData({
 ```
 
 #### Buy
-```javascript
+```js
 import MinterBuyTxData from 'minterjs-tx/src/tx-data/buy';
 import {formatCoin} from 'minterjs-tx/src/helpers';
 
@@ -191,7 +191,7 @@ const txData = new MinterBuyTxData({
 ```
 
 #### Create Coin
-```javascript
+```js
 import MinterCreateCoinTxData from 'minterjs-tx/src/tx-data/create-coin';
 import {formatCoin} from 'minterjs-tx/src/helpers';
 
@@ -205,7 +205,7 @@ const txData = new MinterCreateCoinTxData({
 ```
 
 #### Declare Candidacy
-```javascript
+```js
 import {toBuffer} from 'minterjs-util';
 import MinterDeclareCandidacyTxData from 'minterjs-tx/src/tx-data/declare-candidacy';
 import {formatCoin} from 'minterjs-tx/src/helpers';
@@ -220,7 +220,7 @@ const txData = new MinterDeclareCandidacyTxData({
 ```
 
 #### Delegate
-```javascript
+```js
 import {toBuffer} from 'minterjs-util';
 import MinterDelegateTxData from 'minterjs-tx/src/tx-data/delegate';
 import {formatCoin} from 'minterjs-tx/src/helpers';
@@ -233,7 +233,7 @@ const txData = new MinterDelegateTxData({
 ```
 
 #### Unbond
-```javascript
+```js
 import {toBuffer} from 'minterjs-util';
 import MinterUnbondTxData from 'minterjs-tx/src/tx-data/unbond';
 import {formatCoin} from 'minterjs-tx/src/helpers';
@@ -246,7 +246,7 @@ const txData = new MinterUnbondTxData({
 ```
 
 #### Redeem Check
-```javascript
+```js
 import {toBuffer} from 'minterjs-util';
 import {Buffer} from 'safe-buffer';
 import MinterRedeemCheckTxData from 'minterjs-tx/src/tx-data/redeem-check';
@@ -258,7 +258,7 @@ const txData = new MinterRedeemCheckTxData({
 ```
 
 #### Set Candidate On
-```javascript
+```js
 import {toBuffer} from 'minterjs-util';
 import MinterSetCandidateOnTxData from 'minterjs-tx/src/tx-data/set-candidate-on';
 
@@ -268,7 +268,7 @@ const txData = new MinterSetCandidateOnTxData({
 ```
 
 #### Set Candidate Off
-```javascript
+```js
 import {toBuffer} from 'minterjs-util';
 import MinterSetCandidateOffTxData from 'minterjs-tx/src/tx-data/set-candidate-off';
 
