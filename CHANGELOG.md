@@ -1,3 +1,7 @@
+## 2.0.0 - 2018-10-15
+- **BREAKING** change tx structure to support MultiSig
+- update dependencies
+
 ## 1.5.0 - 2018-08-21
 - **BREAKING** rename tx-data fields according to [minter-go-node docs](https://minter-go-node.readthedocs.io/en/dev/transactions.html) 
 

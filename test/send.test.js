@@ -2,6 +2,7 @@ import {Buffer} from 'safe-buffer';
 import {mPrefixToHex} from 'minterjs-util';
 import MinterSendTxData from '../src/tx-data/send';
 import MinterTx from '../src/index';
+import MinterTxSignature from '../src/tx-signature';
 import {TX_TYPE_SEND} from '../src/tx-types';
 import converter from '../src/converter';
 import {formatCoin} from '../src/helpers';
@@ -23,7 +24,7 @@ describe('tx send', () => {
     })).serialize();
 
     test('tx signature', () => {
-        const VALID_SIGNATURE = 'f88901018a4d4e540000000000000001aae98a4d4e540000000000000094376615b9a3187747dc7c32e51723515ee62e37dc880de0b6b3a76400008b637573746f6d2074657874801ba073b76ea050165b9756028661347434ff3fac72fb7649fee7ad4570b39a402734a059648c13f057e7c3d6624f6dad15ddce9bb5275423891650713fc671ac9bc3e4';
+        const VALID_SIGNATURE = 'f88e01018a4d4e540000000000000001aae98a4d4e540000000000000094376615b9a3187747dc7c32e51723515ee62e37dc880de0b6b3a76400008b637573746f6d20746578748001b845f8431ba0dfd42ab59e68e6494d4e29f12520e7cd5a90c6d11b25599e868c2aac52440028a069f5f4085e1fe20b3e04701377a6d0320bb21f3162819ae3311318432aa332ea';
         const txParams = {
             nonce: '0x01',
             gasPrice: '0x01',
@@ -31,14 +32,15 @@ describe('tx send', () => {
             type: TX_TYPE_SEND,
             data: txData,
             payload: `0x${Buffer.from(FORM_DATA.payload, 'utf-8').toString('hex')}`,
+            signatureType: '0x01',
         };
         const tx = new MinterTx(txParams);
-        tx.sign(PRIVATE_KEY);
+        tx.signatureData = (new MinterTxSignature()).sign(tx.hash(false), PRIVATE_KEY).serialize();
         expect(tx.serialize().toString('hex')).toEqual(VALID_SIGNATURE);
     });
 
     test('tx2 signature', () => {
-        const VALID_SIGNATURE = 'f87e08018a4d4e540000000000000001aae98a4d4e540000000000000094376615b9a3187747dc7c32e51723515ee62e37dc880de0b6b3a764000080801ba060cb3f0d530ae636c0d697267b60c85f29a124bec2042d26b34c209cf0bfac01a072515229c4a08422a5d47eb2557385a73b4fb6b8de8408c99527124e3ba98f4f';
+        const VALID_SIGNATURE = 'f88208018a4d4e540000000000000001aae98a4d4e540000000000000094376615b9a3187747dc7c32e51723515ee62e37dc880de0b6b3a7640000808080b844f8421ca08071d44697614db73a7e1ea830635c8e6ee187dbe7ceba43d6146e9e2ad3fcc59f606b57e20d75319ddbbf36db4534063480c50391ed10a10450a603ee85d583';
         const txParams = {
             nonce: '0x08',
             gasPrice: '0x01',
@@ -47,7 +49,7 @@ describe('tx send', () => {
             data: txData,
         };
         const tx = new MinterTx(txParams);
-        tx.sign(PRIVATE_KEY);
+        tx.signatureData = (new MinterTxSignature()).sign(tx.hash(false), PRIVATE_KEY).serialize();
         expect(tx.serialize().toString('hex')).toEqual(VALID_SIGNATURE);
     });
 });
@@ -76,13 +78,14 @@ describe('tx send (php test)', () => {
         gasCoin: formatCoin('MNT'),
         type: TX_TYPE_SEND,
         data: (new MinterSendTxData(txData)).serialize(),
+        signatureType: '0x01',
     };
 
     const tx = new MinterTx(txParams);
-    tx.sign(PHP_PRIVATE_KEY);
+    tx.signatureData = (new MinterTxSignature()).sign(tx.hash(false), PHP_PRIVATE_KEY).serialize();
 
     test('tx signature', () => {
-        const VALID_SIGNATURE = 'f87e01018a4d4e540000000000000001aae98a4d4e540000000000000094fe60014a6e9ac91618f5d1cab3fd58cded61ee99880de0b6b3a764000080801ba0e47dabc92cf9ab0df67cab70f15b5f0dfe2bfd9bc649d848b2e7177ab20ab2a2a036bb53ae63d9569552759b064fb8c2dd3e647860e394bf06b312c67a2a6d00ca';
+        const VALID_SIGNATURE = 'f88301018a4d4e540000000000000001aae98a4d4e540000000000000094fe60014a6e9ac91618f5d1cab3fd58cded61ee99880de0b6b3a7640000808001b845f8431ca0403dc61dec54139140c8b54a68d94a00f266a1b62a5d60e46a8175e4387d176ba03c3f1105df6b23d3717f202979bfbb24a1b4367dd5cc73dccda9a8719348f34e';
         expect(tx.serialize().toString('hex')).toEqual(VALID_SIGNATURE);
     });
 });

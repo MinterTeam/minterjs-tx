@@ -43,20 +43,13 @@ class Transaction {
             allowZero: true,
             default: new Buffer([]),
         }, {
-            name: 'v',
-            allowZero: true,
-            default: new Buffer([0x1c]),
-        }, {
-            name: 'r',
-            length: 32,
-            allowZero: true,
+            name: 'signatureType',
+            length: 1,
             allowLess: true,
             default: new Buffer([]),
         }, {
-            name: 's',
-            length: 32,
+            name: 'signatureData',
             allowZero: true,
-            allowLess: true,
             default: new Buffer([]),
         }];
 
@@ -101,7 +94,7 @@ class Transaction {
         if (includeSignature) {
             items = this.raw;
         } else {
-            items = this.raw.slice(0, 7);
+            items = this.raw.slice(0, 8);
         }
 
         // create hash
@@ -139,30 +132,21 @@ class Transaction {
      * @return {Boolean}
      */
     verifySignature() {
+        const vrs = ethUtil.rlp.decode(this.signatureData);
         const msgHash = this.hash(false);
         // All transaction signatures whose s-value is greater than secp256k1n/2 are considered invalid.
-        if (new BN(this.s).cmp(N_DIV_2) === 1) {
+        if (new BN(vrs[2]).cmp(N_DIV_2) === 1) {
             return false;
         }
 
         try {
-            const v = ethUtil.bufferToInt(this.v);
-            this._senderPubKey = ethUtil.ecrecover(msgHash, v, this.r, this.s);
+            const v = ethUtil.bufferToInt(vrs[0]);
+            this._senderPubKey = ethUtil.ecrecover(msgHash, v, vrs[1], vrs[2]);
         } catch (e) {
             return false;
         }
 
         return !!this._senderPubKey;
-    }
-
-    /**
-     * sign a transaction with a given a private key
-     * @param {Buffer} privateKey
-     */
-    sign(privateKey) {
-        const msgHash = this.hash(false);
-        const sig = ethUtil.ecsign(msgHash, privateKey);
-        Object.assign(this, sig);
     }
 
     /**

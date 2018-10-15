@@ -2,6 +2,7 @@ import {Buffer} from 'safe-buffer';
 import {mPrefixToHex} from 'minterjs-util';
 import MinterSendTxData from '../src/tx-data/send';
 import MinterTx from '../src/index';
+import MinterTxSignature from '../src/tx-signature';
 import {TX_TYPE_SEND} from '../src/tx-types';
 import converter from '../src/converter';
 import {formatCoin} from '../src/helpers';
@@ -29,9 +30,10 @@ describe('tx', () => {
         type: TX_TYPE_SEND,
         data: txData,
         payload: `0x${Buffer.from(FORM_DATA.payload, 'utf-8').toString('hex')}`,
+        signatureType: '0x01',
     };
     const tx = new MinterTx(txParams);
-    tx.sign(PRIVATE_KEY);
+    tx.signatureData = (new MinterTxSignature()).sign(tx.hash(false), PRIVATE_KEY).serialize();
     const invalidTx = new MinterTx(txParams);
     // const serializedTx = tx.serialize();
 
@@ -45,16 +47,23 @@ describe('tx', () => {
                 [233, 138, 77, 78, 84, 0, 0, 0, 0, 0, 0, 0, 148, 55, 102, 21, 185, 163, 24, 119, 71, 220, 124, 50, 229, 23, 35, 81, 94, 230, 46, 55, 220, 136, 13, 224, 182, 179, 167, 100, 0, 0],
                 [99, 117, 115, 116, 111, 109, 32, 116, 101, 120, 116],
                 [],
+                [1],
+                [248, 67, 27, 160, 223, 212, 42, 181, 158, 104, 230, 73, 77, 78, 41, 241, 37, 32, 231, 205, 90, 144, 198, 209, 27, 37, 89, 158, 134, 140, 42, 172, 82, 68, 0, 40, 160, 105, 245, 244, 8, 94, 31, 226, 11, 62, 4, 112, 19, 119, 166, 208, 50, 11, 178, 31, 49, 98, 129, 154, 227, 49, 19, 24, 67, 42, 163, 50, 234],
+            ]);
+    });
+    test('tx signature fields', () => {
+        expect(decodeToArray(decodeToArray(tx.serialize())[8]))
+            .toEqual([
                 [27],
-                [115, 183, 110, 160, 80, 22, 91, 151, 86, 2, 134, 97, 52, 116, 52, 255, 63, 172, 114, 251, 118, 73, 254, 231, 173, 69, 112, 179, 154, 64, 39, 52],
-                [89, 100, 140, 19, 240, 87, 231, 195, 214, 98, 79, 109, 173, 21, 221, 206, 155, 181, 39, 84, 35, 137, 22, 80, 113, 63, 198, 113, 172, 155, 195, 228],
+                [223, 212, 42, 181, 158, 104, 230, 73, 77, 78, 41, 241, 37, 32, 231, 205, 90, 144, 198, 209, 27, 37, 89, 158, 134, 140, 42, 172, 82, 68, 0, 40],
+                [105, 245, 244, 8, 94, 31, 226, 11, 62, 4, 112, 19, 119, 166, 208, 50, 11, 178, 31, 49, 98, 129, 154, 227, 49, 19, 24, 67, 42, 163, 50, 234],
             ]);
     });
 
     test('tx hash', () => {
-        expect(tx.hash().toString('hex')).toEqual('49ad95e73d92723cadd724406ed1568cd7aab73a38009d257ed4b1c5fdbbe751');
-        expect(tx.hash(true).toString('hex')).toEqual('49ad95e73d92723cadd724406ed1568cd7aab73a38009d257ed4b1c5fdbbe751');
-        expect(tx.hash(false).toString('hex')).toEqual('dd74f26a7be443d637220d560269cbbcf45e483023c46c19cec1d108101141fb');
+        expect(tx.hash().toString('hex')).toEqual('c26347727aead2275a701c062f820e861fff343b3c0745e5b19fb758a5bac0d8');
+        expect(tx.hash(true).toString('hex')).toEqual('c26347727aead2275a701c062f820e861fff343b3c0745e5b19fb758a5bac0d8');
+        expect(tx.hash(false).toString('hex')).toEqual('cfa2584a2010352afeb68d1341fdbf5d0f1fd83a24abbabae1f59ff663988223');
     });
 
     test('tx verify signature', () => {

@@ -4,6 +4,7 @@ import {mPrefixToHex} from 'minterjs-util';
 import config from './config';
 import MinterSendTxData from '../src/tx-data/send';
 import MinterTx from '../src/index';
+import MinterTxSignature from '../src/tx-signature';
 import {TX_TYPE_SEND} from '../src/tx-types';
 import converter from '../src/converter';
 import {formatCoin} from '../src/helpers';
@@ -34,6 +35,7 @@ getNonce().then((nonce) => {
         gasCoin: formatCoin(FORM_DATA.coin),
         type: TX_TYPE_SEND,
         data: txData.serialize(),
+        signatureType: '0x01'
     };
 
     if (FORM_DATA.payload) {
@@ -43,7 +45,7 @@ getNonce().then((nonce) => {
     console.log({txParams});
 
     const tx = new MinterTx(txParams);
-    tx.sign(PRIVATE_KEY);
+    tx.signatureData = (new MinterTxSignature()).sign(tx.hash(false), PRIVATE_KEY).serialize();
 
     console.log('---Serialized TX----');
     console.log(tx.serialize().toString('hex'));
