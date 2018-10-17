@@ -1,10 +1,9 @@
-import MinterBuyTxData from '../../src/tx-data/buy';
-import {formatCoin} from '../../src/helpers';
+import {MinterTxDataBuy, formatCoin} from '~/src';
 import decodeToArray from '../decode-to-array';
 
-describe('MinterBuyTxData', () => {
+describe('MinterTxDataBuy', () => {
     test('rlp encoded fields', () => {
-        const serializedTxData = (new MinterBuyTxData({
+        const serializedTxData = (new MinterTxDataBuy({
             coinToBuy: formatCoin('MNT'),
             valueToBuy: 10,
             coinToSell: formatCoin('BELTCOIN'),

@@ -1,11 +1,6 @@
 import {Buffer} from 'safe-buffer';
 import {mPrefixToHex} from 'minterjs-util';
-import MinterSendTxData from '../src/tx-data/send';
-import MinterTx from '../src/index';
-import MinterTxSignature from '../src/tx-signature';
-import {TX_TYPE_SEND} from '../src/tx-types';
-import converter from '../src/converter';
-import {formatCoin} from '../src/helpers';
+import {MinterTx, MinterTxSignature, MinterTxDataSend, TX_TYPE_SEND, formatCoin, convertToPip} from '~/src';
 
 const PRIVATE_KEY = new Buffer('5fa3a8b186f6cc2d748ee2d8c0eb7a905a7b73de0f2c34c5e7857c3b46f187da', 'hex');
 const ADDRESS = 'Mx7633980c000139dd3bd24a3f54e06474fa941e16';
@@ -17,10 +12,10 @@ const FORM_DATA = {
 };
 
 describe('tx send', () => {
-    const txData = (new MinterSendTxData({
+    const txData = (new MinterTxDataSend({
         to: mPrefixToHex(FORM_DATA.address),
         coin: formatCoin(FORM_DATA.coin),
-        value: `0x${converter.convert(FORM_DATA.amount, 'pip').toString(16)}`,
+        value: `0x${convertToPip(FORM_DATA.amount).toString(16)}`,
     })).serialize();
 
     test('tx signature', () => {
@@ -66,7 +61,7 @@ describe('tx send (php test)', () => {
     const txData = {
         to: mPrefixToHex(TO_ADDRESS),
         coin: formatCoin('MNT'),
-        value: `0x${converter.convert(1, 'pip').toString(16)}`,
+        value: `0x${convertToPip(1).toString(16)}`,
     };
     // nonce: '0x01',
     // gasPrice: '0x01',
@@ -77,7 +72,7 @@ describe('tx send (php test)', () => {
         gasPrice: '0x01',
         gasCoin: formatCoin('MNT'),
         type: TX_TYPE_SEND,
-        data: (new MinterSendTxData(txData)).serialize(),
+        data: (new MinterTxDataSend(txData)).serialize(),
         signatureType: '0x01',
     };
 

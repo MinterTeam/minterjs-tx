@@ -1,7 +1,7 @@
 import ethUtil from 'ethereumjs-util';
 import {Buffer} from 'safe-buffer';
 
-class DelegateData {
+class MinterTxDataDelegate {
     constructor(data) {
         data = data || {};
         // Define Properties
@@ -37,4 +37,4 @@ class DelegateData {
     }
 }
 
-export default DelegateData;
+export default MinterTxDataDelegate;

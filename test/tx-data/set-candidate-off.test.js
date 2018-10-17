@@ -1,10 +1,10 @@
 import {toBuffer} from 'minterjs-util';
-import MinterSetCandidateOffTxData from '../../src/tx-data/set-candidate-off';
+import {MinterTxDataSetCandidateOff} from '~/src';
 import decodeToArray from '../decode-to-array';
 
-describe('MinterSetCandidateOffTxData', () => {
+describe('MinterTxDataSetCandidateOff', () => {
     test('rlp encoded fields', () => {
-        const serializedTxData = (new MinterSetCandidateOffTxData({
+        const serializedTxData = (new MinterTxDataSetCandidateOff({
             pubKey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
         })).serialize();
 

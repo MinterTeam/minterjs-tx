@@ -1,7 +1,7 @@
 import ethUtil from 'ethereumjs-util';
 import {Buffer} from 'safe-buffer';
 
-class SendTransactionData {
+class MinterTxDataSend {
     constructor(data) {
         data = data || {};
         // Define Properties
@@ -36,4 +36,4 @@ class SendTransactionData {
     }
 }
 
-export default SendTransactionData;
+export default MinterTxDataSend;

@@ -1,7 +1,7 @@
 import ethUtil from 'ethereumjs-util';
 import {Buffer} from 'safe-buffer';
 
-class SellTransactionData {
+class MinterTxDataSell {
     constructor(data) {
         data = data || {};
         // Define Properties
@@ -38,4 +38,4 @@ class SellTransactionData {
     }
 }
 
-export default SellTransactionData;
+export default MinterTxDataSell;

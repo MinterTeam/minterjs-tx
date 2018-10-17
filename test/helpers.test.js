@@ -1,5 +1,5 @@
 import {Buffer} from 'safe-buffer';
-import {formatCoin} from '../src/helpers';
+import {formatCoin} from '~/src';
 
 describe('formatCoin', () => {
     test('MNT', () => {

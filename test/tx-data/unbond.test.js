@@ -1,11 +1,10 @@
 import {toBuffer} from 'minterjs-util';
-import MinterUnbondTxData from '../../src/tx-data/unbond';
-import {formatCoin} from '../../src/helpers';
+import {MinterTxDataUnbond, formatCoin} from '~/src';
 import decodeToArray from '../decode-to-array';
 
-describe('MinterUnbondTxData', () => {
+describe('MinterTxDataUnbond', () => {
     test('rlp encoded fields', () => {
-        const serializedTxData = (new MinterUnbondTxData({
+        const serializedTxData = (new MinterTxDataUnbond({
             pubKey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
             coin: formatCoin('MNT'),
             stake: 1000,

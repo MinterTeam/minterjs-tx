@@ -1,3 +1,3 @@
-import SetCandidateOffData from './set-candidate-on';
+import MinterTxDataSetCandidateOff from './set-candidate-on';
 
-export default SetCandidateOffData;
+export default MinterTxDataSetCandidateOff;

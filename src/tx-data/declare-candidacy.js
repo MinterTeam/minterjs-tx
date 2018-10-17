@@ -1,7 +1,7 @@
 import ethUtil from 'ethereumjs-util';
 import {Buffer} from 'safe-buffer';
 
-class DeclareCandidacyData {
+class MinterTxDataDeclareCandidacy {
     constructor(data) {
         data = data || {};
         // Define Properties
@@ -50,4 +50,4 @@ class DeclareCandidacyData {
     }
 }
 
-export default DeclareCandidacyData;
+export default MinterTxDataDeclareCandidacy;

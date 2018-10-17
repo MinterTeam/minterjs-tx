@@ -1,3 +1,3 @@
-import UnbondData from './delegate';
+import MinterTxDataUnbond from './delegate';
 
-export default UnbondData;
+export default MinterTxDataUnbond;

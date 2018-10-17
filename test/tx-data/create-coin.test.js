@@ -1,11 +1,10 @@
 import {Buffer} from 'safe-buffer';
-import MinterCreateCoinTxData from '../../src/tx-data/create-coin';
-import {formatCoin} from '../../src/helpers';
+import {MinterTxDataCreateCoin, formatCoin} from '~/src';
 import decodeToArray from '../decode-to-array';
 
-describe('MinterCreateCoinTxData', () => {
+describe('MinterTxDataCreateCoin', () => {
     test('rlp encoded fields', () => {
-        const serializedTxData = (new MinterCreateCoinTxData({
+        const serializedTxData = (new MinterTxDataCreateCoin({
             name: 'My coin',
             symbol: formatCoin('MYCOIN'),
             initialAmount: 10,

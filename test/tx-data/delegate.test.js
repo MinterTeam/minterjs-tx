@@ -1,11 +1,10 @@
 import {toBuffer} from 'minterjs-util';
-import MinterDelegateTxData from '../../src/tx-data/delegate';
-import {formatCoin} from '../../src/helpers';
+import {MinterTxDataDelegate, formatCoin} from '~/src';
 import decodeToArray from '../decode-to-array';
 
-describe('MinterDelegateTxData', () => {
+describe('MinterTxDataDelegate', () => {
     test('rlp encoded fields', () => {
-        const serializedTxData = (new MinterDelegateTxData({
+        const serializedTxData = (new MinterTxDataDelegate({
             pubKey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
             coin: formatCoin('MNT'),
             stake: 1000,

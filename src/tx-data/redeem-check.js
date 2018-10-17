@@ -1,7 +1,7 @@
 import ethUtil from 'ethereumjs-util';
 import {Buffer} from 'safe-buffer';
 
-class RedeemCheckTransactionData {
+class MinterTxDataRedeemCheck {
     constructor(data) {
         data = data || {};
         // Define Properties
@@ -30,4 +30,4 @@ class RedeemCheckTransactionData {
     }
 }
 
-export default RedeemCheckTransactionData;
+export default MinterTxDataRedeemCheck;

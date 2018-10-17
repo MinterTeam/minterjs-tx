@@ -1,11 +1,10 @@
 import {toBuffer} from 'minterjs-util';
-import MinterDeclareCandidacyTxData from '../../src/tx-data/declare-candidacy';
-import {formatCoin} from '../../src/helpers';
+import {MinterTxDataDeclareCandidacy, formatCoin} from '~/src';
 import decodeToArray from '../decode-to-array';
 
-describe('MinterDeclareCandidacyTxData', () => {
+describe('MinterTxDataDeclareCandidacy', () => {
     test('rlp encoded fields', () => {
-        const serializedTxData = (new MinterDeclareCandidacyTxData({
+        const serializedTxData = (new MinterTxDataDeclareCandidacy({
             address: toBuffer('Mx7633980c000139dd3bd24a3f54e06474fa941e16'),
             pubKey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
             commission: 10,

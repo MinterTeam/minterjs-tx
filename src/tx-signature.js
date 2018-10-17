@@ -1,6 +1,6 @@
 import ethUtil from 'ethereumjs-util';
 
-class TxSignature {
+class MinterTxSignature {
     constructor(data) {
         data = data || {};
         // Define Properties
@@ -47,4 +47,4 @@ class TxSignature {
     }
 }
 
-export default TxSignature;
+export default MinterTxSignature;
