@@ -9,3 +9,5 @@ export const TX_TYPE_UNBOND = '0x08';
 export const TX_TYPE_REDEEM_CHECK = '0x09';
 export const TX_TYPE_SET_CANDIDATE_ON = '0x0A';
 export const TX_TYPE_SET_CANDIDATE_OFF = '0x0B';
+export const TX_TYPE_CREATE_MULTISIG = '0x0C';
+export const TX_TYPE_MULTISEND = '0x0D';

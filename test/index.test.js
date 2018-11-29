@@ -1,6 +1,6 @@
 import {Buffer} from 'safe-buffer';
-import {mPrefixToHex} from 'minterjs-util';
-import {MinterTx, MinterTxSignature, MinterTxDataSend, TX_TYPE_SEND, formatCoin, convertToPip} from '~/src';
+import {mPrefixToHex, convertToPip} from 'minterjs-util';
+import {MinterTx, MinterTxSignature, MinterTxDataSend, TX_TYPE_SEND, formatCoin} from '~/src';
 import decodeToArray from './decode-to-array';
 
 const PRIVATE_KEY = new Buffer('5fa3a8b186f6cc2d748ee2d8c0eb7a905a7b73de0f2c34c5e7857c3b46f187da', 'hex');
@@ -15,7 +15,7 @@ describe('tx', () => {
     const txData = (new MinterTxDataSend({
         to: mPrefixToHex(FORM_DATA.address),
         coin: formatCoin(FORM_DATA.coin),
-        value: `0x${convertToPip(FORM_DATA.amount).toString(16)}`,
+        value: `0x${convertToPip(FORM_DATA.amount, 'hex')}`,
     })).serialize();
 
     const txParams = {

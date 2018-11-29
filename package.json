@@ -1,6 +1,6 @@
 {
   "name": "minterjs-tx",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "A simple module for creating, manipulating and signing Minter transactions",
   "main": "src/index.js",
   "files": [
@@ -12,8 +12,11 @@
     "lint:fix": "eslint --ext .js ./src ./test --fix",
     "test": "jest",
     "coverage": "jest --coverage",
-    "precommit": "npm run lint"
+    "precommit": "echo 'Pre-commit checks...' && npm run lint"
   },
+  "pre-commit": [
+    "precommit"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MinterTeam/minterjs-tx.git"
@@ -32,7 +35,7 @@
     "bignumber.js": "^8.0.1",
     "bn.js": "^4.11.8",
     "ethereumjs-util": "^6.0.0",
-    "minterjs-util": "0.0.6",
+    "minterjs-util": "0.2.1",
     "safe-buffer": "^5.1.2"
   },
   "devDependencies": {
@@ -41,10 +44,11 @@
     "babel-jest": "^23.6.0",
     "babel-preset-env": "^1.7.0",
     "coveralls": "^3.0.2",
-    "eslint": "^5.8.0",
+    "eslint": "^5.9.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-import-resolver-alias": "^1.1.1",
     "eslint-plugin-import": "^2.14.0",
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "pre-commit": "^1.2.2"
   }
 }

@@ -1,12 +1,11 @@
 import axios from 'axios';
 import {Buffer} from 'safe-buffer';
-import {mPrefixToHex} from 'minterjs-util';
+import {mPrefixToHex, convertToPip} from 'minterjs-util';
 import config from './config';
 import MinterSendTxData from '../src/tx-data/send';
 import MinterTx from '../src/index';
 import MinterTxSignature from '../src/tx-signature';
 import {TX_TYPE_SEND} from '../src/tx-types';
-import converter from '../src/converter';
 import {formatCoin} from '../src/helpers';
 
 const PRIVATE_KEY = new Buffer('5fa3a8b186f6cc2d748ee2d8c0eb7a905a7b73de0f2c34c5e7857c3b46f187da', 'hex');
@@ -27,7 +26,7 @@ getNonce().then((nonce) => {
     const txData = new MinterSendTxData({
         to: mPrefixToHex(FORM_DATA.address),
         coin: formatCoin(FORM_DATA.coin),
-        value: `0x${converter.convert(FORM_DATA.amount, 'pip').toString(16)}`,
+        value: `0x${convertToPip(FORM_DATA.amount, 'hex')}`,
     });
     const txParams = {
         nonce: `0x${nonce.toString(16)}`,

@@ -1,3 +1,8 @@
+## 3.0.0 - 2018-11-29
+- **BREAKING** remove converter (moved to `minterjs-util` package)
+- add `MinterTxDataCreateMultisig`
+- add tx types constants
+
 ## 2.0.0 - 2018-10-15
 - **BREAKING** change tx structure to support MultiSig
 - update dependencies

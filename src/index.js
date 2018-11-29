@@ -12,7 +12,6 @@ import MinterTxDataDelegate from './tx-data/delegate';
 import MinterTxDataUnbond from './tx-data/unbond';
 import MinterTxDataRedeemCheck from './tx-data/redeem-check';
 import {formatCoin} from './helpers';
-import {convert, convertToPip, convertFromPip} from './converter';
 import {TX_TYPE_SEND, TX_TYPE_SELL_COIN, TX_TYPE_SELL_ALL_COIN, TX_TYPE_BUY_COIN, TX_TYPE_CREATE_COIN, TX_TYPE_DECLARE_CANDIDACY, TX_TYPE_SET_CANDIDATE_ON, TX_TYPE_SET_CANDIDATE_OFF, TX_TYPE_DELEGATE, TX_TYPE_UNBOND, TX_TYPE_REDEEM_CHECK} from './tx-types';
 
 export default MinterTx;
@@ -31,9 +30,6 @@ export {
     MinterTxDataUnbond,
     MinterTxDataRedeemCheck,
     formatCoin,
-    convert,
-    convertToPip,
-    convertFromPip,
     TX_TYPE_SEND,
     TX_TYPE_SELL_COIN,
     TX_TYPE_SELL_ALL_COIN,
