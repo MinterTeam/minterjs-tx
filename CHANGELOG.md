@@ -1,3 +1,7 @@
+## 3.1.0 - 2018-11-30
+- fix `MinterTxDataCreateMultisig` to make it work
+- provide exports to index.js
+
 ## 3.0.0 - 2018-11-29
 - **BREAKING** remove converter (moved to `minterjs-util` package)
 - add `MinterTxDataCreateMultisig`
