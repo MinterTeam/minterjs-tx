@@ -24,6 +24,13 @@ class MinterTxDataBuy {
                 allowZero: true,
                 length: 10,
                 default: new Buffer([]),
+            },
+            {
+                name: 'maximumValueToSell',
+                length: 32,
+                allowZero: true,
+                allowLess: true,
+                default: new Buffer([]),
             }];
 
         /**

@@ -1,3 +1,8 @@
+## 4.0.0 - 2018-12-06
+- **BREAKING** added new fields to convert data types to support new blockchain version "minter-test-network-27"
+- add `minimumValueToBuy` to `MinterTxDataSell` and `MinterTxDataSellAll`
+- add `maximumValueToSell` to `MinterTxDataBuy`
+
 ## 3.1.0 - 2018-11-30
 - fix `MinterTxDataCreateMultisig` to make it work
 - provide exports to index.js
