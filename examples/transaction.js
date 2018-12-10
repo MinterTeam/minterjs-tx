@@ -18,8 +18,8 @@ const FORM_DATA = {
 };
 
 function getNonce() {
-    return axios.get(`${config.nodeUrl}/api/transactionCount/${ADDRESS}`)
-        .then((response) => Number(response.data.result) + 1);
+    return axios.get(`${config.nodeUrl}/address?address=${ADDRESS}`)
+        .then((response) => Number(response.data.result.transaction_count) + 1);
 }
 
 getNonce().then((nonce) => {
