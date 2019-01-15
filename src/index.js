@@ -6,6 +6,7 @@ import MinterTxDataBuy from './tx-data/buy';
 import MinterTxDataSellAll from './tx-data/sell-all';
 import MinterTxDataCreateCoin from './tx-data/create-coin';
 import MinterTxDataDeclareCandidacy from './tx-data/declare-candidacy';
+import MinterTxDataEditCandidate from './tx-data/edit-candidate';
 import MinterTxDataSetCandidateOn from './tx-data/set-candidate-on';
 import MinterTxDataSetCandidateOff from './tx-data/set-candidate-off';
 import MinterTxDataDelegate from './tx-data/delegate';
@@ -25,6 +26,7 @@ export {
     MinterTxDataBuy,
     MinterTxDataCreateCoin,
     MinterTxDataDeclareCandidacy,
+    MinterTxDataEditCandidate,
     MinterTxDataSetCandidateOn,
     MinterTxDataSetCandidateOff,
     MinterTxDataDelegate,

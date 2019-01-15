@@ -1,3 +1,6 @@
+## 4.1.0 - 2019-01-15
+- add new 0x0E `MinterTxDataEditCandidate` according to minter-go-node 0.10.0
+
 ## 4.0.0 - 2018-12-06
 - **BREAKING** added new fields to convert data types to support new blockchain version "minter-test-network-27"
 - add `minimumValueToBuy` to `MinterTxDataSell` and `MinterTxDataSellAll`
