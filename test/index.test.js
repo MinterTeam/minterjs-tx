@@ -33,6 +33,8 @@ describe('tx', () => {
     // const serializedTx = tx.serialize();
 
     test('tx fields', () => {
+        expect(tx.serialize().toString('hex'))
+            .toEqual('f88e01018a4d4e540000000000000001aae98a4d4e540000000000000094376615b9a3187747dc7c32e51723515ee62e37dc880de0b6b3a76400008b637573746f6d20746578748001b845f8431ba0dfd42ab59e68e6494d4e29f12520e7cd5a90c6d11b25599e868c2aac52440028a069f5f4085e1fe20b3e04701377a6d0320bb21f3162819ae3311318432aa332ea');
         expect(decodeToArray(tx.serialize()))
             .toEqual([
                 [1],

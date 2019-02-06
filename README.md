@@ -139,6 +139,9 @@ const publicKey = tx.getSenderPublicKey();
 `TX_TYPE_REDEEM_CHECK`:      `'0x09'`
 `TX_TYPE_SET_CANDIDATE_ON`:  `'0x0A'`
 `TX_TYPE_SET_CANDIDATE_OFF`: `'0x0B'`
+`TX_TYPE_CREATE_MULTISIG`:   `'0x0C'`
+`TX_TYPE_MULTISEND`:         `'0x0D'`
+`TX_TYPE_EDIT_CANDIDATE`:    `'0x0E'`
 
 ### Tx data
 

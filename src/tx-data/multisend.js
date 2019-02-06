@@ -1,22 +1,19 @@
 import {Buffer} from 'safe-buffer';
 import {defineProperties} from 'minterjs-util';
+import MinterTxDataSend from './send';
 
-class MinterTxDataCreateMultisig {
+class MinterTxDataMultisend {
     constructor(data) {
         data = data || {};
         // Define Properties
         const fields = [
             {
-                name: 'threshold',
-                default: new Buffer([]),
-            }, {
-                name: 'weights',
+                name: 'list',
                 default: new Buffer([]),
                 allowNonBinaryArray: true,
-            }, {
-                name: 'addresses',
-                default: new Buffer([]),
-                allowNonBinaryArray: true,
+                nonBinaryArrayTransform(item) {
+                    return (new MinterTxDataSend(item)).raw;
+                },
             }];
 
         /**
@@ -31,4 +28,4 @@ class MinterTxDataCreateMultisig {
     }
 }
 
-export default MinterTxDataCreateMultisig;
+export default MinterTxDataMultisend;

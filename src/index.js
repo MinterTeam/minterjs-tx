@@ -1,6 +1,7 @@
 import MinterTx from './tx';
 import MinterTxSignature from './tx-signature';
 import MinterTxDataSend from './tx-data/send';
+import MinterTxDataMultisend from './tx-data/multisend';
 import MinterTxDataSell from './tx-data/sell';
 import MinterTxDataBuy from './tx-data/buy';
 import MinterTxDataSellAll from './tx-data/sell-all';
@@ -21,6 +22,7 @@ export {
     MinterTx,
     MinterTxSignature,
     MinterTxDataSend,
+    MinterTxDataMultisend,
     MinterTxDataSell,
     MinterTxDataSellAll,
     MinterTxDataBuy,

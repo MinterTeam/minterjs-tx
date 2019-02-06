@@ -1,3 +1,6 @@
+## 4.2.0 - 2019-02-06
+- add `MinterTxDataMultisend`
+
 ## 4.1.0 - 2019-01-15
 - add new 0x0E `MinterTxDataEditCandidate` according to minter-go-node 0.10.0
 
