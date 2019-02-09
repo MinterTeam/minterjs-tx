@@ -24,11 +24,11 @@ It is complemented by the following packages:
 
 ```js
 import MinterTx from 'minterjs-tx';
-import MinterSendTxData from 'minterjs-tx/src/data/send';
+import MinterTxDataSend from 'minterjs-tx/src/data/send';
 import {TX_TYPE_SEND} from 'minterjs-tx/src/tx-types';
 import {formatCoin} from 'minterjs-tx/src/helpers';
 
-const txData = new MinterSendTxData({
+const txData = new MinterTxDataSend({
     to: '0x0000000000000000000000000000000000000000',
     coin: formatCoin('BIP'),
     value: `0x01`,
@@ -147,35 +147,59 @@ const publicKey = tx.getSenderPublicKey();
 
 #### Send
 ```js
-import {toBuffer} from 'minterjs-util';
-import MinterSendTxData from 'minterjs-tx/src/tx-data/send';
+import {toBuffer, convertToPip} from 'minterjs-util';
+import MinterTxDataSend from 'minterjs-tx/src/tx-data/send';
 import {formatCoin} from 'minterjs-tx/src/helpers';
 
-const txData = new MinterSendTxData({
+const txData = new MinterTxDataSend({
    coin: formatCoin('MNT'),
    to: toBuffer('Mx7633980c000139dd3bd24a3f54e06474fa941e16'),
-   value: 10,
+   value: `0x${convertToPip(10, 'hex')}`,
+});
+```
+
+#### Multisend
+```js
+import {toBuffer, convertToPip} from 'minterjs-util';
+import MinterTxDataMultisend from 'minterjs-tx/src/tx-data/send';
+import {formatCoin} from 'minterjs-tx/src/helpers';
+
+const txData = new MinterTxDataMultisend({
+    list: [
+        {
+           coin: formatCoin('MNT'),
+           to: toBuffer('Mx7633980c000139dd3bd24a3f54e06474fa941e16'),
+           value: `0x${convertToPip(10, 'hex')}`,
+        },
+        {
+           coin: formatCoin('MNT'),
+           to: toBuffer('Mxddab6281766ad86497741ff91b6b48fe85012e3c'),
+           value: `0x${convertToPip(2, 'hex')}`,
+        },
+    ]
 });
 ```
 
 #### Sell
 ```js
-import MinterSellTxData from 'minterjs-tx/src/tx-data/sell';
+import {convertToPip} from 'minterjs-util';
+import MinterTxDataSell from 'minterjs-tx/src/tx-data/sell';
 import {formatCoin} from 'minterjs-tx/src/helpers';
 
-const txData = new MinterSellTxData({
+const txData = new MinterTxDataSell({
    coinToSell: formatCoin('MNT'),
-   valueToSell: 10,
+   valueToSell: `0x${convertToPip(10, 'hex')}`,
    coinToBuy: formatCoin('BELTCOIN'),
 });
 ```
 
 #### Sell All
 ```js
-import MinterSellAllTxData from 'minterjs-tx/src/tx-data/sell-all';
+import {convertToPip} from 'minterjs-util';
+import MinterTxDataSellAll from 'minterjs-tx/src/tx-data/sell-all';
 import {formatCoin} from 'minterjs-tx/src/helpers';
 
-const txData = new MinterSellAllTxData({
+const txData = new MinterTxDataSellAll({
    coinToSell: formatCoin('MNT'),
    coinToBuy: formatCoin('BELTCOIN'),
 });
@@ -183,68 +207,83 @@ const txData = new MinterSellAllTxData({
 
 #### Buy
 ```js
-import MinterBuyTxData from 'minterjs-tx/src/tx-data/buy';
+import {convertToPip} from 'minterjs-util';
+import MinterTxDataBuy from 'minterjs-tx/src/tx-data/buy';
 import {formatCoin} from 'minterjs-tx/src/helpers';
 
-const txData = new MinterBuyTxData({
+const txData = new MinterTxDataBuy({
      coinToBuy: formatCoin('MNT'),
-     valueToBuy: 10,
+     valueToBuy: `0x${convertToPip(10, 'hex')}`,
      coinToSell: formatCoin('BELTCOIN'),
  });
 ```
 
 #### Create Coin
 ```js
-import MinterCreateCoinTxData from 'minterjs-tx/src/tx-data/create-coin';
+import {convertToPip} from 'minterjs-util';
+import MinterTxDataCreateCoin from 'minterjs-tx/src/tx-data/create-coin';
 import {formatCoin} from 'minterjs-tx/src/helpers';
 
-const txData = new MinterCreateCoinTxData({
+const txData = new MinterTxDataCreateCoin({
    name: 'My coin',
    symbol: formatCoin('MYCOIN'),
-   initialAmount: 10,
-   initialReserve: 50,
+   initialAmount: `0x${convertToPip(10, 'hex')}`,
+   initialReserve: `0x${convertToPip(50, 'hex')}`,
    constantReserveRatio: 100,
 });
 ```
 
 #### Declare Candidacy
 ```js
-import {toBuffer} from 'minterjs-util';
-import MinterDeclareCandidacyTxData from 'minterjs-tx/src/tx-data/declare-candidacy';
+import {toBuffer, convertToPip} from 'minterjs-util';
+import MinterTxDataDeclareCandidacy from 'minterjs-tx/src/tx-data/declare-candidacy';
 import {formatCoin} from 'minterjs-tx/src/helpers';
 
-const txData = new MinterDeclareCandidacyTxData({
+const txData = new MinterTxDataDeclareCandidacy({
    address: toBuffer('Mx7633980c000139dd3bd24a3f54e06474fa941e16'),
    pubKey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
    commission: 10,
    coin: formatCoin('MNT'),
-   stake: 1000,
+   stake: `0x${convertToPip(1000, 'hex')}`,
+});
+```
+
+#### Edit Candidacy
+```js
+import {toBuffer} from 'minterjs-util';
+import MinterTxDataEditCandidate from 'minterjs-tx/src/tx-data/declare-candidacy';
+import {formatCoin} from 'minterjs-tx/src/helpers';
+
+const txData = new MinterTxDataEditCandidate({
+   ownerAddress: toBuffer('Mx7633980c000139dd3bd24a3f54e06474fa941e16'),
+   rewardAddress: toBuffer('Mx7633980c000139dd3bd24a3f54e06474fa941e16'),
+   pubKey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
 });
 ```
 
 #### Delegate
 ```js
-import {toBuffer} from 'minterjs-util';
-import MinterDelegateTxData from 'minterjs-tx/src/tx-data/delegate';
+import {toBuffer, convertToPip} from 'minterjs-util';
+import MinterTxDataDelegate from 'minterjs-tx/src/tx-data/delegate';
 import {formatCoin} from 'minterjs-tx/src/helpers';
 
-const txData = new MinterDelegateTxData({
+const txData = new MinterTxDataDelegate({
    pubKey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
    coin: formatCoin('MNT'),
-   stake: 1000,
+   stake: `0x${convertToPip(1000, 'hex')}`,
 });
 ```
 
 #### Unbond
 ```js
-import {toBuffer} from 'minterjs-util';
-import MinterUnbondTxData from 'minterjs-tx/src/tx-data/unbond';
+import {toBuffer, convertToPip} from 'minterjs-util';
+import MinterTxDataUnbond from 'minterjs-tx/src/tx-data/unbond';
 import {formatCoin} from 'minterjs-tx/src/helpers';
 
-const txData = new MinterUnbondTxData({
+const txData = new MinterTxDataUnbond({
    pubKey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
    coin: formatCoin('MNT'),
-   stake: 1000,
+   stake: `0x${convertToPip(1000, 'hex')}`,
 });
 ```
 
@@ -252,9 +291,9 @@ const txData = new MinterUnbondTxData({
 ```js
 import {toBuffer} from 'minterjs-util';
 import {Buffer} from 'safe-buffer';
-import MinterRedeemCheckTxData from 'minterjs-tx/src/tx-data/redeem-check';
+import MinterTxDataRedeemCheck from 'minterjs-tx/src/tx-data/redeem-check';
 
-const txData = new MinterRedeemCheckTxData({
+const txData = new MinterTxDataRedeemCheck({
    rawCheck: toBuffer('Mcf89f01830f423f8a4d4e5400000000000000888ac7230489e80000b841ada7ad273bef8a1d22f3e314fdfad1e19b90b1fe8dc7eeb30bd1d391e89af8642af029c138c2e379b95d6bc71b26c531ea155d9435e156a3d113a14c912dfebf001ca0781a7b7d781634bcf632579b99d583887ab093dfbd50b65de5c0e5813028a277a071272d8e1be721f5307f40f87daa4ab632781640f18fd424839396442cc7ff17'),
    proof: Buffer.from('7f8b6d3ed18d2fe131bbdc9f9bce3b96724ac354ce2cfb49b4ffc4bd71aabf580a8dfed407a34122e45d290941d855d744a62110fa1c11448078b13d3117bdfc01', 'hex'),
 });
@@ -263,9 +302,9 @@ const txData = new MinterRedeemCheckTxData({
 #### Set Candidate On
 ```js
 import {toBuffer} from 'minterjs-util';
-import MinterSetCandidateOnTxData from 'minterjs-tx/src/tx-data/set-candidate-on';
+import MinterTxDataSetCandidateOn from 'minterjs-tx/src/tx-data/set-candidate-on';
 
-const txData = new MinterSetCandidateOnTxData({
+const txData = new MinterTxDataSetCandidateOn({
    pubKey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
 });
 ```
@@ -273,10 +312,22 @@ const txData = new MinterSetCandidateOnTxData({
 #### Set Candidate Off
 ```js
 import {toBuffer} from 'minterjs-util';
-import MinterSetCandidateOffTxData from 'minterjs-tx/src/tx-data/set-candidate-off';
+import MinterTxDataSetCandidateOff from 'minterjs-tx/src/tx-data/set-candidate-off';
 
-const txData = new MinterSetCandidateOffTxData({
+const txData = new MinterTxDataSetCandidateOff({
    pubKey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
+});
+```
+
+#### Create Multisig
+```js
+import {toBuffer} from 'minterjs-util';
+import MinterTxDataCreateMultisig from 'minterjs-tx/src/tx-data/set-candidate-off';
+
+const txData = new MinterTxDataCreateMultisig({
+   addresses: [toBuffer('Mxee81347211c72524338f9680072af90744333146'), toBuffer('Mxee81347211c72524338f9680072af90744333145'), toBuffer('Mxee81347211c72524338f9680072af90744333144')],
+   weights: [1, 3, 5],
+   threshold: 7,
 });
 ```
 
