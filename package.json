@@ -1,6 +1,6 @@
 {
   "name": "minterjs-tx",
-  "version": "4.2.0",
+  "version": "4.2.1",
   "description": "A simple module for creating, manipulating and signing Minter transactions",
   "main": "src/index.js",
   "files": [
@@ -34,17 +34,17 @@
   "dependencies": {
     "bignumber.js": "^8.0.2",
     "bn.js": "^4.11.8",
-    "ethereumjs-util": "^6.0.0",
-    "minterjs-util": "0.3.1",
+    "ethereumjs-util": "^6.1.0",
+    "minterjs-util": "0.3.3",
     "safe-buffer": "^5.1.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.2",
+    "@babel/core": "^7.3.3",
     "@babel/preset-env": "^7.3.1",
     "axios": "^0.18.0",
     "babel-jest": "^24.1.0",
     "coveralls": "^3.0.2",
-    "eslint": "^5.13.0",
+    "eslint": "^5.14.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.16.0",

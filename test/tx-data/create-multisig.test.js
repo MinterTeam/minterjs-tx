@@ -1,5 +1,4 @@
 import {Buffer} from 'safe-buffer';
-import ethUtil from 'ethereumjs-util';
 import {MinterTxDataCreateMultisig} from '~/src';
 import decodeToArray from '../decode-to-array';
 

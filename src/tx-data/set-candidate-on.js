@@ -1,5 +1,5 @@
-import ethUtil from 'ethereumjs-util';
 import {Buffer} from 'safe-buffer';
+import {defineProperties} from 'ethereumjs-util';
 
 class MinterTxDataSetCandidateOn {
     constructor(data) {
@@ -20,7 +20,7 @@ class MinterTxDataSetCandidateOn {
          * @name serialize
          */
         // attached serialize
-        ethUtil.defineProperties(this, fields, data);
+        defineProperties(this, fields, data);
     }
 }
 

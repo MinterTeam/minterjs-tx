@@ -1,4 +1,4 @@
-import ethUtil from 'ethereumjs-util';
+import {defineProperties, rlphash, rlp, publicToAddress, bufferToInt, ecrecover} from 'ethereumjs-util';
 import BN from 'bn.js';
 import {Buffer} from 'safe-buffer';
 
@@ -61,7 +61,7 @@ class MinterTx {
          * @name serialize
          */
         // attached serialize
-        ethUtil.defineProperties(this, fields, data);
+        defineProperties(this, fields, data);
 
         /**
          * @property {Buffer} from (read only) sender address of this transaction, mathematically derived from other parameters.
@@ -98,7 +98,7 @@ class MinterTx {
         }
 
         // create hash
-        return ethUtil.rlphash(items);
+        return rlphash(items);
     }
 
     /**
@@ -110,7 +110,7 @@ class MinterTx {
             return this._from;
         }
         const pubkey = this.getSenderPublicKey();
-        this._from = ethUtil.publicToAddress(pubkey);
+        this._from = publicToAddress(pubkey);
         return this._from;
     }
 
@@ -132,7 +132,7 @@ class MinterTx {
      * @return {Boolean}
      */
     verifySignature() {
-        const vrs = ethUtil.rlp.decode(this.signatureData);
+        const vrs = rlp.decode(this.signatureData);
         const msgHash = this.hash(false);
         // All transaction signatures whose s-value is greater than secp256k1n/2 are considered invalid.
         if (new BN(vrs[2]).cmp(N_DIV_2) === 1) {
@@ -140,8 +140,8 @@ class MinterTx {
         }
 
         try {
-            const v = ethUtil.bufferToInt(vrs[0]);
-            this._senderPubKey = ethUtil.ecrecover(msgHash, v, vrs[1], vrs[2]);
+            const v = bufferToInt(vrs[0]);
+            this._senderPubKey = ecrecover(msgHash, v, vrs[1], vrs[2]);
         } catch (e) {
             return false;
         }

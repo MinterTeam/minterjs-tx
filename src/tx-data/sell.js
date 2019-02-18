@@ -1,5 +1,5 @@
-import ethUtil from 'ethereumjs-util';
 import {Buffer} from 'safe-buffer';
+import {defineProperties} from 'ethereumjs-util';
 
 class MinterTxDataSell {
     constructor(data) {
@@ -41,7 +41,7 @@ class MinterTxDataSell {
          * @name serialize
          */
         // attached serialize
-        ethUtil.defineProperties(this, fields, data);
+        defineProperties(this, fields, data);
     }
 }
 

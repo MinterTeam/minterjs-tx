@@ -1,4 +1,4 @@
-import ethUtil from 'ethereumjs-util';
+import {defineProperties, ecsign} from 'ethereumjs-util';
 
 class MinterTxSignature {
     constructor(data) {
@@ -31,7 +31,7 @@ class MinterTxSignature {
          * @name serialize
          */
         // attached serialize
-        ethUtil.defineProperties(this, fields, data);
+        defineProperties(this, fields, data);
     }
 
     /**
@@ -40,7 +40,7 @@ class MinterTxSignature {
      * @param {Buffer} privateKey
      */
     sign(msgHash, privateKey) {
-        const sig = ethUtil.ecsign(msgHash, privateKey);
+        const sig = ecsign(msgHash, privateKey);
         Object.assign(this, sig);
 
         return this;

@@ -1,3 +1,7 @@
+## 4.2.1 - 2019-02-18
+- update deps
+- fix ethereumjs-util
+
 ## 4.2.0 - 2019-02-06
 - add `MinterTxDataMultisend`
 
