@@ -1,3 +1,7 @@
+## 4.2.2 - 2019-02-19
+- expose `TX_TYPE_EDIT_CANDIDATE` in index.js
+- update deps
+
 ## 4.2.1 - 2019-02-18
 - update deps
 - fix ethereumjs-util
