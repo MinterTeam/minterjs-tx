@@ -18,9 +18,7 @@ export default {
         }),
         commonjs({
             namedExports: {
-                'node_modules/ethereumjs-util/dist/index.js': [ 'stripHexPrefix' ],
-                //@TODO `browser` field is used instead of `module`, can be fixed after merge https://github.com/rollup/rollup-plugin-node-resolve/pull/182
-                'node_modules/minterjs-util/dist/index.js': [ 'defineProperties '],
+                'node_modules/ethereumjs-util/dist/index.js': [ 'stripHexPrefix', 'padToEven' ],
             }
         }),
         // globals(),

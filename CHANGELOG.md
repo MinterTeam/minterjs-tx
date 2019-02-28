@@ -1,3 +1,6 @@
+## 4.3.1 - 2019-02-28
+- fix package.json "browser" field
+
 ## 4.3.0 - 2019-02-27
 - add UMD and commonjs builds
 
