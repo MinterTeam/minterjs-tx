@@ -20,10 +20,7 @@ export default {
         }),
         // globals(),
         // builtins(),
-        babel({
-            babelrc: false,
-            presets: [['@babel/preset-env', { modules: false }]],
-        }),
+        babel(),
         terser(), // uglifyjs alternative with es6 support
     ],
     output: {

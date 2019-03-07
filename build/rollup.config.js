@@ -23,10 +23,7 @@ export default {
         }),
         // globals(),
         // builtins(),
-        babel({
-            babelrc: false,
-            presets: [['@babel/preset-env', { modules: false }]],
-        }),
+        babel(),
     ],
     output: {
         file: 'dist/index.js',

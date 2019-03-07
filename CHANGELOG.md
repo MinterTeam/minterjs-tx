@@ -1,3 +1,6 @@
+## 4.4.0 - 2019-03-07
+- add txTypeList
+
 ## 4.3.1 - 2019-02-28
 - fix package.json "browser" field
 
