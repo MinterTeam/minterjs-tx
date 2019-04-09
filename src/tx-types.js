@@ -1,7 +1,7 @@
 export const TX_TYPE_SEND = '0x01';
-export const TX_TYPE_SELL_COIN = '0x02';
-export const TX_TYPE_SELL_ALL_COIN = '0x03';
-export const TX_TYPE_BUY_COIN = '0x04';
+export const TX_TYPE_SELL = '0x02';
+export const TX_TYPE_SELL_ALL = '0x03';
+export const TX_TYPE_BUY = '0x04';
 export const TX_TYPE_CREATE_COIN = '0x05';
 export const TX_TYPE_DECLARE_CANDIDACY = '0x06';
 export const TX_TYPE_DELEGATE = '0x07';
@@ -13,14 +13,19 @@ export const TX_TYPE_CREATE_MULTISIG = '0x0C';
 export const TX_TYPE_MULTISEND = '0x0D';
 export const TX_TYPE_EDIT_CANDIDATE = '0x0E';
 
+/** @deprecated */
+export const TX_TYPE_SELL_COIN = TX_TYPE_SELL;
+/** @deprecated */
+export const TX_TYPE_SELL_ALL_COIN = TX_TYPE_SELL_ALL;
+/** @deprecated */
+export const TX_TYPE_BUY_COIN = TX_TYPE_BUY;
 
+/** @type {Array<{hex: string, name: string}>} */
 const txTypeList = [];
 
 /**
  * @param hex
  * @param name
- * @return {str}
- * @constructor
  */
 function fillList(hex, name) {
     const result = {};
@@ -33,19 +38,19 @@ function fillList(hex, name) {
 
     return result;
 }
-fillList('0x01', 'send');
-fillList('0x02', 'sell');
-fillList('0x03', 'sell all');
-fillList('0x04', 'buy');
-fillList('0x05', 'create coin');
-fillList('0x06', 'declare candidacy');
-fillList('0x07', 'delegate');
-fillList('0x08', 'unbond');
-fillList('0x09', 'redeem check');
-fillList('0x0A', 'set candidate on');
-fillList('0x0B', 'set candidate off');
-fillList('0x0C', 'create multisig');
-fillList('0x0D', 'multisend');
-fillList('0x0E', 'edit candidate');
+fillList(TX_TYPE_SEND, 'send');
+fillList(TX_TYPE_SELL, 'sell');
+fillList(TX_TYPE_SELL_ALL, 'sell all');
+fillList(TX_TYPE_BUY, 'buy');
+fillList(TX_TYPE_CREATE_COIN, 'create coin');
+fillList(TX_TYPE_DECLARE_CANDIDACY, 'declare candidacy');
+fillList(TX_TYPE_DELEGATE, 'delegate');
+fillList(TX_TYPE_UNBOND, 'unbond');
+fillList(TX_TYPE_REDEEM_CHECK, 'redeem check');
+fillList(TX_TYPE_SET_CANDIDATE_ON, 'set candidate on');
+fillList(TX_TYPE_SET_CANDIDATE_OFF, 'set candidate off');
+fillList(TX_TYPE_CREATE_MULTISIG, 'create multisig');
+fillList(TX_TYPE_MULTISEND, 'multisend');
+fillList(TX_TYPE_EDIT_CANDIDATE, 'edit candidate');
 
 export {txTypeList};

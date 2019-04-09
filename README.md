@@ -129,9 +129,9 @@ const publicKey = tx.getSenderPublicKey();
 
 ### Tx types
 `TX_TYPE_SEND`:              `'0x01'`
-`TX_TYPE_SELL_COIN`:         `'0x02'`
-`TX_TYPE_SELL_ALL_COIN`:     `'0x03'`
-`TX_TYPE_BUY_COIN`:          `'0x04'`
+`TX_TYPE_SELL`:              `'0x02'`
+`TX_TYPE_SELL_ALL`:          `'0x03'`
+`TX_TYPE_BUY`:               `'0x04'`
 `TX_TYPE_CREATE_COIN`:       `'0x05'`
 `TX_TYPE_DECLARE_CANDIDACY`: `'0x06'`
 `TX_TYPE_DELEGATE`:          `'0x07'`

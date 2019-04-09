@@ -1,3 +1,6 @@
+## 4.5.0 - 2019-04-09
+- rename TX_TYPE_SELL_COIN -> TX_TYPE_SELL, TX_TYPE_SELL_ALL_COIN -> TX_TYPE_SELL_ALL, TX_TYPE_BUY_COIN -> TX_TYPE_BUY, previous values are now deprecated
+
 ## 4.4.0 - 2019-03-07
 - add txTypeList
 
