@@ -15,6 +15,11 @@ class MinterTx {
             allowLess: true,
             default: new Buffer([]),
         }, {
+            name: 'chainID',
+            length: 1,
+            allowLess: true,
+            default: new Buffer([]),
+        }, {
             name: 'gasPrice',
             length: 32,
             allowLess: true,

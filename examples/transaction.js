@@ -2,9 +2,9 @@ import axios from 'axios';
 import {Buffer} from 'safe-buffer';
 import {mPrefixToHex, convertToPip} from 'minterjs-util';
 import config from './config';
-import MinterSendTxData from '../src/tx-data/send';
 import MinterTx from '../src/index';
 import MinterTxSignature from '../src/tx-signature';
+import MinterSendTxData from '../src/tx-data/send';
 import {TX_TYPE_SEND} from '../src/tx-types';
 import {formatCoin} from '../src/helpers';
 
@@ -22,43 +22,51 @@ function getNonce() {
         .then((response) => Number(response.data.result.transaction_count) + 1);
 }
 
-getNonce().then((nonce) => {
-    const txData = new MinterSendTxData({
-        to: mPrefixToHex(FORM_DATA.address),
-        coin: formatCoin(FORM_DATA.coin),
-        value: `0x${convertToPip(FORM_DATA.amount, 'hex')}`,
+export function postTx() {
+    return getNonce()
+        .then((nonce) => {
+            const txData = new MinterSendTxData({
+                to: mPrefixToHex(FORM_DATA.address),
+                coin: formatCoin(FORM_DATA.coin),
+                value: `0x${convertToPip(FORM_DATA.amount, 'hex')}`,
+            });
+            console.log('raw data', txData.raw);
+            const txParams = {
+                nonce: `0x${nonce.toString(16)}`,
+                chainID: '0x01',
+                gasPrice: '0x01',
+                gasCoin: formatCoin(FORM_DATA.coin),
+                type: TX_TYPE_SEND,
+                data: txData.serialize(),
+                signatureType: '0x01'
+            };
+
+            if (FORM_DATA.payload) {
+                txParams.payload = `0x${Buffer.from(FORM_DATA.payload, 'utf-8').toString('hex')}`;
+            }
+
+            console.log({txParams});
+
+            const tx = new MinterTx(txParams);
+            console.log('raw tx', tx.raw)
+            tx.signatureData = (new MinterTxSignature()).sign(tx.hash(false), PRIVATE_KEY).serialize();
+
+            console.log('---Serialized TX----');
+            console.log(tx.serialize().toString('hex'));
+            console.log(`Senders Address: ${tx.getSenderAddress().toString('hex')}`);
+
+            if (tx.verifySignature()) {
+                console.log('Signature Checks out!');
+            }
+
+            return axios.get(`${config.nodeUrl}/send_transaction?tx=0x${tx.serialize().toString('hex')}`)
+                .then((response) => {
+                    console.log('Tx send', response.data);
+                })
+                .catch((error) => {
+                    console.log('send error', error.response ? error.response.data : error);
+                });
     });
-    const txParams = {
-        nonce: `0x${nonce.toString(16)}`,
-        gasPrice: '0x01',
-        gasCoin: formatCoin(FORM_DATA.coin),
-        type: TX_TYPE_SEND,
-        data: txData.serialize(),
-        signatureType: '0x01'
-    };
+}
 
-    if (FORM_DATA.payload) {
-        txParams.payload = `0x${Buffer.from(FORM_DATA.payload, 'utf-8').toString('hex')}`;
-    }
-
-    console.log({txParams});
-
-    const tx = new MinterTx(txParams);
-    tx.signatureData = (new MinterTxSignature()).sign(tx.hash(false), PRIVATE_KEY).serialize();
-
-    console.log('---Serialized TX----');
-    console.log(tx.serialize().toString('hex'));
-    console.log(`Senders Address: ${tx.getSenderAddress().toString('hex')}`);
-
-    if (tx.verifySignature()) {
-        console.log('Signature Checks out!');
-    }
-
-    axios.post(`${config.nodeUrl}/api/sendTransaction`, {
-        transaction: tx.serialize().toString('hex'),
-    }).then((response) => {
-        console.log('Tx send', response.data);
-    }).catch((error) => {
-        console.log('send error', error.response ? error.response.data : error);
-    });
-});
+// postTx();

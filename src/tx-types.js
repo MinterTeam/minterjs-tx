@@ -13,12 +13,6 @@ export const TX_TYPE_CREATE_MULTISIG = '0x0C';
 export const TX_TYPE_MULTISEND = '0x0D';
 export const TX_TYPE_EDIT_CANDIDATE = '0x0E';
 
-/** @deprecated */
-export const TX_TYPE_SELL_COIN = TX_TYPE_SELL;
-/** @deprecated */
-export const TX_TYPE_SELL_ALL_COIN = TX_TYPE_SELL_ALL;
-/** @deprecated */
-export const TX_TYPE_BUY_COIN = TX_TYPE_BUY;
 
 /** @type {Array<{hex: string, name: string}>} */
 const txTypeList = [];

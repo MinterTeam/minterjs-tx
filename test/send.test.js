@@ -19,9 +19,10 @@ describe('tx send', () => {
     })).serialize();
 
     test('tx signature', () => {
-        const VALID_SIGNATURE = 'f88e01018a4d4e540000000000000001aae98a4d4e540000000000000094376615b9a3187747dc7c32e51723515ee62e37dc880de0b6b3a76400008b637573746f6d20746578748001b845f8431ba0dfd42ab59e68e6494d4e29f12520e7cd5a90c6d11b25599e868c2aac52440028a069f5f4085e1fe20b3e04701377a6d0320bb21f3162819ae3311318432aa332ea';
+        const VALID_SIGNATURE = 'f88f0101018a4d4e540000000000000001aae98a4d4e540000000000000094376615b9a3187747dc7c32e51723515ee62e37dc880de0b6b3a76400008b637573746f6d20746578748001b845f8431ba0f224517a55adf0bb751ce2e6b2eb4acfb89feb8a8b6b76ffd22ef417d923dc51a03ccf201383cf45f2d779e0c4250992c24b4775a5cd2050b7bc8542f7f73ba545';
         const txParams = {
             nonce: '0x01',
+            chainID: '0x01',
             gasPrice: '0x01',
             gasCoin: formatCoin('MNT'),
             type: TX_TYPE_SEND,
@@ -35,9 +36,10 @@ describe('tx send', () => {
     });
 
     test('tx2 signature', () => {
-        const VALID_SIGNATURE = 'f88208018a4d4e540000000000000001aae98a4d4e540000000000000094376615b9a3187747dc7c32e51723515ee62e37dc880de0b6b3a7640000808080b844f8421ca08071d44697614db73a7e1ea830635c8e6ee187dbe7ceba43d6146e9e2ad3fcc59f606b57e20d75319ddbbf36db4534063480c50391ed10a10450a603ee85d583';
+        const VALID_SIGNATURE = 'f8840801018a4d4e540000000000000001aae98a4d4e540000000000000094376615b9a3187747dc7c32e51723515ee62e37dc880de0b6b3a7640000808080b845f8431ca0542f8a5ccabf4e5941377058709c4705c5c97a7d6dc0ae26bf533a3d500492aca060661f6af03c487c604ba6962a73347b093cf943dd20f4b9214fe16c8d5384b0';
         const txParams = {
             nonce: '0x08',
+            chainID: '0x01',
             gasPrice: '0x01',
             gasCoin: formatCoin('MNT'),
             type: TX_TYPE_SEND,
@@ -80,7 +82,7 @@ describe('tx send (php test)', () => {
     tx.signatureData = (new MinterTxSignature()).sign(tx.hash(false), PHP_PRIVATE_KEY).serialize();
 
     test('tx signature', () => {
-        const VALID_SIGNATURE = 'f88301018a4d4e540000000000000001aae98a4d4e540000000000000094fe60014a6e9ac91618f5d1cab3fd58cded61ee99880de0b6b3a7640000808001b845f8431ca0403dc61dec54139140c8b54a68d94a00f266a1b62a5d60e46a8175e4387d176ba03c3f1105df6b23d3717f202979bfbb24a1b4367dd5cc73dccda9a8719348f34e';
+        const VALID_SIGNATURE = 'f8840180018a4d4e540000000000000001aae98a4d4e540000000000000094fe60014a6e9ac91618f5d1cab3fd58cded61ee99880de0b6b3a7640000808001b845f8431ca09cda3f26a97b4e910bb10030f95df36df69db4bac43f31714b4d5cb47a29c478a048ccfc1ffa60f6806397c136bb02e4633edf5025d9ee77faa76f45917f0452dc';
         expect(tx.serialize().toString('hex')).toEqual(VALID_SIGNATURE);
     });
 });

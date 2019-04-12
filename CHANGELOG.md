@@ -1,3 +1,7 @@
+## 5.0.0 - 2019-04-12
+- **BREAKING** add `chainID` tx param to support [minter-go-node 0.19.0](https://github.com/MinterTeam/minter-go-node/releases/tag/v0.19.0)
+- remove deprecated tx types
+
 ## 4.5.0 - 2019-04-09
 - rename TX_TYPE_SELL_COIN -> TX_TYPE_SELL, TX_TYPE_SELL_ALL_COIN -> TX_TYPE_SELL_ALL, TX_TYPE_BUY_COIN -> TX_TYPE_BUY, previous values are now deprecated
 
@@ -22,10 +26,10 @@
 - add `MinterTxDataMultisend`
 
 ## 4.1.0 - 2019-01-15
-- add new 0x0E `MinterTxDataEditCandidate` according to minter-go-node 0.10.0
+- add new 0x0E `MinterTxDataEditCandidate` according to [minter-go-node 0.10.0](https://github.com/MinterTeam/minter-go-node/releases/tag/v0.10.0)
 
 ## 4.0.0 - 2018-12-06
-- **BREAKING** added new fields to convert data types to support new blockchain version "minter-test-network-27"
+- **BREAKING** added new fields to convert data types to support [minter-go-node 0.8.0](https://github.com/MinterTeam/minter-go-node/releases/tag/v0.8.0)
 - add `minimumValueToBuy` to `MinterTxDataSell` and `MinterTxDataSellAll`
 - add `maximumValueToSell` to `MinterTxDataBuy`
 

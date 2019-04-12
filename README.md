@@ -24,29 +24,41 @@ It is complemented by the following packages:
 
 ```js
 import MinterTx from 'minterjs-tx';
-import MinterTxDataSend from 'minterjs-tx/src/data/send';
+import MinterTxSignature from 'minterjs-tx/src/tx-signature';
+import MinterTxDataSend from 'minterjs-tx/src/tx-data/send';
 import {TX_TYPE_SEND} from 'minterjs-tx/src/tx-types';
 import {formatCoin} from 'minterjs-tx/src/helpers';
 
+// make tx data
 const txData = new MinterTxDataSend({
     to: '0x0000000000000000000000000000000000000000',
     coin: formatCoin('BIP'),
     value: `0x01`,
 });
-const txParams = {
-    nonce: '0x00',
+
+// make tx
+const tx = new MinterTx({
+    nonce: '0x01',
+    chainID: '0x01',
     gasPrice: '0x01',
     gasCoin: formatCoin('BIP'), 
     type: TX_TYPE_SEND,
     data: txData.serialize(),
-};
+});
 
-const tx = new MinterTx(txParams);
-
+// sign tx
 const privateKey = Buffer.from('5fa3a8b186f6cc2d748ee2d8c0eb7a905a7b73de0f2c34c5e7857c3b46f187da', 'hex');
-tx.sign(privateKey);
+tx.signatureData = (new MinterTxSignature()).sign(tx.hash(false), privateKey).serialize();
 
-const serializedTx = tx.serialize();
+// get signed tx string
+const serializedTx = tx.serialize().toString('hex');
+
+// post tx to blockchain
+fetch(`https://minter-node-1.testnet.minter.network/send_transaction?tx=0x${serializedTx}`)
+    .then((response) => {
+        console.log('Success!', response.json());
+    });
+
 ```
 
 
@@ -61,6 +73,7 @@ const tx = new MinterTx(txParams);
 All tx params can be passed as Buffer or Hex string
 
 - `nonce` - int, used for prevent transaction reply (count of txs for this private key + 1)
+- `chainID' - int, identify network type, 0x01 - mainnet, 0x02 - testnet
 - `gasPrice` - big int, used for managing transaction fees
 - `gasCoin` - symbol of a coin to pay fee
 - `type` - type of transaction (see below).
