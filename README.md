@@ -5,7 +5,8 @@
 [![Coverage Status](https://img.shields.io/coveralls/github/MinterTeam/minterjs-tx/master.svg?style=flat-square)](https://coveralls.io/github/MinterTeam/minterjs-tx?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/MinterTeam/minterjs-tx/blob/master/LICENSE)
 
-A simple module for creating, manipulating and signing Minter transactions.
+A low level module for creating, manipulating and signing Minter transactions.
+Consider using [minter-js-sdk](https://github.com/MinterTeam/minter-js-sdk) to have full-featured solution.
 
 It is complemented by the following packages:
 - [minter-js-sdk](https://github.com/MinterTeam/minter-js-sdk) complete JS solution to work with Minter
