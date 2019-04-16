@@ -48,7 +48,7 @@ export function postTx() {
             console.log({txParams});
 
             const tx = new MinterTx(txParams);
-            console.log('raw tx', tx.raw)
+            console.log('raw tx', tx.raw);
             tx.signatureData = (new MinterTxSignature()).sign(tx.hash(false), PRIVATE_KEY).serialize();
 
             console.log('---Serialized TX----');

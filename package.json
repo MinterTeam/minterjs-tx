@@ -1,6 +1,6 @@
 {
   "name": "minterjs-tx",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "A simple module for creating, manipulating and signing Minter transactions",
   "main": "dist/cjs/index.js",
   "module": "src/index.js",
@@ -63,7 +63,7 @@
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-import-resolver-alias": "^1.1.2",
-    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-import": "^2.17.1",
     "jest": "^24.7.1",
     "pre-commit": "^1.2.2",
     "rollup": "^1.10.0",

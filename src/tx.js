@@ -99,7 +99,8 @@ class MinterTx {
         if (includeSignature) {
             items = this.raw;
         } else {
-            items = this.raw.slice(0, 8);
+            // hash everything except signatureData
+            items = this.raw.slice(0, this.raw.length - 1);
         }
 
         // create hash

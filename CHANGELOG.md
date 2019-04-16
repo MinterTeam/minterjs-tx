@@ -1,5 +1,8 @@
+## 5.0.1 - 2019-04-16
+- fix tx hash
+
 ## 5.0.0 - 2019-04-12
-- **BREAKING** add `chainID` tx param to support [minter-go-node 0.19.0](https://github.com/MinterTeam/minter-go-node/releases/tag/v0.19.0)
+- **BREAKING** add `chainID` tx param to support minter-go-node [0.19.0](https://github.com/MinterTeam/minter-go-node/releases/tag/v0.19.0)
 - remove deprecated tx types
 
 ## 4.5.0 - 2019-04-09
@@ -26,10 +29,10 @@
 - add `MinterTxDataMultisend`
 
 ## 4.1.0 - 2019-01-15
-- add new 0x0E `MinterTxDataEditCandidate` according to [minter-go-node 0.10.0](https://github.com/MinterTeam/minter-go-node/releases/tag/v0.10.0)
+- add new 0x0E `MinterTxDataEditCandidate` according to minter-go-node [0.10.0](https://github.com/MinterTeam/minter-go-node/releases/tag/v0.10.0)
 
 ## 4.0.0 - 2018-12-06
-- **BREAKING** added new fields to convert data types to support [minter-go-node 0.8.0](https://github.com/MinterTeam/minter-go-node/releases/tag/v0.8.0)
+- **BREAKING** added new fields to convert data types to support minter-go-node [0.8.0](https://github.com/MinterTeam/minter-go-node/releases/tag/v0.8.0)
 - add `minimumValueToBuy` to `MinterTxDataSell` and `MinterTxDataSellAll`
 - add `maximumValueToSell` to `MinterTxDataBuy`
 
@@ -47,7 +50,7 @@
 - update dependencies
 
 ## 1.5.0 - 2018-08-21
-- **BREAKING** rename tx-data fields according to [minter-go-node docs](https://minter-go-node.readthedocs.io/en/dev/transactions.html) 
+- **BREAKING** rename tx-data fields
 
 ## 1.4.0 - 2018-08-14
 - **BREAKING** rename tx-data files: `sell-coin` -> `sell`, `sell-all-coin` -> `sell-all`, `buy-coin` -> `buy` 

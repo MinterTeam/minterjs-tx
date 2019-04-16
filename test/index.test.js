@@ -30,12 +30,12 @@ describe('tx', () => {
     };
     const tx = new MinterTx(txParams);
     tx.signatureData = (new MinterTxSignature()).sign(tx.hash(false), PRIVATE_KEY).serialize();
-    const invalidTx = new MinterTx(txParams);
+    const unsignedTx = new MinterTx(txParams);
     // const serializedTx = tx.serialize();
 
     test('tx fields', () => {
         expect(tx.serialize().toString('hex'))
-            .toEqual('f88f0101018a4d4e540000000000000001aae98a4d4e540000000000000094376615b9a3187747dc7c32e51723515ee62e37dc880de0b6b3a76400008b637573746f6d20746578748001b845f8431ba0f224517a55adf0bb751ce2e6b2eb4acfb89feb8a8b6b76ffd22ef417d923dc51a03ccf201383cf45f2d779e0c4250992c24b4775a5cd2050b7bc8542f7f73ba545');
+            .toEqual('f88f0101018a4d4e540000000000000001aae98a4d4e540000000000000094376615b9a3187747dc7c32e51723515ee62e37dc880de0b6b3a76400008b637573746f6d20746578748001b845f8431ca086992c5456750ec04ffa070cd520bee9a1e208aab773884a6f29935576b9aecda0661435efaf2bb6d8cc00969b77739de4f19e4f02680c235365f3d59af8036fa6');
         expect(decodeToArray(tx.serialize()))
             .toEqual([
                 [1],
@@ -47,22 +47,22 @@ describe('tx', () => {
                 [99, 117, 115, 116, 111, 109, 32, 116, 101, 120, 116],
                 [],
                 [1],
-                [248, 67, 27, 160, 242, 36, 81, 122, 85, 173, 240, 187, 117, 28, 226, 230, 178, 235, 74, 207, 184, 159, 235, 138, 139, 107, 118, 255, 210, 46, 244, 23, 217, 35, 220, 81, 160, 60, 207, 32, 19, 131, 207, 69, 242, 215, 121, 224, 196, 37, 9, 146, 194, 75, 71, 117, 165, 205, 32, 80, 183, 188, 133, 66, 247, 247, 59, 165, 69],
+                [248, 67, 28, 160, 134, 153, 44, 84, 86, 117, 14, 192, 79, 250, 7, 12, 213, 32, 190, 233, 161, 226, 8, 170, 183, 115, 136, 74, 111, 41, 147, 85, 118, 185, 174, 205, 160, 102, 20, 53, 239, 175, 43, 182, 216, 204, 0, 150, 155, 119, 115, 157, 228, 241, 158, 79, 2, 104, 12, 35, 83, 101, 243, 213, 154, 248, 3, 111, 166],
             ]);
     });
     test('tx signature fields', () => {
-        expect(decodeToArray(decodeToArray(tx.serialize())[9]))
+        expect(decodeToArray(decodeToArray(tx.serialize())[tx.raw.length - 1]))
             .toEqual([
-                [27],
-                [242, 36, 81, 122, 85, 173, 240, 187, 117, 28, 226, 230, 178, 235, 74, 207, 184, 159, 235, 138, 139, 107, 118, 255, 210, 46, 244, 23, 217, 35, 220, 81],
-                [60, 207, 32, 19, 131, 207, 69, 242, 215, 121, 224, 196, 37, 9, 146, 194, 75, 71, 117, 165, 205, 32, 80, 183, 188, 133, 66, 247, 247, 59, 165, 69],
+                [28],
+                [134, 153, 44, 84, 86, 117, 14, 192, 79, 250, 7, 12, 213, 32, 190, 233, 161, 226, 8, 170, 183, 115, 136, 74, 111, 41, 147, 85, 118, 185, 174, 205],
+                [102, 20, 53, 239, 175, 43, 182, 216, 204, 0, 150, 155, 119, 115, 157, 228, 241, 158, 79, 2, 104, 12, 35, 83, 101, 243, 213, 154, 248, 3, 111, 166],
             ]);
     });
 
     test('tx hash', () => {
-        expect(tx.hash().toString('hex')).toEqual('42a158f70c22cc668a64c7786956ab1715aac4e347423b4767dea22bbce65785');
-        expect(tx.hash(true).toString('hex')).toEqual('42a158f70c22cc668a64c7786956ab1715aac4e347423b4767dea22bbce65785');
-        expect(tx.hash(false).toString('hex')).toEqual('ebf35eefe91f1d0297e373ec51b71b76b22c62e0d89c00c32f04da6e3ca86b9e');
+        expect(tx.hash().toString('hex')).toEqual('e1988b97e8d1b54d83efc3436a6d26173bb6dc10bea89c6a775011ed6ac81937');
+        expect(tx.hash(true).toString('hex')).toEqual('e1988b97e8d1b54d83efc3436a6d26173bb6dc10bea89c6a775011ed6ac81937');
+        expect(tx.hash(false).toString('hex')).toEqual('ff7cb12e6b111a0fe7c53b6b07805707bd3efc9f48e0aa293bdb95c6d5c58226');
     });
 
     test('tx verify signature', () => {
@@ -80,7 +80,7 @@ describe('tx', () => {
     });
 
     test('invalid tx public key', () => {
-        expect(() => invalidTx.getSenderPublicKey()).toThrow();
+        expect(() => unsignedTx.getSenderPublicKey()).toThrow();
     });
 
     test('tx validate boolean', () => {
@@ -92,6 +92,6 @@ describe('tx', () => {
     });
 
     test('invalid tx', () => {
-        expect(invalidTx.validate(false)).toEqual(false);
+        expect(unsignedTx.validate(false)).toEqual(false);
     });
 });
