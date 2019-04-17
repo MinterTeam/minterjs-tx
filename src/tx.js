@@ -15,7 +15,7 @@ class MinterTx {
             allowLess: true,
             default: new Buffer([]),
         }, {
-            name: 'chainID',
+            name: 'chainId',
             length: 1,
             allowLess: true,
             default: new Buffer([]),

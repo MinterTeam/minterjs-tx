@@ -1,3 +1,6 @@
+## 5.0.2 - 2019-04-17
+- **BREAKING** rename `chainID` into `chainId`
+
 ## 5.0.1 - 2019-04-16
 - fix tx hash
 

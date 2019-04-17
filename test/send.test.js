@@ -22,7 +22,7 @@ describe('tx send', () => {
         const VALID_SIGNATURE = 'f88f0101018a4d4e540000000000000001aae98a4d4e540000000000000094376615b9a3187747dc7c32e51723515ee62e37dc880de0b6b3a76400008b637573746f6d20746578748001b845f8431ca086992c5456750ec04ffa070cd520bee9a1e208aab773884a6f29935576b9aecda0661435efaf2bb6d8cc00969b77739de4f19e4f02680c235365f3d59af8036fa6';
         const txParams = {
             nonce: '0x01',
-            chainID: '0x01',
+            chainId: '0x01',
             gasPrice: '0x01',
             gasCoin: formatCoin('MNT'),
             type: TX_TYPE_SEND,
@@ -39,7 +39,7 @@ describe('tx send', () => {
         const VALID_SIGNATURE = 'f8840801018a4d4e540000000000000001aae98a4d4e540000000000000094376615b9a3187747dc7c32e51723515ee62e37dc880de0b6b3a7640000808080b845f8431ba00744d2e5dc8abf6b1f5b5ce3540f3552721ced15308da1459fe7b279f3146603a035d9d02a22e5d3f2e591878a3b5350aa6568ade848bde2ccf9a77f81c5ef38fe';
         const txParams = {
             nonce: '0x08',
-            chainID: '0x01',
+            chainId: '0x01',
             gasPrice: '0x01',
             gasCoin: formatCoin('MNT'),
             type: TX_TYPE_SEND,

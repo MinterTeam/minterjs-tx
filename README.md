@@ -39,7 +39,7 @@ const txData = new MinterTxDataSend({
 // make tx
 const tx = new MinterTx({
     nonce: '0x01',
-    chainID: '0x01',
+    chainId: '0x01',
     gasPrice: '0x01',
     gasCoin: formatCoin('BIP'), 
     type: TX_TYPE_SEND,
@@ -73,7 +73,7 @@ const tx = new MinterTx(txParams);
 All tx params can be passed as Buffer or Hex string
 
 - `nonce` - int, used for prevent transaction reply (count of txs for this private key + 1)
-- `chainID' - int, identify network type, 0x01 - mainnet, 0x02 - testnet
+- `chainId' - int, identify network type, 0x01 - mainnet, 0x02 - testnet
 - `gasPrice` - big int, used for managing transaction fees
 - `gasCoin` - symbol of a coin to pay fee
 - `type` - type of transaction (see below).

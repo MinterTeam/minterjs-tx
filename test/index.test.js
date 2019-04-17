@@ -20,7 +20,7 @@ describe('tx', () => {
 
     const txParams = {
         nonce: '0x01',
-        chainID: '0x01',
+        chainId: '0x01',
         gasPrice: '0x01',
         gasCoin: formatCoin('MNT'),
         type: TX_TYPE_SEND,

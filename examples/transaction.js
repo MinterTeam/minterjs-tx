@@ -33,7 +33,7 @@ export function postTx() {
             console.log('raw data', txData.raw);
             const txParams = {
                 nonce: `0x${nonce.toString(16)}`,
-                chainID: '0x01',
+                chainId: '0x01',
                 gasPrice: '0x01',
                 gasCoin: formatCoin(FORM_DATA.coin),
                 type: TX_TYPE_SEND,
