@@ -1,5 +1,5 @@
 import {Buffer} from 'safe-buffer';
-import {defineProperties} from 'minterjs-util';
+import defineProperties from '../define-properties';
 
 class MinterTxDataCreateMultisig {
     constructor(data) {

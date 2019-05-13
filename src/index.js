@@ -15,6 +15,7 @@ import MinterTxDataUnbond from './tx-data/unbond';
 import MinterTxDataRedeemCheck from './tx-data/redeem-check';
 import MinterTxDataCreateMultisig from './tx-data/create-multisig';
 import {formatCoin} from './helpers';
+import defineProperties from './define-properties';
 import {TX_TYPE_SEND, TX_TYPE_SELL, TX_TYPE_SELL_ALL, TX_TYPE_BUY, TX_TYPE_CREATE_COIN, TX_TYPE_DECLARE_CANDIDACY, TX_TYPE_SET_CANDIDATE_ON, TX_TYPE_SET_CANDIDATE_OFF, TX_TYPE_DELEGATE, TX_TYPE_UNBOND, TX_TYPE_REDEEM_CHECK, TX_TYPE_CREATE_MULTISIG, TX_TYPE_MULTISEND, TX_TYPE_EDIT_CANDIDATE, txTypeList} from './tx-types';
 
 export default MinterTx;
@@ -36,6 +37,7 @@ export {
     MinterTxDataRedeemCheck,
     MinterTxDataCreateMultisig,
     formatCoin,
+    defineProperties,
     TX_TYPE_SEND,
     TX_TYPE_SELL,
     TX_TYPE_SELL_ALL,
