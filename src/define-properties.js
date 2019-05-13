@@ -1,4 +1,4 @@
-import {baToJSON, rlp, toBuffer, stripZeros, stripHexPrefix,} from 'ethereumjs-util';
+import {baToJSON, rlp, toBuffer, stripZeros, stripHexPrefix} from 'ethereumjs-util';
 import {Buffer} from 'safe-buffer';
 import assert from 'assert';
 

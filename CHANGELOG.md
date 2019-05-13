@@ -1,3 +1,9 @@
+## 5.1.1 - 2019-05-14
+- update deps
+
+# 5.1.0 - 2019-05-14
+- Moved: `defineProperties` from [minterjs-tx](https://github.com/MinterTeam/minterjs-tx) package
+
 ## 5.0.3 - 2019-05-14
 - update deps
 
