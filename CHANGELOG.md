@@ -1,3 +1,6 @@
+## 5.0.3 - 2019-05-14
+- update deps
+
 ## 5.0.2 - 2019-04-17
 - **BREAKING** rename `chainID` into `chainId`
 

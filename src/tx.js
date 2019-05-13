@@ -59,6 +59,7 @@ class MinterTx {
         }];
 
         /**
+         * @TODO deprecated @see https://github.com/ethereumjs/ethereumjs-account/issues/29 @see https://github.com/ethereumjs/ethereumjs-tx/issues/142
          * Returns the rlp encoding of the transaction
          * @method serialize
          * @return {Buffer}
