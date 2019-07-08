@@ -1,6 +1,6 @@
+import {Buffer} from 'safe-buffer';
 import {MinterTxDataBuy, formatCoin} from '~/src';
 import decodeToArray from '../decode-to-array';
-import {Buffer} from 'safe-buffer';
 
 describe('MinterTxDataBuy', () => {
     test('rlp encoded fields', () => {
