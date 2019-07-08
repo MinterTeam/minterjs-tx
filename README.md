@@ -336,7 +336,7 @@ const txData = new MinterTxDataSetCandidateOff({
 #### Create Multisig
 ```js
 import {toBuffer} from 'minterjs-util';
-import MinterTxDataCreateMultisig from 'minterjs-tx/src/tx-data/set-candidate-off';
+import MinterTxDataCreateMultisig from 'minterjs-tx/src/tx-data/create-multisig';
 
 const txData = new MinterTxDataCreateMultisig({
    addresses: [toBuffer('Mxee81347211c72524338f9680072af90744333146'), toBuffer('Mxee81347211c72524338f9680072af90744333145'), toBuffer('Mxee81347211c72524338f9680072af90744333144')],
