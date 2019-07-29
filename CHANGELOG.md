@@ -1,3 +1,8 @@
+## 6.0.0 - 2019-07-30
+- **BREAKING** rename UMD module from `minterJsTx` to `minterTx`
+- fix browser usage of UMD module
+- fix bundle tests
+
 ## 5.1.3 - 2019-07-08
 - update deps
 

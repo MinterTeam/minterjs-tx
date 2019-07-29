@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../dist/index.js" onerror="alert('Error')"></script>
+    <script>
+        try {
+            console.log(minterTx)
+            const serializedTxData = (new minterTx.MinterTxDataSend({
+                coin: minterTx.formatCoin('MNT'),
+                to: '0x7633980c000139dd3bd24a3f54e06474fa941e16',
+                value: 10,
+            })).serialize();
+
+
+            console.log(serializedTxData)
+        } catch (e) {
+            console.log(e);
+            alert('Error');
+        }
+
+
+        if (!Object.keys(minterTx).length) {
+            alert('Error')
+        } else {
+            alert('Ok')
+        }
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>

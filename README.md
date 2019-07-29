@@ -15,7 +15,17 @@ It is complemented by the following packages:
 
 ## Install
 
-`npm install minterjs-tx`
+```npm install minterjs-tx```
+
+or from browser
+
+```html
+<script src="https://unpkg.com/minterjs-tx"></script>
+<script>
+const txData = minterTx.MinterTxDataSend(...);
+const tx = minterTx.MinterTx(...);
+</script>
+```
 
 ## Usage
 
