@@ -6,7 +6,7 @@ import MinterTx from '../src/index';
 import MinterTxSignature from '../src/tx-signature';
 import MinterSendTxData from '../src/tx-data/send';
 import {TX_TYPE_SEND} from '../src/tx-types';
-import {formatCoin} from '../src/helpers';
+import {coinToBuffer} from '../src/helpers';
 
 const PRIVATE_KEY = new Buffer('5fa3a8b186f6cc2d748ee2d8c0eb7a905a7b73de0f2c34c5e7857c3b46f187da', 'hex');
 const ADDRESS = 'Mx7633980c000139dd3bd24a3f54e06474fa941e16';
@@ -27,7 +27,7 @@ export function postTx() {
         .then((nonce) => {
             const txData = new MinterSendTxData({
                 to: mPrefixToHex(FORM_DATA.address),
-                coin: formatCoin(FORM_DATA.coin),
+                coin: coinToBuffer(FORM_DATA.coin),
                 value: `0x${convertToPip(FORM_DATA.amount, 'hex')}`,
             });
             console.log('raw data', txData.raw);
@@ -35,7 +35,7 @@ export function postTx() {
                 nonce: `0x${nonce.toString(16)}`,
                 chainId: '0x01',
                 gasPrice: '0x01',
-                gasCoin: formatCoin(FORM_DATA.coin),
+                gasCoin: coinToBuffer(FORM_DATA.coin),
                 type: TX_TYPE_SEND,
                 data: txData.serialize(),
                 signatureType: '0x01'

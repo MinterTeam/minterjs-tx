@@ -1,6 +1,6 @@
 import {Buffer} from 'safe-buffer';
 import {mPrefixToHex, convertToPip} from 'minterjs-util';
-import {MinterTx, MinterTxSignature, MinterTxDataSend, TX_TYPE_SEND, formatCoin} from '~/src';
+import {MinterTx, MinterTxSignature, MinterTxDataSend, TX_TYPE_SEND, coinToBuffer} from '~/src';
 import decodeToArray from './decode-to-array';
 
 const PRIVATE_KEY = new Buffer('5fa3a8b186f6cc2d748ee2d8c0eb7a905a7b73de0f2c34c5e7857c3b46f187da', 'hex');
@@ -14,7 +14,7 @@ const FORM_DATA = {
 describe('tx', () => {
     const txData = (new MinterTxDataSend({
         to: mPrefixToHex(FORM_DATA.address),
-        coin: formatCoin(FORM_DATA.coin),
+        coin: coinToBuffer(FORM_DATA.coin),
         value: `0x${convertToPip(FORM_DATA.amount, 'hex')}`,
     })).serialize();
 
@@ -22,7 +22,7 @@ describe('tx', () => {
         nonce: '0x01',
         chainId: '0x01',
         gasPrice: '0x01',
-        gasCoin: formatCoin('MNT'),
+        gasCoin: coinToBuffer('MNT'),
         type: TX_TYPE_SEND,
         data: txData,
         payload: `0x${Buffer.from(FORM_DATA.payload, 'utf-8').toString('hex')}`,
@@ -50,6 +50,12 @@ describe('tx', () => {
                 [248, 67, 28, 160, 134, 153, 44, 84, 86, 117, 14, 192, 79, 250, 7, 12, 213, 32, 190, 233, 161, 226, 8, 170, 183, 115, 136, 74, 111, 41, 147, 85, 118, 185, 174, 205, 160, 102, 20, 53, 239, 175, 43, 182, 216, 204, 0, 150, 155, 119, 115, 157, 228, 241, 158, 79, 2, 104, 12, 35, 83, 101, 243, 213, 154, 248, 3, 111, 166],
             ]);
     });
+
+    test('tx from string', () => {
+        const txFromString = new MinterTx('f88f0101018a4d4e540000000000000001aae98a4d4e540000000000000094376615b9a3187747dc7c32e51723515ee62e37dc880de0b6b3a76400008b637573746f6d20746578748001b845f8431ca086992c5456750ec04ffa070cd520bee9a1e208aab773884a6f29935576b9aecda0661435efaf2bb6d8cc00969b77739de4f19e4f02680c235365f3d59af8036fa6');
+        expect(txFromString.raw).toEqual(tx.raw);
+    });
+
     test('tx signature fields', () => {
         expect(decodeToArray(decodeToArray(tx.serialize())[tx.raw.length - 1]))
             .toEqual([

@@ -15,7 +15,7 @@ export default {
         commonjs({
             namedExports: {
                 'node_modules/ethereumjs-util/dist/index.js': [ 'stripHexPrefix', 'padToEven' ],
-            }
+            },
         }),
         globals(),
         builtins(),
@@ -25,5 +25,5 @@ export default {
         file: 'dist/index.js',
         format: 'umd',
         name: 'minterTx',
-    }
+    },
 };

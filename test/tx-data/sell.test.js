@@ -1,13 +1,13 @@
 import {Buffer} from 'safe-buffer';
-import {MinterTxDataSell, formatCoin} from '~/src';
+import {MinterTxDataSell, coinToBuffer} from '~/src';
 import decodeToArray from '../decode-to-array';
 
 describe('MinterTxDataSell', () => {
     test('rlp encoded fields', () => {
         const serializedTxData = (new MinterTxDataSell({
-            coinToSell: formatCoin('MNT'),
+            coinToSell: coinToBuffer('MNT'),
             valueToSell: 1000,
-            coinToBuy: formatCoin('BELTCOIN'),
+            coinToBuy: coinToBuffer('BELTCOIN'),
             minimumValueToBuy: 5,
         })).serialize();
 

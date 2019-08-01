@@ -1,13 +1,13 @@
 import {toBuffer, convertToPip} from 'minterjs-util';
 import {Buffer} from 'safe-buffer';
-import {MinterTxDataMultisend, formatCoin} from '~/src';
+import {MinterTxDataMultisend, coinToBuffer} from '~/src';
 import decodeToArray from '../decode-to-array';
 
 describe('MinterTxDataMultisend', () => {
     test('rlp encoded fields', () => {
         const serializedTxData = (new MinterTxDataMultisend({
             list: [{
-                coin: formatCoin('MNT'),
+                coin: coinToBuffer('MNT'),
                 to: toBuffer('Mx7633980c000139dd3bd24a3f54e06474fa941e16'),
                 value: 10,
             }],
@@ -26,11 +26,11 @@ describe('MinterTxDataMultisend', () => {
         const serializedTxData = (new MinterTxDataMultisend({
             list: [
                 {
-                    coin: formatCoin('MNT'),
+                    coin: coinToBuffer('MNT'),
                     to: toBuffer('Mxfe60014a6e9ac91618f5d1cab3fd58cded61ee99'),
                     value: `0x${convertToPip(0.1, 'hex')}`,
                 }, {
-                    coin: formatCoin('MNT'),
+                    coin: coinToBuffer('MNT'),
                     to: toBuffer('Mxddab6281766ad86497741ff91b6b48fe85012e3c'),
                     value: `0x${convertToPip(0.2, 'hex')}`,
                 },

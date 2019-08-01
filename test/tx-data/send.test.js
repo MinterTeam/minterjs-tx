@@ -1,12 +1,12 @@
 import {toBuffer} from 'minterjs-util';
 import {Buffer} from 'safe-buffer';
-import {MinterTxDataSend, formatCoin} from '~/src';
+import {MinterTxDataSend, coinToBuffer} from '~/src';
 import decodeToArray from '../decode-to-array';
 
 describe('MinterTxDataSend', () => {
     test('rlp encoded fields', () => {
         const serializedTxData = (new MinterTxDataSend({
-            coin: formatCoin('MNT'),
+            coin: coinToBuffer('MNT'),
             to: toBuffer('Mx7633980c000139dd3bd24a3f54e06474fa941e16'),
             value: 10,
         })).serialize();

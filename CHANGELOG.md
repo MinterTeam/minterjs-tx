@@ -1,3 +1,7 @@
+## 6.1.0 - 2019-08-01
+- rename `formatCoin` to `coinToBuffer`, save old name as alias
+- add `bufferToCoin` method
+
 ## 6.0.0 - 2019-07-30
 - **BREAKING** rename UMD module from `minterJsTx` to `minterTx`
 - fix browser usage of UMD module

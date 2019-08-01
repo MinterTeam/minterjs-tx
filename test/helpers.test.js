@@ -1,16 +1,27 @@
 import {Buffer} from 'safe-buffer';
-import {formatCoin} from '~/src';
+import {coinToBuffer, bufferToCoin} from '~/src';
 
-describe('formatCoin', () => {
-    test('MNT', () => {
-        expect(formatCoin('MNT')).toEqual(Buffer.from([77, 78, 84, 0, 0, 0, 0, 0, 0, 0]));
+describe('coinToBuffer', () => {
+    const mntBuffer = Buffer.from([77, 78, 84, 0, 0, 0, 0, 0, 0, 0]);
+
+    test('from MNT', () => {
+        expect(coinToBuffer('MNT')).toEqual(mntBuffer);
     });
 
-    test('mnt', () => {
-        expect(formatCoin('mnt')).toEqual(Buffer.from([77, 78, 84, 0, 0, 0, 0, 0, 0, 0]));
+    test('from mnt', () => {
+        expect(coinToBuffer('mnt')).toEqual(mntBuffer);
     });
 
-    test('empty', () => {
-        expect(formatCoin('')).toEqual(Buffer.alloc(10));
+    test('from empty', () => {
+        expect(coinToBuffer('')).toEqual(Buffer.alloc(10));
+    });
+
+    test('to MNT', () => {
+        expect(bufferToCoin(mntBuffer)).toEqual('MNT');
+    });
+
+    test('to empty', () => {
+        expect(bufferToCoin(Buffer.from([]))).toEqual('');
+        expect(bufferToCoin(Buffer.alloc(10))).toEqual('');
     });
 });

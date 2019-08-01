@@ -1,5 +1,5 @@
 import {toBuffer} from 'minterjs-util';
-import {MinterTxDataDeclareCandidacy, formatCoin} from '~/src';
+import {MinterTxDataDeclareCandidacy, coinToBuffer} from '~/src';
 import decodeToArray from '../decode-to-array';
 
 describe('MinterTxDataDeclareCandidacy', () => {
@@ -8,7 +8,7 @@ describe('MinterTxDataDeclareCandidacy', () => {
             address: toBuffer('Mx7633980c000139dd3bd24a3f54e06474fa941e16'),
             pubKey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
             commission: 10,
-            coin: formatCoin('MNT'),
+            coin: coinToBuffer('MNT'),
             stake: 1000,
         })).serialize();
 
