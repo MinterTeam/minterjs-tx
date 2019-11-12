@@ -1,5 +1,4 @@
 import {toBuffer} from 'minterjs-util';
-import {Buffer} from 'safe-buffer';
 import {MinterTxDataRedeemCheck} from '~/src';
 import decodeToArray from '../decode-to-array';
 

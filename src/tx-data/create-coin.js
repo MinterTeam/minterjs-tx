@@ -1,5 +1,4 @@
-import {Buffer} from 'safe-buffer';
-import {defineProperties} from 'ethereumjs-util';
+import {defineProperties} from 'ethereumjs-util/dist/object';
 
 class MinterTxDataCreateCoin {
     constructor(data) {
@@ -9,30 +8,30 @@ class MinterTxDataCreateCoin {
             {
                 name: 'name',
                 allowZero: true,
-                default: new Buffer([]),
+                default: Buffer.from([]),
             }, {
                 name: 'symbol',
                 allowZero: true,
                 length: 10,
-                default: new Buffer([]),
+                default: Buffer.from([]),
             }, {
                 name: 'initialAmount',
                 length: 32,
                 allowZero: true,
                 allowLess: true,
-                default: new Buffer([]),
+                default: Buffer.from([]),
             }, {
                 name: 'initialReserve',
                 length: 32,
                 allowZero: true,
                 allowLess: true,
-                default: new Buffer([]),
+                default: Buffer.from([]),
             }, {
                 name: 'constantReserveRatio',
                 length: 1,
                 allowZero: true,
                 allowLess: true,
-                default: new Buffer([]),
+                default: Buffer.from([]),
             }];
 
         /**

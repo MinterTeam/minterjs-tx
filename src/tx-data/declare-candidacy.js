@@ -1,5 +1,4 @@
-import {Buffer} from 'safe-buffer';
-import {defineProperties} from 'ethereumjs-util';
+import {defineProperties} from 'ethereumjs-util/dist/object';
 
 class MinterTxDataDeclareCandidacy {
     constructor(data) {
@@ -10,32 +9,32 @@ class MinterTxDataDeclareCandidacy {
                 name: 'address',
                 allowZero: true,
                 length: 20,
-                default: new Buffer([]),
+                default: Buffer.from([]),
             },
             {
                 name: 'pubKey',
                 allowZero: true,
-                default: new Buffer([]),
+                default: Buffer.from([]),
             },
             {
                 name: 'commission',
                 length: 1,
                 allowZero: true,
                 allowLess: true,
-                default: new Buffer([]),
+                default: Buffer.from([]),
             },
             {
                 name: 'coin',
                 length: 10,
                 allowLess: true,
-                default: new Buffer([]),
+                default: Buffer.from([]),
             },
             {
                 name: 'stake',
                 length: 32,
                 allowZero: true,
                 allowLess: true,
-                default: new Buffer([]),
+                default: Buffer.from([]),
             }];
 
         /**

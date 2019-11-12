@@ -1,5 +1,4 @@
-import {Buffer} from 'safe-buffer';
-import {defineProperties} from 'ethereumjs-util';
+import {defineProperties} from 'ethereumjs-util/dist/object';
 
 class MinterTxDataRedeemCheck {
     constructor(data) {
@@ -9,13 +8,13 @@ class MinterTxDataRedeemCheck {
             {
                 name: 'rawCheck',
                 allowZero: true,
-                default: new Buffer([]),
+                default: Buffer.from([]),
             },
             {
                 name: 'proof',
                 allowZero: true,
                 length: 65,
-                default: new Buffer([]),
+                default: Buffer.from([]),
             }];
 
         /**

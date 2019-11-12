@@ -1,5 +1,4 @@
-import {Buffer} from 'safe-buffer';
-import {defineProperties} from 'ethereumjs-util';
+import {defineProperties} from 'ethereumjs-util/dist/object';
 
 class MinterTxDataSend {
     constructor(data) {
@@ -10,18 +9,18 @@ class MinterTxDataSend {
                 name: 'coin',
                 length: 10,
                 allowLess: true,
-                default: new Buffer([]),
+                default: Buffer.from([]),
             }, {
                 name: 'to',
                 allowZero: true,
                 length: 20,
-                default: new Buffer([]),
+                default: Buffer.from([]),
             }, {
                 name: 'value',
                 length: 32,
                 allowZero: true,
                 allowLess: true,
-                default: new Buffer([]),
+                default: Buffer.from([]),
             }];
 
         /**

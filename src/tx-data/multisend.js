@@ -1,4 +1,3 @@
-import {Buffer} from 'safe-buffer';
 import defineProperties from '../define-properties';
 import MinterTxDataSend from './send';
 
@@ -9,7 +8,7 @@ class MinterTxDataMultisend {
         const fields = [
             {
                 name: 'list',
-                default: new Buffer([]),
+                default: Buffer.from([]),
                 allowNonBinaryArray: true,
                 nonBinaryArrayTransform(item) {
                     return (new MinterTxDataSend(item)).raw;

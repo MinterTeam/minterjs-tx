@@ -1,6 +1,10 @@
-import {defineProperties, rlphash, rlp, publicToAddress, bufferToInt, ecrecover} from 'ethereumjs-util';
+import * as rlp from 'rlp';
 import BN from 'bn.js';
-import {Buffer} from 'safe-buffer';
+import {defineProperties} from 'ethereumjs-util/dist/object';
+import {rlphash} from 'ethereumjs-util/dist/hash';
+import {publicToAddress} from 'ethereumjs-util/dist/account';
+import {ecrecover} from 'ethereumjs-util/dist/signature';
+import {bufferToInt} from 'ethereumjs-util/dist/bytes';
 
 // secp256k1n/2
 const N_DIV_2 = new BN('7fffffffffffffffffffffffffffffff5d576e7357a4501ddfe92f46681b20a0', 16);
@@ -13,49 +17,49 @@ class MinterTx {
             name: 'nonce',
             length: 32,
             allowLess: true,
-            default: new Buffer([]),
+            default: Buffer.from([]),
         }, {
             name: 'chainId',
             length: 1,
             allowLess: true,
-            default: new Buffer([]),
+            default: Buffer.from([]),
         }, {
             name: 'gasPrice',
             length: 32,
             allowLess: true,
-            default: new Buffer([]),
+            default: Buffer.from([]),
         }, {
             name: 'gasCoin',
             length: 10,
             allowLess: true,
-            default: new Buffer([]),
+            default: Buffer.from([]),
         }, {
             name: 'type',
             length: 1,
             allowLess: true,
-            default: new Buffer([]),
+            default: Buffer.from([]),
         }, {
             name: 'data',
             alias: 'input',
             allowZero: true,
-            default: new Buffer([]),
+            default: Buffer.from([]),
         }, {
             name: 'payload',
             allowZero: true,
-            default: new Buffer([]),
+            default: Buffer.from([]),
         }, {
             name: 'serviceData',
             allowZero: true,
-            default: new Buffer([]),
+            default: Buffer.from([]),
         }, {
             name: 'signatureType',
             length: 1,
             allowLess: true,
-            default: new Buffer([]),
+            default: Buffer.from([]),
         }, {
             name: 'signatureData',
             allowZero: true,
-            default: new Buffer([]),
+            default: Buffer.from([]),
         }];
 
         /**

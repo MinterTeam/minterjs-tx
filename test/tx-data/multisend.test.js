@@ -1,5 +1,4 @@
 import {toBuffer, convertToPip} from 'minterjs-util';
-import {Buffer} from 'safe-buffer';
 import {MinterTxDataMultisend, coinToBuffer} from '~/src';
 import decodeToArray from '../decode-to-array';
 

@@ -1,6 +1,6 @@
 {
   "name": "minterjs-tx",
-  "version": "6.1.0",
+  "version": "7.0.0",
   "description": "A simple module for creating, manipulating and signing Minter transactions",
   "main": "dist/cjs/index.js",
   "module": "src/index.js",
@@ -49,31 +49,32 @@
   "dependencies": {
     "bn.js": "^4.11.8",
     "buffer-es6": "github:shrpne/buffer-es6#fix-internal-is-buffer",
-    "elliptic": "^6.5.0",
-    "ethereumjs-util": "^6.1.0",
-    "safe-buffer": "^5.2.0"
+    "elliptic": "^6.5.1",
+    "ethereumjs-util": "^6.2.0",
+    "ethjs-util": "^0.1.6",
+    "rlp": "^2.2.4"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
     "axios": "^0.19.0",
-    "babel-jest": "^24.8.0",
-    "coveralls": "^3.0.5",
-    "eslint": "^6.1.0",
-    "eslint-config-airbnb-base": "^13.2.0",
+    "babel-jest": "^24.9.0",
+    "coveralls": "^3.0.7",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.18.2",
-    "jest": "^24.8.0",
-    "minterjs-util": "0.10.0",
+    "jest": "^24.9.0",
+    "minterjs-util": "0.13.1",
     "pre-commit": "^1.2.2",
-    "rollup": "^1.17.0",
+    "rollup": "^1.26.5",
     "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-commonjs": "^10.0.1",
+    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-terser": "^5.1.1"
+    "rollup-plugin-terser": "^5.1.2"
   }
 }

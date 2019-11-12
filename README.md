@@ -314,7 +314,6 @@ const txData = new MinterTxDataUnbond({
 #### Redeem Check
 ```js
 import {toBuffer} from 'minterjs-util';
-import {Buffer} from 'safe-buffer';
 import MinterTxDataRedeemCheck from 'minterjs-tx/src/tx-data/redeem-check';
 
 const txData = new MinterTxDataRedeemCheck({

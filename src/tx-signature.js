@@ -1,4 +1,5 @@
-import {defineProperties, ecsign} from 'ethereumjs-util';
+import {defineProperties} from 'ethereumjs-util/dist/object';
+import {ecsign} from 'ethereumjs-util/dist/signature';
 
 class MinterTxSignature {
     constructor(data) {
@@ -8,19 +9,19 @@ class MinterTxSignature {
             {
                 name: 'v',
                 allowZero: true,
-                default: new Buffer([0x1c]),
+                default: Buffer.from([0x1c]),
             }, {
                 name: 'r',
                 length: 32,
                 allowZero: true,
                 allowLess: true,
-                default: new Buffer([]),
+                default: Buffer.from([]),
             }, {
                 name: 's',
                 length: 32,
                 allowZero: true,
                 allowLess: true,
-                default: new Buffer([]),
+                default: Buffer.from([]),
             }];
 
         /**

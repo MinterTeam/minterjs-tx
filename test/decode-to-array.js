@@ -1,5 +1,4 @@
 import {rlp} from 'ethereumjs-util';
-import {Buffer} from 'safe-buffer';
 
 export default function decodeToArray(serializedTxData) {
     if (Array.isArray(serializedTxData)) {

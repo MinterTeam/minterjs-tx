@@ -1,4 +1,3 @@
-import {Buffer} from 'safe-buffer';
 import {MinterTxDataBuy, coinToBuffer} from '~/src';
 import decodeToArray from '../decode-to-array';
 

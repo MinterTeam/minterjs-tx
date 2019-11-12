@@ -1,4 +1,3 @@
-import {Buffer} from 'safe-buffer';
 import defineProperties from '../define-properties';
 
 class MinterTxDataCreateMultisig {
@@ -8,14 +7,14 @@ class MinterTxDataCreateMultisig {
         const fields = [
             {
                 name: 'threshold',
-                default: new Buffer([]),
+                default: Buffer.from([]),
             }, {
                 name: 'weights',
-                default: new Buffer([]),
+                default: Buffer.from([]),
                 allowNonBinaryArray: true,
             }, {
                 name: 'addresses',
-                default: new Buffer([]),
+                default: Buffer.from([]),
                 allowNonBinaryArray: true,
             }];
 

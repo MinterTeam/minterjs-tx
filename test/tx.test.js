@@ -1,4 +1,3 @@
-import {Buffer} from 'safe-buffer';
 import {mPrefixToHex, convertToPip} from 'minterjs-util';
 import {MinterTx, MinterTxSignature, MinterTxDataSend, TX_TYPE_SEND, coinToBuffer} from '~/src';
 import decodeToArray from './decode-to-array';

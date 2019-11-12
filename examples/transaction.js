@@ -1,5 +1,4 @@
 import axios from 'axios';
-import {Buffer} from 'safe-buffer';
 import {mPrefixToHex, convertToPip} from 'minterjs-util';
 import config from './config';
 import MinterTx from '../src/index';
@@ -33,7 +32,7 @@ export function postTx() {
             console.log('raw data', txData.raw);
             const txParams = {
                 nonce: `0x${nonce.toString(16)}`,
-                chainId: '0x01',
+                chainId: '0x02',
                 gasPrice: '0x01',
                 gasCoin: coinToBuffer(FORM_DATA.coin),
                 type: TX_TYPE_SEND,

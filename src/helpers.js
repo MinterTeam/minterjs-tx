@@ -1,4 +1,3 @@
-import {Buffer} from 'safe-buffer';
 
 /**
  * Make 10 bytes padded Buffer
@@ -6,7 +5,7 @@ import {Buffer} from 'safe-buffer';
  * @returns {Buffer}
  */
 export function coinToBuffer(coinSymbol) {
-    const buf = new Buffer(10);
+    const buf = Buffer.alloc(10);
     Buffer.from(coinSymbol.toUpperCase()).copy(buf, 0, 0, 10);
 
     return buf;

@@ -1,4 +1,3 @@
-import {Buffer} from 'safe-buffer';
 import {MinterTxDataCreateMultisig} from '~/src';
 import decodeToArray from '../decode-to-array';
 

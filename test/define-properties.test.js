@@ -1,7 +1,6 @@
 /**
  * copied from https://github.com/ethereumjs/ethereumjs-util/blob/master/test/defineFields.js
  */
-import {Buffer} from 'safe-buffer';
 import {zeros} from 'ethereumjs-util';
 import {defineProperties} from '~/src';
 
@@ -61,22 +60,22 @@ describe('define', () => {
     it('it should accept rlp encoded intial data', () => {
         const someOb = {};
         const data = {
-            aword: 'test',
-            cannotBeZero: 'not zero',
-            value: 'a value',
-            r: 'rrr',
+            aword: '0x01',
+            cannotBeZero: '0x02',
+            value: '0x03',
+            r: '0x04',
         };
 
         const expected = {
-            aword: '0x74657374',
+            aword: '0x01',
             empty: '0x',
-            cannotBeZero: '0x6e6f74207a65726f',
-            value: '0x612076616c7565',
-            r: '0x727272',
+            cannotBeZero: '0x02',
+            value: '0x03',
+            r: '0x04',
         };
 
         const expectedArray = [
-            '0x74657374', '0x', '0x6e6f74207a65726f', '0x612076616c7565', '0x727272',
+            '0x01', '0x', '0x02', '0x03', '0x04',
         ];
 
         defineProperties(someOb, fields, data);
@@ -106,25 +105,25 @@ describe('define', () => {
     it('alias should work ', () => {
         const someOb = {};
         const data = {
-            aword: 'test',
-            cannotBeZero: 'not zero',
-            value: 'a value',
-            r: 'rrr',
+            aword: '0x01',
+            cannotBeZero: '0x02',
+            value: '0x03',
+            r: '0x04',
         };
 
         defineProperties(someOb, fields, data);
-        assert.equal(someOb.blah.toString(), 'test');
-        someOb.blah = 'lol';
-        assert.equal(someOb.blah.toString(), 'lol');
-        assert.equal(someOb.aword.toString(), 'lol');
+        assert.equal(someOb.blah.toString('hex'), '01');
+        someOb.blah = '0x09';
+        assert.equal(someOb.blah.toString('hex'), '09');
+        assert.equal(someOb.aword.toString('hex'), '09');
     });
 
     it('alias should work #2', () => {
         const someOb = {};
-        const data = { blah: '42' };
+        const data = { blah: '0x1' };
 
         defineProperties(someOb, fields, data);
-        assert.equal(someOb.blah, '42');
-        assert.equal(someOb.aword, '42');
+        assert.equal(someOb.blah.toString('hex'), '01');
+        assert.equal(someOb.aword.toString('hex'), '01');
     });
 });
