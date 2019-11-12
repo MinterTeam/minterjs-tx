@@ -1,3 +1,6 @@
+## 7.0.1 - 2019-11-12
+- deprecate `formatCoin`
+
 ## 7.0.0 - 2019-11-12
 - **BREAKING** tx and tx-data string params can only be `0x` prefixed now, you have to use `Buffer.from(str, 'utf-8')` if you want pass arbitrary string
 - update deps
