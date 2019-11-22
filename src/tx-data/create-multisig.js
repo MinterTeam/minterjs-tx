@@ -1,6 +1,6 @@
 import defineProperties from '../define-properties';
 
-class MinterTxDataCreateMultisig {
+class TxDataCreateMultisig {
     constructor(data) {
         data = data || {};
         // Define Properties
@@ -30,4 +30,4 @@ class MinterTxDataCreateMultisig {
     }
 }
 
-export default MinterTxDataCreateMultisig;
+export default TxDataCreateMultisig;

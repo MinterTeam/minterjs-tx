@@ -1,6 +1,6 @@
 import {defineProperties} from 'ethereumjs-util/dist/object';
 
-class MinterTxDataDelegate {
+class TxDataDelegate {
     constructor(data) {
         data = data || {};
         // Define Properties
@@ -36,4 +36,4 @@ class MinterTxDataDelegate {
     }
 }
 
-export default MinterTxDataDelegate;
+export default TxDataDelegate;

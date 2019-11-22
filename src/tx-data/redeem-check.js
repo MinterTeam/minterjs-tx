@@ -1,6 +1,6 @@
 import {defineProperties} from 'ethereumjs-util/dist/object';
 
-class MinterTxDataRedeemCheck {
+class TxDataRedeemCheck {
     constructor(data) {
         data = data || {};
         // Define Properties
@@ -29,4 +29,4 @@ class MinterTxDataRedeemCheck {
     }
 }
 
-export default MinterTxDataRedeemCheck;
+export default TxDataRedeemCheck;

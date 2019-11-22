@@ -1,6 +1,6 @@
 import {defineProperties} from 'ethereumjs-util/dist/object';
 
-class MinterTxDataSetCandidateOn {
+class TxDataSetCandidateOn {
     constructor(data) {
         data = data || {};
         // Define Properties
@@ -23,4 +23,4 @@ class MinterTxDataSetCandidateOn {
     }
 }
 
-export default MinterTxDataSetCandidateOn;
+export default TxDataSetCandidateOn;

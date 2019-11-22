@@ -1,5 +1,5 @@
 import {mPrefixToHex, convertToPip} from 'minterjs-util';
-import {MinterTx, MinterTxSignature, MinterTxDataSend, TX_TYPE_SEND, coinToBuffer} from '~/src';
+import {MinterTx, MinterTxSignature, MinterTxDataSend, TX_TYPE, coinToBuffer} from '~/src';
 import decodeToArray from './decode-to-array';
 
 const PRIVATE_KEY = new Buffer('5fa3a8b186f6cc2d748ee2d8c0eb7a905a7b73de0f2c34c5e7857c3b46f187da', 'hex');
@@ -22,7 +22,7 @@ describe('tx', () => {
         chainId: '0x01',
         gasPrice: '0x01',
         gasCoin: coinToBuffer('MNT'),
-        type: TX_TYPE_SEND,
+        type: TX_TYPE.SEND,
         data: txData,
         payload: `0x${Buffer.from(FORM_DATA.payload, 'utf-8').toString('hex')}`,
         signatureType: '0x01',

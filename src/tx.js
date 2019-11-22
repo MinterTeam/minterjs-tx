@@ -9,7 +9,7 @@ import {bufferToInt} from 'ethereumjs-util/dist/bytes';
 // secp256k1n/2
 const N_DIV_2 = new BN('7fffffffffffffffffffffffffffffff5d576e7357a4501ddfe92f46681b20a0', 16);
 
-class MinterTx {
+class Tx {
     constructor(data) {
         data = data || {};
         // Define Properties
@@ -63,7 +63,7 @@ class MinterTx {
         }];
 
         /**
-         * @TODO deprecated @see https://github.com/ethereumjs/ethereumjs-account/issues/29 @see https://github.com/ethereumjs/ethereumjs-tx/issues/142
+         * @TODO deprecated @see https://github.com/ethereumjs/ethereumjs-account/issues/29 @see https://github.com/ethereumjs/ethereumjs-tx/issues/151
          * Returns the rlp encoding of the transaction
          * @method serialize
          * @return {Buffer}
@@ -179,4 +179,4 @@ class MinterTx {
     }
 }
 
-export default MinterTx;
+export default Tx;

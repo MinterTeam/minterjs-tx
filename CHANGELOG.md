@@ -1,3 +1,7 @@
+## 7.0.2
+- deprecate separate `TX_TYPE_...` in favor of `TX_TYPE` enum
+- add `Tx...` named exports as alias to `MinterTx...`
+
 ## 7.0.1 - 2019-11-12
 - deprecate `formatCoin`
 

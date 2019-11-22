@@ -1,7 +1,7 @@
 import {defineProperties} from 'ethereumjs-util/dist/object';
 import {ecsign} from 'ethereumjs-util/dist/signature';
 
-class MinterTxSignature {
+class TxSignature {
     constructor(data) {
         data = data || {};
         // Define Properties
@@ -48,4 +48,4 @@ class MinterTxSignature {
     }
 }
 
-export default MinterTxSignature;
+export default TxSignature;

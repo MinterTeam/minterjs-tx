@@ -1,7 +1,7 @@
 import defineProperties from '../define-properties';
-import MinterTxDataSend from './send';
+import TxDataSend from './send';
 
-class MinterTxDataMultisend {
+class TxDataMultisend {
     constructor(data) {
         data = data || {};
         // Define Properties
@@ -11,7 +11,7 @@ class MinterTxDataMultisend {
                 default: Buffer.from([]),
                 allowNonBinaryArray: true,
                 nonBinaryArrayTransform(item) {
-                    return (new MinterTxDataSend(item)).raw;
+                    return (new TxDataSend(item)).raw;
                 },
             }];
 
@@ -27,4 +27,4 @@ class MinterTxDataMultisend {
     }
 }
 
-export default MinterTxDataMultisend;
+export default TxDataMultisend;
