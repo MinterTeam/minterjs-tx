@@ -32,6 +32,12 @@ class TxDataCreateCoin {
                 allowZero: true,
                 allowLess: true,
                 default: Buffer.from([]),
+            }, {
+                name: 'maxSupply',
+                length: 32,
+                allowZero: true,
+                allowLess: true,
+                default: Buffer.from([]),
             }];
 
         /**

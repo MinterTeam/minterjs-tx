@@ -9,10 +9,11 @@ describe('MinterTxDataCreateCoin', () => {
             initialAmount: 10,
             initialReserve: 50,
             constantReserveRatio: 100,
+            maxSupply: 100,
         })).serialize();
 
         expect(serializedTxData)
-            .toEqual(Buffer.from([214, 135, 77, 121, 32, 99, 111, 105, 110, 138, 77, 89, 67, 79, 73, 78, 0, 0, 0, 0, 10, 50, 100]));
+            .toEqual(Buffer.from([215, 135, 77, 121, 32, 99, 111, 105, 110, 138, 77, 89, 67, 79, 73, 78, 0, 0, 0, 0, 10, 50, 100, 100]));
 
         expect(decodeToArray(serializedTxData))
             .toEqual([
@@ -20,6 +21,7 @@ describe('MinterTxDataCreateCoin', () => {
                 [77, 89, 67, 79, 73, 78, 0, 0, 0, 0],
                 [10],
                 [50],
+                [100],
                 [100],
             ]);
     });

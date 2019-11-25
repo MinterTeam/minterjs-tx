@@ -1,3 +1,6 @@
+## texas.0
+- add `maxSupply` field to `TxDataCreateCoin`
+
 ## 7.0.2
 - deprecate separate `TX_TYPE_...` in favor of `TX_TYPE` enum
 - add `Tx...` named exports as alias to `MinterTx...`
