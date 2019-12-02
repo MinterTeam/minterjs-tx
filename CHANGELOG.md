@@ -1,3 +1,6 @@
+## texas.1
+- fix helper `bufferToCoin` returning UintArray instead of Buffer
+
 ## texas.0
 - add `maxSupply` field to `TxDataCreateCoin`
 
