@@ -1,5 +1,6 @@
 import Tx from './tx';
 import TxSignature from './tx-signature';
+import TxData from './tx-data';
 import TxDataSend from './tx-data/send';
 import TxDataMultisend from './tx-data/multisend';
 import TxDataSell from './tx-data/sell';
@@ -39,6 +40,7 @@ export default Tx;
 export {
     Tx,
     TxSignature,
+    TxData,
     TxDataSend,
     TxDataMultisend,
     TxDataSell,
