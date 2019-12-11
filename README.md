@@ -169,6 +169,22 @@ const publicKey = tx.getSenderPublicKey();
 
 ### Tx data
 
+#### common
+Select right `TxData...` constructor depending on `TX_TYPE`
+
+```js
+import {toBuffer, convertToPip} from 'minterjs-util';
+import TxData from 'minterjs-tx/src/tx-data';
+import {TX_TYPE} from 'minterjs-tx/src/tx-types';
+import {coinToBuffer} from 'minterjs-tx/src/helpers';
+
+const txData = new TxData({
+   coin: coinToBuffer('MNT'),
+   to: toBuffer('Mx7633980c000139dd3bd24a3f54e06474fa941e16'),
+   value: `0x${convertToPip(10, 'hex')}`,
+}, TX_TYPE.SEND);
+```
+
 #### Send
 ```js
 import {toBuffer, convertToPip} from 'minterjs-util';
