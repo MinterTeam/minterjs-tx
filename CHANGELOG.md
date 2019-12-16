@@ -1,9 +1,8 @@
-## texas.1
-- fix helper `bufferToCoin` returning UintArray instead of Buffer
-
 ## texas.0
 - add `maxSupply` field to `TxDataCreateCoin`
 
+## 7.1.1
+- fix helper `bufferToCoin` returning UintArray instead of Buffer
 
 ## 7.1.0
 - add `TxData` constructor, it can choose right `TxData...` depending on second argument `TX_TYPE`
