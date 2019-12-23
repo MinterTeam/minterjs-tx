@@ -97,6 +97,7 @@ export default function definePropertiesNonBinary(self, fields, data) {
 
         if (Buffer.isBuffer(data)) {
             data = rlp.decode(data);
+            console.log(data);
         }
 
         if (Array.isArray(data)) {
@@ -104,9 +105,9 @@ export default function definePropertiesNonBinary(self, fields, data) {
                 throw new Error('wrong number of fields in data');
             }
 
-            // make sure all the items are buffers
+            // set fields from array
             data.forEach((d, i) => {
-                self[self._fields[i]] = toBuffer(d);
+                self[self._fields[i]] = d;
             });
         } else if ((typeof data === 'undefined' ? 'undefined' : _typeof(data)) === 'object') {
             const keys = Object.keys(data);

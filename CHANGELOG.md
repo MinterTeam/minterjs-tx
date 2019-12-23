@@ -1,5 +1,5 @@
-## texas.0
-- add `maxSupply` field to `TxDataCreateCoin`
+## 7.1.2
+- fix `defineProperties` with `allowNonBinaryArray` option 
 
 ## 7.1.1
 - fix helper `bufferToCoin` returning UintArray instead of Buffer
