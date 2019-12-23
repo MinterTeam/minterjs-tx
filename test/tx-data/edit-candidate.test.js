@@ -5,7 +5,7 @@ import decodeToArray from '../decode-to-array';
 describe('MinterTxDataDeclareCandidacy', () => {
     test('rlp encoded fields', () => {
         const serializedTxData = (new MinterTxDataEditCandidate({
-            pubKey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
+            publicKey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
             rewardAddress: toBuffer('Mx7633980c000139dd3bd24a3f54e06474fa941e16'),
             ownerAddress: toBuffer('Mx7633980c000139dd3bd24a3f54e06474fa941e16'),
         })).serialize();

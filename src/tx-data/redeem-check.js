@@ -6,7 +6,7 @@ class TxDataRedeemCheck {
         // Define Properties
         const fields = [
             {
-                name: 'rawCheck',
+                name: 'check',
                 allowZero: true,
                 default: Buffer.from([]),
             },

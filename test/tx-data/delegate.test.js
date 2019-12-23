@@ -5,7 +5,7 @@ import decodeToArray from '../decode-to-array';
 describe('MinterTxDataDelegate', () => {
     test('rlp encoded fields', () => {
         const serializedTxData = (new MinterTxDataDelegate({
-            pubKey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
+            publicKey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
             coin: coinToBuffer('MNT'),
             stake: 1000,
         })).serialize();

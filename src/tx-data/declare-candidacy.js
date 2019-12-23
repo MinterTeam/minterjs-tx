@@ -12,7 +12,7 @@ class TxDataDeclareCandidacy {
                 default: Buffer.from([]),
             },
             {
-                name: 'pubKey',
+                name: 'publicKey',
                 allowZero: true,
                 default: Buffer.from([]),
             },

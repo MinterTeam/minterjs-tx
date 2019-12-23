@@ -1,3 +1,7 @@
+## WIP
+- **BREAKING** rename data's `pubKey` fields to `publicKey`
+- **BREAKING** rename data's `rawCheck` field to `check`
+
 ## texas.0
 - add `maxSupply` field to `TxDataCreateCoin`
 

@@ -6,7 +6,7 @@ class TxDataSetCandidateOn {
         // Define Properties
         const fields = [
             {
-                name: 'pubKey',
+                name: 'publicKey',
                 allowZero: true,
                 default: Buffer.from([]),
             }];

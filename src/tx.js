@@ -120,8 +120,8 @@ class Tx {
         if (this._from) {
             return this._from;
         }
-        const pubkey = this.getSenderPublicKey();
-        this._from = publicToAddress(pubkey);
+        const publicKey = this.getSenderPublicKey();
+        this._from = publicToAddress(publicKey);
         return this._from;
     }
 
@@ -130,12 +130,12 @@ class Tx {
      * @return {Buffer}
      */
     getSenderPublicKey() {
-        if (!this._senderPubKey || !this._senderPubKey.length) {
+        if (!this._senderPublicKey || !this._senderPublicKey.length) {
             if (!this.verifySignature()) {
                 throw new Error('Invalid Signature');
             }
         }
-        return this._senderPubKey;
+        return this._senderPublicKey;
     }
 
     /**
@@ -152,12 +152,12 @@ class Tx {
 
         try {
             const v = bufferToInt(vrs[0]);
-            this._senderPubKey = ecrecover(msgHash, v, vrs[1], vrs[2]);
+            this._senderPublicKey = ecrecover(msgHash, v, vrs[1], vrs[2]);
         } catch (e) {
             return false;
         }
 
-        return !!this._senderPubKey;
+        return !!this._senderPublicKey;
     }
 
     /**
