@@ -42,4 +42,22 @@ describe('MinterTxDataMultisend', () => {
         expect(decodeToArray(serializedTxData))
             .toEqual([[248, 84, 233, 138, 77, 78, 84, 0, 0, 0, 0, 0, 0, 0, 148, 254, 96, 1, 74, 110, 154, 201, 22, 24, 245, 209, 202, 179, 253, 88, 205, 237, 97, 238, 153, 136, 1, 99, 69, 120, 93, 138, 0, 0, 233, 138, 77, 78, 84, 0, 0, 0, 0, 0, 0, 0, 148, 221, 171, 98, 129, 118, 106, 216, 100, 151, 116, 31, 249, 27, 107, 72, 254, 133, 1, 46, 60, 136, 2, 198, 138, 240, 187, 20, 0, 0]]);
     });
+
+    test('data from rlp', () => {
+        const txData = new MinterTxDataMultisend({
+            list: [{
+                coin: coinToBuffer('MNT'),
+                to: toBuffer('Mx7633980c000139dd3bd24a3f54e06474fa941e16'),
+                value: 10,
+            }, {
+                coin: coinToBuffer('ASD'),
+                to: toBuffer('Mx0000000000111111111122222222223333333333'),
+                value: 55,
+            }],
+        });
+        const txDataFromRlp = new MinterTxDataMultisend(txData.serialize());
+
+        expect(txData.list)
+            .toEqual(txDataFromRlp.list);
+    });
 });
