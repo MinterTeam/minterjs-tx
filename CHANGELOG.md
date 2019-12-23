@@ -1,4 +1,4 @@
-## WIP
+## texas.4
 - **BREAKING** rename data's `pubKey` fields to `publicKey`
 - **BREAKING** rename data's `rawCheck` field to `check`
 
