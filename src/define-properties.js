@@ -97,7 +97,6 @@ export default function definePropertiesNonBinary(self, fields, data) {
 
         if (Buffer.isBuffer(data)) {
             data = rlp.decode(data);
-            console.log(data);
         }
 
         if (Array.isArray(data)) {

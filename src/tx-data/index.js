@@ -1,4 +1,3 @@
-import {padToEven} from 'ethjs-util';
 import TxDataSend from './send';
 import TxDataMultisend from './multisend';
 import TxDataSell from './sell';
@@ -14,7 +13,7 @@ import TxDataUnbond from './unbond';
 import TxDataRedeemCheck from './redeem-check';
 import TxDataCreateMultisig from './create-multisig';
 
-import {TX_TYPE} from '../tx-types';
+import {TX_TYPE, normalizeTxType} from '../tx-types';
 
 const TX_DATA_CONSTRUCTOR = {
     [TX_TYPE.SEND]: TxDataSend,
@@ -41,25 +40,8 @@ const TX_DATA_CONSTRUCTOR = {
  * @return {TxDataSend|TxDataMultisend|TxDataSell|TxDataSellAll|TxDataBuy|TxDataCreateCoin|TxDataDeclareCandidacy|TxDataEditCandidate|TxDataSetCandidateOn|TxDataSetCandidateOff|TxDataDelegate|TxDataUnbond|TxDataRedeemCheck|TxDataCreateMultisig}
  */
 export default function TxData(data, txType) {
-    // Buffer or Uint8Array to TX_TYPE
-    if (txType.length && typeof txType !== 'string') {
-        txType = Buffer.from(txType).toString('hex');
-        txType = `0x${txType}`;
-    }
-    // invalid string to number
-    if (typeof txType === 'string' && txType.indexOf('0x') !== 0) {
-        txType = parseInt(txType, 10);
-    }
-    // number to TX_TYPE
-    if (typeof txType === 'number') {
-        txType = padToEven(txType.toString(16)).toUpperCase();
-        txType = `0x${txType}`;
-    }
-
+    txType = normalizeTxType(txType);
     const TxDataConstructor = TX_DATA_CONSTRUCTOR[txType];
-    if (!TxDataConstructor) {
-        throw new Error('Invalid tx type');
-    }
 
     return new TxDataConstructor(data);
 }
