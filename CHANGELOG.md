@@ -1,3 +1,6 @@
+## 7.2.0
+- add `normalizeTxType` methods
+
 ## 7.1.2
 - fix `defineProperties` with `allowNonBinaryArray` option 
 

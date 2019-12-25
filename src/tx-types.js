@@ -1,3 +1,5 @@
+import {padToEven} from 'ethjs-util';
+
 /**
  * @enum {string}
  */
@@ -82,3 +84,31 @@ fillList(TX_TYPE.MULTISEND, 'multisend');
 fillList(TX_TYPE.EDIT_CANDIDATE, 'edit candidate');
 
 export {txTypeList};
+
+/**
+ *
+ * @param {TX_TYPE|number|string|Buffer|Uint8Array} txType
+ * @return {TX_TYPE}
+ */
+export function normalizeTxType(txType) {
+    // Buffer or Uint8Array to TX_TYPE
+    if (txType.length && typeof txType !== 'string') {
+        txType = Buffer.from(txType).toString('hex');
+        txType = `0x${txType}`;
+    }
+    // invalid string to number
+    if (typeof txType === 'string' && txType.indexOf('0x') !== 0) {
+        txType = parseInt(txType, 10);
+    }
+    // number to TX_TYPE
+    if (typeof txType === 'number') {
+        txType = padToEven(txType.toString(16)).toUpperCase();
+        txType = `0x${txType}`;
+    }
+
+    if (!Object.values(TX_TYPE).includes(txType)) {
+        throw new Error('Invalid tx type');
+    }
+
+    return txType;
+}
