@@ -1,5 +1,8 @@
+## 7.2.1
+- fix `normalizeTxType` to work case insensitive
+
 ## 7.2.0
-- add `normalizeTxType` methods
+- add `normalizeTxType` method
 
 ## 7.1.2
 - fix `defineProperties` with `allowNonBinaryArray` option 

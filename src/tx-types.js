@@ -97,14 +97,17 @@ export function normalizeTxType(txType) {
         txType = `0x${txType}`;
     }
     // invalid string to number
-    if (typeof txType === 'string' && txType.indexOf('0x') !== 0) {
+    if (typeof txType === 'string' && txType.indexOf('0x') !== 0 && txType.indexOf('0X') !== 0) {
         txType = parseInt(txType, 10);
     }
     // number to TX_TYPE
     if (typeof txType === 'number') {
-        txType = padToEven(txType.toString(16)).toUpperCase();
+        txType = padToEven(txType.toString(16));
         txType = `0x${txType}`;
     }
+
+    txType = txType.toUpperCase();
+    txType = txType.replace(/^0X/, '0x');
 
     if (!Object.values(TX_TYPE).includes(txType)) {
         throw new Error('Invalid tx type');
