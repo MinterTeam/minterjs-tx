@@ -4,7 +4,7 @@ import config from './config';
 import MinterTx from '../src/index';
 import MinterTxSignature from '../src/tx-signature';
 import MinterSendTxData from '../src/tx-data/send';
-import {TX_TYPE_SEND} from '../src/tx-types';
+import {TX_TYPE} from '../src/tx-types';
 import {coinToBuffer} from '../src/helpers';
 
 const PRIVATE_KEY = new Buffer('5fa3a8b186f6cc2d748ee2d8c0eb7a905a7b73de0f2c34c5e7857c3b46f187da', 'hex');
@@ -35,7 +35,7 @@ export function postTx() {
                 chainId: '0x02',
                 gasPrice: '0x01',
                 gasCoin: coinToBuffer(FORM_DATA.coin),
-                type: TX_TYPE_SEND,
+                type: TX_TYPE.SEND,
                 data: txData.serialize(),
                 signatureType: '0x01'
             };

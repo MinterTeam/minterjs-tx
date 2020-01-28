@@ -2,12 +2,18 @@
   "name": "minterjs-tx",
   "version": "7.2.1",
   "description": "A simple module for creating, manipulating and signing Minter transactions",
+  "type": "module",
   "main": "dist/cjs/index.js",
   "module": "src/index.js",
   "browser": {
     "./dist/cjs/index.js": "./dist/index.js"
   },
   "unpkg": "dist/index.min.js",
+  "exports": {
+    "import": "./src/index.js",
+    "require": "./dist/cjs/index.js",
+    "browser": "./dist/index.js"
+  },
   "files": [
     "/src/",
     "/dist/"
@@ -58,17 +64,17 @@
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
-    "axios": "^0.19.1",
-    "babel-jest": "^24.9.0",
+    "axios": "^0.19.2",
+    "babel-jest": "^25.1.0",
     "coveralls": "^3.0.9",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.20.0",
-    "jest": "^24.9.0",
+    "jest": "^25.1.0",
     "minterjs-util": "0.15.0",
     "pre-commit": "^1.2.2",
-    "rollup": "^1.29.0",
+    "rollup": "^1.29.1",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
