@@ -1,5 +1,5 @@
-import defineProperties from '../define-properties';
-import TxDataSend from './send';
+import defineProperties from '../define-properties.js';
+import TxDataSend from './send.js';
 
 class TxDataMultisend {
     constructor(data) {

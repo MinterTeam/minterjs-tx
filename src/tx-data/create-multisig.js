@@ -1,4 +1,4 @@
-import defineProperties from '../define-properties';
+import defineProperties from '../define-properties.js';
 
 class TxDataCreateMultisig {
     constructor(data) {

@@ -1,4 +1,4 @@
-import {defineProperties} from 'ethereumjs-util/dist/object';
+import {defineProperties} from 'ethereumjs-util/dist/object.js';
 
 class TxDataSend {
     constructor(data) {

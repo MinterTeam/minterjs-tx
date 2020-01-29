@@ -1,5 +1,5 @@
 import * as rlp from 'rlp';
-import {baToJSON, toBuffer, stripZeros} from 'ethereumjs-util/dist/bytes';
+import {baToJSON, toBuffer, stripZeros} from 'ethereumjs-util/dist/bytes.js';
 import {stripHexPrefix} from 'ethjs-util';
 import assert from 'assert';
 

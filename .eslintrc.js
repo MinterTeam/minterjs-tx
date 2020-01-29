@@ -14,14 +14,14 @@ module.exports = {
   extends: 'airbnb-base',
   settings: {
     'import/resolver': {
-        alias: [
-            ['~/src', './src']
-        ]
+      alias: [
+        ['~/src', './src']
+      ]
     }
   },
   // // add your custom rules here
   rules: {
-    'indent': ["error", 4],
+    'indent': ['error', 4],
     // allow paren-less arrow functions
     'arrow-parens': 0,
     // allow async-await
@@ -37,18 +37,24 @@ module.exports = {
     'no-param-reassign': 0,
     'no-underscore-dangle': 0,
     'no-else-return': 0,
-    "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
+    'no-unused-vars': ['warn', { 'vars': 'all', 'args': 'after-used', 'ignoreRestSiblings': false }],
     'no-use-before-define' : 0,
     'object-curly-newline': 0,
-    'import/prefer-default-export': 1,
+    'import/extensions': ['error', 'always', {ignorePackages: true} ],
   },
   overrides: [
     {
       files: ['examples/*'],
       rules: {
-        "import/no-extraneous-dependencies": 0,
+        'import/no-extraneous-dependencies': 0,
         'no-console': 0,
       }
-    }
+    },
+    {
+      files: ['test/**/*'],
+      rules: {
+        'import/extensions': 0,
+      }
+    },
   ]
 };

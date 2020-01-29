@@ -1,3 +1,3 @@
-import TxDataUnbond from './delegate';
+import TxDataUnbond from './delegate.js';
 
 export default TxDataUnbond;

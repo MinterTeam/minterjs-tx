@@ -1,19 +1,19 @@
-import TxDataSend from './send';
-import TxDataMultisend from './multisend';
-import TxDataSell from './sell';
-import TxDataBuy from './buy';
-import TxDataSellAll from './sell-all';
-import TxDataCreateCoin from './create-coin';
-import TxDataDeclareCandidacy from './declare-candidacy';
-import TxDataEditCandidate from './edit-candidate';
-import TxDataSetCandidateOn from './set-candidate-on';
-import TxDataSetCandidateOff from './set-candidate-off';
-import TxDataDelegate from './delegate';
-import TxDataUnbond from './unbond';
-import TxDataRedeemCheck from './redeem-check';
-import TxDataCreateMultisig from './create-multisig';
+import TxDataSend from './send.js';
+import TxDataMultisend from './multisend.js';
+import TxDataSell from './sell.js';
+import TxDataBuy from './buy.js';
+import TxDataSellAll from './sell-all.js';
+import TxDataCreateCoin from './create-coin.js';
+import TxDataDeclareCandidacy from './declare-candidacy.js';
+import TxDataEditCandidate from './edit-candidate.js';
+import TxDataSetCandidateOn from './set-candidate-on.js';
+import TxDataSetCandidateOff from './set-candidate-off.js';
+import TxDataDelegate from './delegate.js';
+import TxDataUnbond from './unbond.js';
+import TxDataRedeemCheck from './redeem-check.js';
+import TxDataCreateMultisig from './create-multisig.js';
 
-import {TX_TYPE, normalizeTxType} from '../tx-types';
+import {TX_TYPE, normalizeTxType} from '../tx-types.js';
 
 const TX_DATA_CONSTRUCTOR = {
     [TX_TYPE.SEND]: TxDataSend,
