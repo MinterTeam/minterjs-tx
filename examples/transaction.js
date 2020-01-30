@@ -1,11 +1,11 @@
 import axios from 'axios';
 import {mPrefixToHex, convertToPip} from 'minterjs-util';
-import config from './config';
-import MinterTx from '../src/index';
-import MinterTxSignature from '../src/tx-signature';
-import MinterSendTxData from '../src/tx-data/send';
-import {TX_TYPE_SEND} from '../src/tx-types';
-import {coinToBuffer} from '../src/helpers';
+import config from './config.js';
+import MinterTx from '../src/index.js';
+import MinterTxSignature from '../src/tx-signature.js';
+import MinterSendTxData from '../src/tx-data/send.js';
+import {TX_TYPE} from '../src/tx-types.js';
+import {coinToBuffer} from '../src/helpers.js';
 
 const PRIVATE_KEY = new Buffer('5fa3a8b186f6cc2d748ee2d8c0eb7a905a7b73de0f2c34c5e7857c3b46f187da', 'hex');
 const ADDRESS = 'Mx7633980c000139dd3bd24a3f54e06474fa941e16';
@@ -35,7 +35,7 @@ export function postTx() {
                 chainId: '0x02',
                 gasPrice: '0x01',
                 gasCoin: coinToBuffer(FORM_DATA.coin),
-                type: TX_TYPE_SEND,
+                type: TX_TYPE.SEND,
                 data: txData.serialize(),
                 signatureType: '0x01'
             };

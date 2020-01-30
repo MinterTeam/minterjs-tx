@@ -4,6 +4,11 @@
 
 ## texas.0
 - add `maxSupply` field to `TxDataCreateCoin`
+
+## 7.2.2
+- update deps
+- minor refactoring
+
 ## 7.2.1
 - fix `normalizeTxType` to work case insensitive
 
