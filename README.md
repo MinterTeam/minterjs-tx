@@ -231,7 +231,10 @@ const txData = new TxDataSell({
    coinToSell: coinToBuffer('MNT'),
    valueToSell: `0x${convertToPip(10, 'hex')}`,
    coinToBuy: coinToBuffer('BELTCOIN'),
+   minimumValueToBuy: `0x${convertToPip(1, 'hex')}`,
 });
+
+// minimumValueToBuy define minimum amount of coins to get, e.g. BELTCOIN in code above
 ```
 
 #### Sell All
@@ -243,7 +246,10 @@ import {coinToBuffer} from 'minterjs-tx/src/helpers';
 const txData = new TxDataSellAll({
    coinToSell: coinToBuffer('MNT'),
    coinToBuy: coinToBuffer('BELTCOIN'),
+   minimumValueToBuy: `0x${convertToPip(1, 'hex')}`,
 });
+
+// minimumValueToBuy define minimum amount of coins to get, e.g. BELTCOIN in code above
 ```
 
 #### Buy
@@ -253,10 +259,13 @@ import TxDataBuy from 'minterjs-tx/src/tx-data/buy';
 import {coinToBuffer} from 'minterjs-tx/src/helpers';
 
 const txData = new TxDataBuy({
-     coinToBuy: coinToBuffer('MNT'),
-     valueToBuy: `0x${convertToPip(10, 'hex')}`,
-     coinToSell: coinToBuffer('BELTCOIN'),
- });
+   coinToBuy: coinToBuffer('MNT'),
+   valueToBuy: `0x${convertToPip(10, 'hex')}`,
+   coinToSell: coinToBuffer('BELTCOIN'),
+   maximumValueToSell: `0x${convertToPip(100, 'hex')}`,
+});
+ 
+// maximumValueToSell define maximum amount of coins to sell, e.g. BELTCOIN in code above
 ```
 
 #### Create Coin
