@@ -5,6 +5,9 @@
 ## texas.0
 - add `maxSupply` field to `TxDataCreateCoin`
 
+## 7.3.0
+- fix miltisig zero weights
+
 ## 7.2.2
 - update deps
 - minor refactoring

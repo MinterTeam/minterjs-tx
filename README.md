@@ -55,6 +55,7 @@ const tx = new Tx({
     gasCoin: coinToBuffer('BIP'), 
     type: TX_TYPE.SEND,
     data: txData.serialize(),
+    signatureType: '0x01',
 });
 
 // sign tx

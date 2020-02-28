@@ -49,6 +49,14 @@ export default function definePropertiesNonBinary(self, fields, data) {
                 } else {
                     v = v.map((item) => toBuffer(item));
                 }
+
+                // cast 0x00 to 0x, to represent in RLP as 0x80 instead of 0x00
+                v = v.map((item) => {
+                    if (item.toString('hex') === '00' /* && !field.allowZero */) {
+                        return Buffer.allocUnsafe(0);
+                    }
+                    return item;
+                });
             } else {
                 v = toBuffer(v);
 
