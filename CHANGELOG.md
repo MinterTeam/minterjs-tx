@@ -1,3 +1,6 @@
+## 7.3.0
+- fix miltisig zero weights
+
 ## 7.2.2
 - update deps
 - minor refactoring
