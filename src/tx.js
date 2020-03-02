@@ -1,10 +1,10 @@
 import * as rlp from 'rlp';
 import BN from 'bn.js';
-import {defineProperties} from 'ethereumjs-util/dist/object.js';
 import {rlphash} from 'ethereumjs-util/dist/hash.js';
 import {publicToAddress} from 'ethereumjs-util/dist/account.js';
 import {ecrecover} from 'ethereumjs-util/dist/signature.js';
 import {bufferToInt} from 'ethereumjs-util/dist/bytes.js';
+import defineProperties from './define-properties.js';
 
 // secp256k1n/2
 const N_DIV_2 = new BN('7fffffffffffffffffffffffffffffff5d576e7357a4501ddfe92f46681b20a0', 16);

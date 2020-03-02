@@ -1,3 +1,6 @@
+## 7.4.0
+- support `signatureData` as array of signatures
+
 ## 7.3.0
 - fix miltisig zero weights
 

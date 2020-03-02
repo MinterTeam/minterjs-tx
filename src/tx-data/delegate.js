@@ -1,4 +1,4 @@
-import {defineProperties} from 'ethereumjs-util/dist/object.js';
+import defineProperties from '../define-properties.js';
 
 class TxDataDelegate {
     constructor(data) {

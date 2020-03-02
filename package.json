@@ -1,6 +1,6 @@
 {
   "name": "minterjs-tx",
-  "version": "7.3.0",
+  "version": "7.4.0",
   "description": "A simple module for creating, manipulating and signing Minter transactions",
   "main": "dist/cjs/index.js",
   "module": "src/index.js",
@@ -59,6 +59,7 @@
     "@babel/core": "^7.8.6",
     "@babel/preset-env": "^7.8.6",
     "axios": "^0.19.2",
+    "babel-eslint": "^10.0.3",
     "babel-jest": "^25.1.0",
     "coveralls": "^3.0.9",
     "eslint": "^6.8.0",

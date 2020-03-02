@@ -5,8 +5,13 @@
 [![Coverage Status](https://img.shields.io/coveralls/github/MinterTeam/minterjs-tx/master.svg?style=flat-square)](https://coveralls.io/github/MinterTeam/minterjs-tx?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/MinterTeam/minterjs-tx/blob/master/LICENSE)
 
-A low level module for creating, manipulating and signing Minter transactions.
+## Warning
+This module is LOW LEVEL and not supposed to be used by regular developers. It is supposed to be used inside SDKs or for advanced use cases.
+
 Consider using [minter-js-sdk](https://github.com/MinterTeam/minter-js-sdk) to have full-featured solution.
+
+## About
+A low level module for creating, manipulating and signing Minter transactions.
 
 It is complemented by the following packages:
 - [minter-js-sdk](https://github.com/MinterTeam/minter-js-sdk) complete JS solution to work with Minter
@@ -368,7 +373,7 @@ const txData = new TxDataSetCandidateOff({
 });
 ```
 
-#### Create Multisig
+#### Create Multisig Address
 ```js
 import {toBuffer} from 'minterjs-util';
 import TxDataCreateMultisig from 'minterjs-tx/src/tx-data/create-multisig';
