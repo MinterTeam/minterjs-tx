@@ -1,5 +1,5 @@
-import {defineProperties} from 'ethereumjs-util/dist/object.js';
 import {ecsign} from 'ethereumjs-util/dist/signature.js';
+import defineProperties from './define-properties.js';
 
 class TxSignature {
     constructor(data) {

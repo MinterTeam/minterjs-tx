@@ -5,6 +5,9 @@
 ## texas.0
 - add `maxSupply` field to `TxDataCreateCoin`
 
+## 7.4.0
+- support `signatureData` as array of signatures
+
 ## 7.3.0
 - fix miltisig zero weights
 

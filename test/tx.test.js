@@ -100,3 +100,34 @@ describe('tx', () => {
         expect(unsignedTx.validate(false)).toEqual(false);
     });
 });
+
+describe('multisig', () => {
+    const txData = (new MinterTxDataSend({
+        to: mPrefixToHex(FORM_DATA.address),
+        coin: coinToBuffer(FORM_DATA.coin),
+        value: `0x${convertToPip(FORM_DATA.amount, 'hex')}`,
+    })).serialize();
+
+    const txParams = {
+        nonce: '0x01',
+        chainId: '0x01',
+        gasPrice: '0x01',
+        gasCoin: coinToBuffer('MNT'),
+        type: TX_TYPE.SEND,
+        data: txData,
+        payload: `0x${Buffer.from(FORM_DATA.payload, 'utf-8').toString('hex')}`,
+        signatureType: '0x02',
+    };
+    const tx = new MinterTx(txParams);
+    const signature = (new MinterTxSignature()).sign(tx.hash(false), PRIVATE_KEY).serialize();
+    tx.signatureData = [signature, signature];
+    const tx2 = new MinterTx({
+        ...txParams,
+        signatureData: [signature, signature],
+    });
+
+    test('tx construction', () => {
+        expect(tx.serialize().toString('hex'))
+            .toEqual(tx2.serialize().toString('hex'));
+    });
+});
