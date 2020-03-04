@@ -43,8 +43,7 @@ export default function definePropertiesNonBinary(self, fields, data) {
             return self.raw[i];
         }
         function setter(v) {
-            const isMultisig = field.name === 'signatureData' && self.signatureType?.toString('hex') === '02';
-            if ((field.allowNonBinaryArray || isMultisig) && Array.isArray(v)) {
+            if (field.allowNonBinaryArray && Array.isArray(v)) {
                 if (field.nonBinaryArrayTransform && typeof field.nonBinaryArrayTransform === 'function') {
                     v = v.map((item) => field.nonBinaryArrayTransform(item));
                 } else {

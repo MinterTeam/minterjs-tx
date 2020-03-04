@@ -1,3 +1,7 @@
+## 7.5.0
+- revert `signatureData` as array of signatures
+- add `TxMultisignature`
+
 ## 7.4.0
 - support `signatureData` as array of signatures
 
