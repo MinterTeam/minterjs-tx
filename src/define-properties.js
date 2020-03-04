@@ -1,7 +1,8 @@
 import * as rlp from 'rlp';
-import {baToJSON, toBuffer, stripZeros} from 'ethereumjs-util/dist/bytes.js';
+import {baToJSON, stripZeros} from 'ethereumjs-util/dist/bytes.js';
 import {stripHexPrefix} from 'ethjs-util';
 import assert from 'assert';
+import {toBuffer} from 'minterjs-util';
 
 const _typeof = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol' ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === 'function' && obj.constructor === Symbol && obj !== Symbol.prototype ? 'symbol' : typeof obj; };
 

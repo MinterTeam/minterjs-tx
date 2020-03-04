@@ -1,3 +1,6 @@
+## texas.12
+- accept Mx prefixed besides 0x prefixed strings in `defineProperties`
+
 ## texas.4
 - **BREAKING** rename data's `pubKey` fields to `publicKey`
 - **BREAKING** rename data's `rawCheck` field to `check`
