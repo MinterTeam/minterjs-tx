@@ -1,5 +1,6 @@
 import Tx from './tx.js';
 import TxSignature from './tx-signature.js';
+import TxMultisignature from './tx-multisignature.js';
 import TxData from './tx-data/index.js';
 import TxDataSend from './tx-data/send.js';
 import TxDataMultisend from './tx-data/multisend.js';
@@ -21,6 +22,7 @@ import {TX_TYPE, TX_TYPE_SEND, TX_TYPE_SELL, TX_TYPE_SELL_ALL, TX_TYPE_BUY, TX_T
 
 const MinterTx = Tx;
 const MinterTxSignature = TxSignature;
+const MinterTxMultisignature = TxMultisignature;
 const MinterTxDataSend = TxDataSend;
 const MinterTxDataMultisend = TxDataMultisend;
 const MinterTxDataSell = TxDataSell;
@@ -40,6 +42,7 @@ export default Tx;
 export {
     Tx,
     TxSignature,
+    TxMultisignature,
     TxData,
     TxDataSend,
     TxDataMultisend,
@@ -57,6 +60,7 @@ export {
     TxDataCreateMultisig,
     MinterTx,
     MinterTxSignature,
+    MinterTxMultisignature,
     MinterTxDataSend,
     MinterTxDataMultisend,
     MinterTxDataSell,

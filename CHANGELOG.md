@@ -1,3 +1,6 @@
+## 7.5.1
+- export `TxMultisignature`
+
 ## 7.5.0
 - revert `signatureData` as array of signatures
 - add `TxMultisignature`
