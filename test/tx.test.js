@@ -1,5 +1,5 @@
 import {mPrefixToHex, convertToPip} from 'minterjs-util';
-import {MinterTx, MinterTxSignature, MinterTxDataSend, TX_TYPE, coinToBuffer} from '~/src';
+import {MinterTx, MinterTxSignature, MinterTxDataSend, TxMultisignature, TX_TYPE, coinToBuffer} from '~/src';
 import decodeToArray from './decode-to-array';
 
 const PRIVATE_KEY = new Buffer('5fa3a8b186f6cc2d748ee2d8c0eb7a905a7b73de0f2c34c5e7857c3b46f187da', 'hex');
@@ -120,14 +120,13 @@ describe('multisig', () => {
     };
     const tx = new MinterTx(txParams);
     const signature = (new MinterTxSignature()).sign(tx.hash(false), PRIVATE_KEY).serialize();
-    tx.signatureData = [signature, signature];
-    const tx2 = new MinterTx({
-        ...txParams,
-        signatureData: [signature, signature],
-    });
+    tx.signatureData = new TxMultisignature({
+        multisig: 'Mx036525e438f62c1444c12c379e0249778a59542a',
+        signatures: [signature, signature],
+    }).serialize();
 
     test('tx construction', () => {
         expect(tx.serialize().toString('hex'))
-            .toEqual(tx2.serialize().toString('hex'));
+            .toEqual('f8ed0101018a4d4e540000000000000001aae98a4d4e540000000000000094376615b9a3187747dc7c32e51723515ee62e37dc880de0b6b3a76400008b637573746f6d20746578748002b8a3f8a194036525e438f62c1444c12c379e0249778a59542af88af8431ba0dd8f04aa9a39fc91b728199ccd42bfa346d72442dee18d8667c3f0ef76f27d58a077b04fd3a94c3f2108e891e086c5aba76f3f6134b7ca2b9c6a71e1d27dc87dc7f8431ba0dd8f04aa9a39fc91b728199ccd42bfa346d72442dee18d8667c3f0ef76f27d58a077b04fd3a94c3f2108e891e086c5aba76f3f6134b7ca2b9c6a71e1d27dc87dc7');
     });
 });

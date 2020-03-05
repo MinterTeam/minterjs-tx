@@ -112,12 +112,25 @@ class Tx {
         return rlphash(items);
     }
 
+    isSignatureTypeSingle() {
+        return bufferToInt(this.signatureType) === 1;
+    }
+
+    isSignatureTypeMulti() {
+        return bufferToInt(this.signatureType) === 2;
+    }
+
     /**
      * returns the sender's address
      * @return {Buffer}
      */
     getSenderAddress() {
         if (this._from) {
+            return this._from;
+        }
+        if (this.isSignatureTypeMulti()) {
+            const multiSignature = rlp.decode(this.signatureData);
+            this._from = multiSignature[0];
             return this._from;
         }
         const publicKey = this.getSenderPublicKey();
@@ -143,8 +156,27 @@ class Tx {
      * @return {Boolean}
      */
     verifySignature() {
-        const vrs = rlp.decode(this.signatureData);
-        const msgHash = this.hash(false);
+        if (this.isSignatureTypeSingle()) {
+            // Single signature
+            const vrs = rlp.decode(this.signatureData);
+            const msgHash = this.hash(false);
+
+            return this._verifySignature(msgHash, vrs);
+        } else {
+            // Multi signature
+            const multiSignature = rlp.decode(this.signatureData);
+            const msgHash = this.hash(false);
+            // eslint-disable-next-line consistent-return
+            multiSignature[1].forEach((item) => {
+                if (!this._verifySignature(msgHash, item)) {
+                    return false;
+                }
+            });
+            return true;
+        }
+    }
+
+    _verifySignature(msgHash, vrs) {
         // All transaction signatures whose s-value is greater than secp256k1n/2 are considered invalid.
         if (new BN(vrs[2]).cmp(N_DIV_2) === 1) {
             return false;
@@ -152,12 +184,15 @@ class Tx {
 
         try {
             const v = bufferToInt(vrs[0]);
-            this._senderPublicKey = ecrecover(msgHash, v, vrs[1], vrs[2]);
+            const senderPublicKey = ecrecover(msgHash, v, vrs[1], vrs[2]);
+            if (this.isSignatureTypeSingle()) {
+                this._senderPublicKey = senderPublicKey;
+            }
+
+            return !!senderPublicKey;
         } catch (e) {
             return false;
         }
-
-        return !!this._senderPublicKey;
     }
 
     /**

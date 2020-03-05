@@ -1,3 +1,6 @@
+## texas.13
+- fix `Tx` fields when multisignature is used 
+
 ## texas.12
 - accept Mx prefixed besides 0x prefixed strings in `defineProperties`
 
