@@ -1,14 +1,9 @@
-## texas.13
+## 8.0.0 - 2020-03-06
+Release to support minter-go-node v1.1 aka Texas
 - fix `Tx` fields when multisignature is used 
-
-## texas.12
 - accept Mx prefixed besides 0x prefixed strings in `defineProperties`
-
-## texas.4
 - **BREAKING** rename data's `pubKey` fields to `publicKey`
 - **BREAKING** rename data's `rawCheck` field to `check`
-
-## texas.0
 - add `maxSupply` field to `TxDataCreateCoin`
 
 ## 7.5.1
