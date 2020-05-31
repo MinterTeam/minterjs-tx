@@ -42,7 +42,7 @@ const tx = minterTx.MinterTx(...);
 import Tx from 'minterjs-tx';
 import TxSignature from 'minterjs-tx/src/tx-signature';
 import TxDataSend from 'minterjs-tx/src/tx-data/send';
-import {TX_TYPE} from 'minterjs-tx/src/tx-types';
+import {TX_TYPE} from 'minterjs-util/src/tx-types';
 import {coinToBuffer} from 'minterjs-tx/src/helpers';
 
 // make tx data
@@ -181,8 +181,8 @@ Select right `TxData...` constructor depending on `TX_TYPE`
 ```js
 import {toBuffer, convertToPip} from 'minterjs-util';
 import TxData from 'minterjs-tx/src/tx-data';
-import {TX_TYPE} from 'minterjs-tx/src/tx-types';
-import {coinToBuffer} from 'minterjs-tx/src/helpers';
+import {TX_TYPE} from 'minterjs-util/src/tx-types';
+import {coinToBuffer} from 'minterjs-util/src/coin-symbol';
 
 const txData = new TxData({
    coin: coinToBuffer('MNT'),
@@ -195,7 +195,7 @@ const txData = new TxData({
 ```js
 import {toBuffer, convertToPip} from 'minterjs-util';
 import TxDataSend from 'minterjs-tx/src/tx-data/send';
-import {coinToBuffer} from 'minterjs-tx/src/helpers';
+import {coinToBuffer} from 'minterjs-util/src/coin-symbol';
 
 const txData = new TxDataSend({
    coin: coinToBuffer('MNT'),
@@ -208,7 +208,7 @@ const txData = new TxDataSend({
 ```js
 import {toBuffer, convertToPip} from 'minterjs-util';
 import TxDataMultisend from 'minterjs-tx/src/tx-data/send';
-import {coinToBuffer} from 'minterjs-tx/src/helpers';
+import {coinToBuffer} from 'minterjs-util/src/coin-symbol';
 
 const txData = new TxDataMultisend({
     list: [
@@ -230,7 +230,7 @@ const txData = new TxDataMultisend({
 ```js
 import {convertToPip} from 'minterjs-util';
 import TxDataSell from 'minterjs-tx/src/tx-data/sell';
-import {coinToBuffer} from 'minterjs-tx/src/helpers';
+import {coinToBuffer} from 'minterjs-util/src/coin-symbol';
 
 const txData = new TxDataSell({
    coinToSell: coinToBuffer('MNT'),
@@ -246,7 +246,7 @@ const txData = new TxDataSell({
 ```js
 import {convertToPip} from 'minterjs-util';
 import TxDataSellAll from 'minterjs-tx/src/tx-data/sell-all';
-import {coinToBuffer} from 'minterjs-tx/src/helpers';
+import {coinToBuffer} from 'minterjs-util/src/coin-symbol';
 
 const txData = new TxDataSellAll({
    coinToSell: coinToBuffer('MNT'),
@@ -261,7 +261,7 @@ const txData = new TxDataSellAll({
 ```js
 import {convertToPip} from 'minterjs-util';
 import TxDataBuy from 'minterjs-tx/src/tx-data/buy';
-import {coinToBuffer} from 'minterjs-tx/src/helpers';
+import {coinToBuffer} from 'minterjs-util/src/coin-symbol';
 
 const txData = new TxDataBuy({
    coinToBuy: coinToBuffer('MNT'),
@@ -277,7 +277,7 @@ const txData = new TxDataBuy({
 ```js
 import {convertToPip} from 'minterjs-util';
 import TxDataCreateCoin from 'minterjs-tx/src/tx-data/create-coin';
-import {coinToBuffer} from 'minterjs-tx/src/helpers';
+import {coinToBuffer} from 'minterjs-util/src/coin-symbol';
 
 const txData = new TxDataCreateCoin({
    name: 'My coin',
@@ -292,7 +292,7 @@ const txData = new TxDataCreateCoin({
 ```js
 import {toBuffer, convertToPip} from 'minterjs-util';
 import TxDataDeclareCandidacy from 'minterjs-tx/src/tx-data/declare-candidacy';
-import {coinToBuffer} from 'minterjs-tx/src/helpers';
+import {coinToBuffer} from 'minterjs-util/src/coin-symbol';
 
 const txData = new TxDataDeclareCandidacy({
    address: toBuffer('Mx7633980c000139dd3bd24a3f54e06474fa941e16'),
@@ -307,7 +307,7 @@ const txData = new TxDataDeclareCandidacy({
 ```js
 import {toBuffer} from 'minterjs-util';
 import TxDataEditCandidate from 'minterjs-tx/src/tx-data/declare-candidacy';
-import {coinToBuffer} from 'minterjs-tx/src/helpers';
+import {coinToBuffer} from 'minterjs-util/src/coin-symbol';
 
 const txData = new TxDataEditCandidate({
    ownerAddress: toBuffer('Mx7633980c000139dd3bd24a3f54e06474fa941e16'),
@@ -320,7 +320,7 @@ const txData = new TxDataEditCandidate({
 ```js
 import {toBuffer, convertToPip} from 'minterjs-util';
 import TxDataDelegate from 'minterjs-tx/src/tx-data/delegate';
-import {coinToBuffer} from 'minterjs-tx/src/helpers';
+import {coinToBuffer} from 'minterjs-util/src/coin-symbol';
 
 const txData = new TxDataDelegate({
    publicKey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),
@@ -333,7 +333,7 @@ const txData = new TxDataDelegate({
 ```js
 import {toBuffer, convertToPip} from 'minterjs-util';
 import TxDataUnbond from 'minterjs-tx/src/tx-data/unbond';
-import {coinToBuffer} from 'minterjs-tx/src/helpers';
+import {coinToBuffer} from 'minterjs-util/src/coin-symbol';
 
 const txData = new TxDataUnbond({
    publicKey: toBuffer('Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3'),

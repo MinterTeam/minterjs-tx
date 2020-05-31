@@ -1,3 +1,6 @@
+## 8.1.0 - 2020-05-31
+- move tx-types and helpers to minterjs-util and reexport them back, it fixes cyclic dependency
+
 ## 8.0.0 - 2020-03-06
 Release to support minter-go-node v1.1 aka Texas
 - fix `Tx` fields when multisignature is used 
