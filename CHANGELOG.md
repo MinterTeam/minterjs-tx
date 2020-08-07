@@ -1,3 +1,6 @@
+## 8.2.0 - 2020-08-07
+- update deps
+
 ## 8.1.0 - 2020-05-31
 - move tx-types and helpers to minterjs-util and reexport them back, it fixes cyclic dependency
 

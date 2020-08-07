@@ -51,7 +51,6 @@ describe('tx send', () => {
     });
 });
 
-
 /** @see https://github.com/MinterTeam/minter-php-sdk/blob/master/tests/MinterSendCoinTxTest.php */
 describe('tx send (php test)', () => {
     const PHP_PRIVATE_KEY = new Buffer('b574d2a7151fcf0df573feae58015f85f6ebf38ea4b38c49196c6aceee27e189', 'hex');

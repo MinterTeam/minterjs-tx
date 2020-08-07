@@ -1,5 +1,5 @@
 import * as rlp from 'rlp';
-import {baToJSON, stripZeros} from 'ethereumjs-util/dist/bytes.js';
+import {baToJSON, unpadBuffer} from 'ethereumjs-util/dist/bytes.js';
 import {stripHexPrefix} from 'ethjs-util';
 import assert from 'assert';
 import {toBuffer} from 'minterjs-util';
@@ -66,7 +66,7 @@ export default function definePropertiesNonBinary(self, fields, data) {
                 }
 
                 if (field.allowLess && field.length) {
-                    v = stripZeros(v);
+                    v = unpadBuffer(v);
                     assert(field.length >= v.length, `The field ${field.name} must not have more ${field.length} bytes`);
                 } else if (!(field.allowZero && v.length === 0) && field.length) {
                     assert(field.length === v.length, `The field ${field.name} must have byte length of ${field.length}`);
