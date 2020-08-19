@@ -1,7 +1,7 @@
-import {MinterTxDataCreateCoin, coinToBuffer, TxData, TX_TYPE} from '~/src';
+import {TxDataCreateCoin, coinToBuffer, TxData, TX_TYPE} from '~/src';
 import decodeToArray from '../decode-to-array';
 
-describe('MinterTxDataCreateCoin', () => {
+describe('TxDataCreateCoin', () => {
     const params = {
         name: Buffer.from('My coin', 'utf-8'),
         symbol: coinToBuffer('MYCOIN'),
@@ -11,7 +11,7 @@ describe('MinterTxDataCreateCoin', () => {
         maxSupply: 100,
     };
 
-    const serializedTxData = (new MinterTxDataCreateCoin(params)).serialize();
+    const serializedTxData = (new TxDataCreateCoin(params)).serialize();
 
     test('rlp encoded fields', () => {
         expect(serializedTxData)

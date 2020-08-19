@@ -1,10 +1,10 @@
 import {toBuffer} from 'minterjs-util';
-import {MinterTxDataRedeemCheck} from '~/src';
+import {TxDataRedeemCheck} from '~/src';
 import decodeToArray from '../decode-to-array';
 
-describe('MinterTxDataRedeemCheck', () => {
+describe('TxDataRedeemCheck', () => {
     test('rlp encoded fields', () => {
-        const serializedTxData = (new MinterTxDataRedeemCheck({
+        const serializedTxData = (new TxDataRedeemCheck({
             check: toBuffer('Mcf8ab3101830f423f8a4d4e5400000000000000888ac7230489e800008a4d4e5400000000000000b841f69950a210196529f47df938f7af84958cdb336daf304616c37ef8bebca324910910f046e2ff999a7f2ab564bd690c1102ab65a20e0f27b57a93854339b60837011ba00a07cbf311148a6b62c1d1b34a5e0c2b6931a0547ede8b9dfb37aedff4480622a023ac93f7173ca41499624f06dfdd58c4e65d1279ea526777c194ddb623d57027'),
             proof: Buffer.from('7adcf6a62a66b177b266c767c5ebd906651fb66269401a8c66d053574dc29c67296b93af2e276fbdf5f606a98419ae69191450f67a2d273ee6c5d3016773c16d01', 'hex'),
         })).serialize();

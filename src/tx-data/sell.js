@@ -7,8 +7,9 @@ class TxDataSell {
         const fields = [
             {
                 name: 'coinToSell',
+                length: 4,
                 allowZero: true,
-                length: 10,
+                allowLess: true,
                 default: Buffer.from([]),
             },
             {
@@ -20,8 +21,9 @@ class TxDataSell {
             },
             {
                 name: 'coinToBuy',
+                length: 4,
                 allowZero: true,
-                length: 10,
+                allowLess: true,
                 default: Buffer.from([]),
             },
             {

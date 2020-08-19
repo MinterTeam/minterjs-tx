@@ -30,7 +30,8 @@ class Tx {
             default: Buffer.from([]),
         }, {
             name: 'gasCoin',
-            length: 10,
+            length: 4,
+            allowZero: true,
             allowLess: true,
             default: Buffer.from([]),
         }, {

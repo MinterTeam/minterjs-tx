@@ -12,8 +12,9 @@ class TxDataDelegate {
             },
             {
                 name: 'coin',
-                length: 10,
+                length: 4,
                 allowLess: true,
+                allowZero: true,
                 default: Buffer.from([]),
             },
             {

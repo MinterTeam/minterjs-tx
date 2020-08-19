@@ -21,6 +21,12 @@ class TxDataDeclareCandidacy {
                 allowZero: true,
                 length: 20,
                 default: Buffer.from([]),
+            },
+            {
+                name: 'controlAddress',
+                allowZero: true,
+                length: 20,
+                default: Buffer.from([]),
             }];
 
         /**

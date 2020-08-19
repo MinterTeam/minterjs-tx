@@ -1,38 +1,18 @@
 import defineProperties from '../define-properties.js';
 
-class TxDataDeclareCandidacy {
+class TxDataSetHaltBlock {
     constructor(data) {
         data = data || {};
         // Define Properties
         const fields = [
-            {
-                name: 'address',
-                allowZero: true,
-                length: 20,
-                default: Buffer.from([]),
-            },
             {
                 name: 'publicKey',
                 allowZero: true,
                 default: Buffer.from([]),
             },
             {
-                name: 'commission',
-                length: 1,
-                allowZero: true,
-                allowLess: true,
-                default: Buffer.from([]),
-            },
-            {
-                name: 'coin',
-                length: 4,
-                allowLess: true,
-                default: Buffer.from([]),
-            },
-            {
-                name: 'stake',
+                name: 'height',
                 length: 32,
-                allowZero: true,
                 allowLess: true,
                 default: Buffer.from([]),
             }];
@@ -49,4 +29,4 @@ class TxDataDeclareCandidacy {
     }
 }
 
-export default TxDataDeclareCandidacy;
+export default TxDataSetHaltBlock;

@@ -8,6 +8,7 @@ import TxDataSell from './tx-data/sell.js';
 import TxDataBuy from './tx-data/buy.js';
 import TxDataSellAll from './tx-data/sell-all.js';
 import TxDataCreateCoin from './tx-data/create-coin.js';
+import TxDataChangeCoinOwner from './tx-data/change-coin-owner.js';
 import TxDataDeclareCandidacy from './tx-data/declare-candidacy.js';
 import TxDataEditCandidate from './tx-data/edit-candidate.js';
 import TxDataSetCandidateOn from './tx-data/set-candidate-on.js';
@@ -16,26 +17,46 @@ import TxDataDelegate from './tx-data/delegate.js';
 import TxDataUnbond from './tx-data/unbond.js';
 import TxDataRedeemCheck from './tx-data/redeem-check.js';
 import TxDataCreateMultisig from './tx-data/create-multisig.js';
-import {coinToBuffer, bufferToCoin, formatCoin} from './helpers.js';
+import TxDataEditMultisigOwners from './tx-data/edit-multisig-owners.js';
+import TxDataSetHaltBlock from './tx-data/set-halt-block.js';
+import TxDataPriceVote from './tx-data/price-vote.js';
+import {coinToBuffer, bufferToCoin} from './helpers.js';
 import defineProperties from './define-properties.js';
-import {TX_TYPE, TX_TYPE_SEND, TX_TYPE_SELL, TX_TYPE_SELL_ALL, TX_TYPE_BUY, TX_TYPE_CREATE_COIN, TX_TYPE_DECLARE_CANDIDACY, TX_TYPE_SET_CANDIDATE_ON, TX_TYPE_SET_CANDIDATE_OFF, TX_TYPE_DELEGATE, TX_TYPE_UNBOND, TX_TYPE_REDEEM_CHECK, TX_TYPE_CREATE_MULTISIG, TX_TYPE_MULTISEND, TX_TYPE_EDIT_CANDIDATE, txTypeList, normalizeTxType} from './tx-types.js';
+import {TX_TYPE, txTypeList, normalizeTxType} from './tx-types.js';
 
+/** @deprecated use Tx instead */
 const MinterTx = Tx;
+/** @deprecated use TxSignature instead */
 const MinterTxSignature = TxSignature;
+/** @deprecated use TxMultisignature instead */
 const MinterTxMultisignature = TxMultisignature;
+/** @deprecated use TxDataSend instead */
 const MinterTxDataSend = TxDataSend;
+/** @deprecated use TxDataMultisend instead */
 const MinterTxDataMultisend = TxDataMultisend;
+/** @deprecated use TxDataSell instead */
 const MinterTxDataSell = TxDataSell;
+/** @deprecated use TxDataSellAll instead */
 const MinterTxDataSellAll = TxDataSellAll;
+/** @deprecated use TxDataBuy instead */
 const MinterTxDataBuy = TxDataBuy;
+/** @deprecated use TxDataCreateCoin instead */
 const MinterTxDataCreateCoin = TxDataCreateCoin;
+/** @deprecated use TxDataDeclareCandidacy instead */
 const MinterTxDataDeclareCandidacy = TxDataDeclareCandidacy;
+/** @deprecated use TxDataEditCandidate instead */
 const MinterTxDataEditCandidate = TxDataEditCandidate;
+/** @deprecated use TxDataSetCandidateOn instead */
 const MinterTxDataSetCandidateOn = TxDataSetCandidateOn;
+/** @deprecated use TxDataSetCandidateOff instead */
 const MinterTxDataSetCandidateOff = TxDataSetCandidateOff;
+/** @deprecated use TxDataDelegate instead */
 const MinterTxDataDelegate = TxDataDelegate;
+/** @deprecated use TxDataUnbond instead */
 const MinterTxDataUnbond = TxDataUnbond;
+/** @deprecated use TxDataRedeemCheck instead */
 const MinterTxDataRedeemCheck = TxDataRedeemCheck;
+/** @deprecated use TxDataCreateMultisig instead */
 const MinterTxDataCreateMultisig = TxDataCreateMultisig;
 
 export default Tx;
@@ -50,6 +71,7 @@ export {
     TxDataSellAll,
     TxDataBuy,
     TxDataCreateCoin,
+    TxDataChangeCoinOwner,
     TxDataDeclareCandidacy,
     TxDataEditCandidate,
     TxDataSetCandidateOn,
@@ -58,6 +80,9 @@ export {
     TxDataUnbond,
     TxDataRedeemCheck,
     TxDataCreateMultisig,
+    TxDataEditMultisigOwners,
+    TxDataSetHaltBlock,
+    TxDataPriceVote,
     MinterTx,
     MinterTxSignature,
     MinterTxMultisignature,
@@ -75,25 +100,10 @@ export {
     MinterTxDataUnbond,
     MinterTxDataRedeemCheck,
     MinterTxDataCreateMultisig,
-    formatCoin,
     coinToBuffer,
     bufferToCoin,
     defineProperties,
     TX_TYPE,
-    TX_TYPE_SEND,
-    TX_TYPE_SELL,
-    TX_TYPE_SELL_ALL,
-    TX_TYPE_BUY,
-    TX_TYPE_CREATE_COIN,
-    TX_TYPE_DECLARE_CANDIDACY,
-    TX_TYPE_SET_CANDIDATE_ON,
-    TX_TYPE_SET_CANDIDATE_OFF,
-    TX_TYPE_DELEGATE,
-    TX_TYPE_UNBOND,
-    TX_TYPE_REDEEM_CHECK,
-    TX_TYPE_CREATE_MULTISIG,
-    TX_TYPE_MULTISEND,
-    TX_TYPE_EDIT_CANDIDATE,
     txTypeList,
     normalizeTxType,
 };

@@ -27,8 +27,8 @@ or from browser
 ```html
 <script src="https://unpkg.com/minterjs-tx"></script>
 <script>
-const txData = minterTx.MinterTxDataSend(...);
-const tx = minterTx.MinterTx(...);
+const txData = minterTx.TxDataSend(...);
+const tx = minterTx.Tx(...);
 </script>
 ```
 
