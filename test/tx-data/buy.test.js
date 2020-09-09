@@ -45,7 +45,7 @@ describe('TxDataBuy', () => {
             .sign(tx.hash(false), Buffer.from('4daf02f92bf760b53d3c725d6bcc0da8e55d27ba5350c78d3a88f873e502bd6e', 'hex'))
             .serialize();
 
-        expect(`0x${tx.serialize().toString('hex')}`)
+        expect(tx.serializeToString())
             .toEqual(VALID_TX);
     });
 

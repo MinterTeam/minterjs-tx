@@ -82,9 +82,9 @@ describe('define', () => {
         assert.deepEqual(someOb.toJSON(true), expected, 'should produce the correctly labeled object');
 
         const someOb2 = {};
-        const rlpEncoded = someOb.serialize().toString('hex');
+        const rlpEncoded = someOb.serializeToString();
         defineProperties(someOb2, fields, rlpEncoded);
-        assert.equal(someOb2.serialize().toString('hex'), rlpEncoded, 'the constuctor should accept rlp encoded buffers');
+        assert.equal(someOb2.serializeToString(), rlpEncoded, 'the constuctor should accept rlp encoded buffers');
 
         const someOb3 = {};
         defineProperties(someOb3, fields, expectedArray);

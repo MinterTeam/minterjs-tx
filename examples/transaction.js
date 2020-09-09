@@ -58,14 +58,14 @@ export function postTx() {
             tx.signatureData = (new TxSignature()).sign(tx.hash(false), PRIVATE_KEY).serialize();
 
             console.log('---Serialized TX----');
-            console.log(tx.serialize().toString('hex'));
+            console.log(tx.serializeToString());
             console.log(`Senders Address: Mx${tx.getSenderAddress().toString('hex')}`);
 
             if (tx.verifySignature()) {
                 console.log('Signature Checks out!');
             }
 
-            return axios.get(`${config.nodeUrl}/send_transaction/0x${tx.serialize().toString('hex')}`)
+            return axios.get(`${config.nodeUrl}/send_transaction/${tx.serializeToString()}`)
                 .then((response) => {
                     console.log('Tx send', response.data);
                 })

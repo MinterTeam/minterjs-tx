@@ -68,10 +68,10 @@ const privateKey = Buffer.from('5fa3a8b186f6cc2d748ee2d8c0eb7a905a7b73de0f2c34c5
 tx.signatureData = (new TxSignature()).sign(tx.hash(false), privateKey).serialize();
 
 // get signed tx string
-const serializedTx = tx.serialize().toString('hex');
+const serializedTx = tx.serializeToString();
 
 // post tx to blockchain
-fetch(`https://minter-node-1.testnet.minter.network/send_transaction?tx=0x${serializedTx}`)
+fetch(`https://minter-node-1.testnet.minter.network/send_transaction?tx=${serializedTx}`)
     .then((response) => {
         console.log('Success!', response.json());
     });

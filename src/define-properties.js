@@ -38,6 +38,10 @@ export default function definePropertiesNonBinary(self, fields, data) {
         return rlp.encode(self.raw);
     };
 
+    self.serializeToString = function serialize() {
+        return `0x${self.serialize().toString('hex')}`;
+    };
+
     fields.forEach((field, i) => {
         self._fields.push(field.name);
         function getter() {

@@ -1,10 +1,11 @@
 ## wip
 - **BREAKING** change coin tickers to coin id. Affected: Tx, Buy, DeclareCandidacy, Delegate, Sell, SellAll, Send, Multisend, Unbond
-- **BREAKING** add `controlAddress` field to EditCandidateData
+- **BREAKING** add `controlAddress` and `newPublicKey` fields to EditCandidateData
 - **BREAKING** remove `TX_TYPE_*` types, use `TX_TYPE` instead. E.g. replace `TX_TYPE_SEND` with `TX_TYPE.SEND`
 - **BREAKING** remove `formatCoin`, use `coinToBuffer` instead
 - Deprecate `Minter` prefixed classes. E.g. use TxDataSend instead of MinterTxDataSend 
 - Add TxDataEditMultisigOwners, TxDataSetHaltBlock, TxDataChangeCoinOwner, TxDataPriceVote
+- Add `serializeToString()` method to Tx and TxData
 
 ## 8.2.1 - 2020-08-11
 - cleanup deps

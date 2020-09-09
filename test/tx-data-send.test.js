@@ -19,7 +19,7 @@ describe('tx send', () => {
     })).serialize();
 
     test('tx signature', () => {
-        const VALID_SIGNATURE = 'f87b0101018001a0df8094376615b9a3187747dc7c32e51723515ee62e37dc880de0b6b3a76400008b637573746f6d20746578748001b845f8431ca0114adc1e60dc78b90b77b2d9a105cae71aa4facc21aaabc33d6f5c34b782547aa02eac4a0044b9c12375b9e8a22505cc3e58d1f8559be08385e49347be36139555';
+        const VALID_SIGNATURE = '0xf87b0101018001a0df8094376615b9a3187747dc7c32e51723515ee62e37dc880de0b6b3a76400008b637573746f6d20746578748001b845f8431ca0114adc1e60dc78b90b77b2d9a105cae71aa4facc21aaabc33d6f5c34b782547aa02eac4a0044b9c12375b9e8a22505cc3e58d1f8559be08385e49347be36139555';
         const txParams = {
             nonce: '0x01',
             chainId: '0x01',
@@ -32,11 +32,11 @@ describe('tx send', () => {
         };
         const tx = new Tx(txParams);
         tx.signatureData = (new TxSignature()).sign(tx.hash(false), PRIVATE_KEY).serialize();
-        expect(tx.serialize().toString('hex')).toEqual(VALID_SIGNATURE);
+        expect(tx.serializeToString()).toEqual(VALID_SIGNATURE);
     });
 
     test('tx2 signature', () => {
-        const VALID_SIGNED_TX = 'f8700801018001a0df8094376615b9a3187747dc7c32e51723515ee62e37dc880de0b6b3a7640000808080b845f8431ba0ffcd56fb14a4308cc26edced8ec06a13f57fae3251b04f57dbb5724ef4bbdccda0411f083dd5bc356daede53d5adee487b61d29a9e45157233a50df377942524c8';
+        const VALID_SIGNED_TX = '0xf8700801018001a0df8094376615b9a3187747dc7c32e51723515ee62e37dc880de0b6b3a7640000808080b845f8431ba0ffcd56fb14a4308cc26edced8ec06a13f57fae3251b04f57dbb5724ef4bbdccda0411f083dd5bc356daede53d5adee487b61d29a9e45157233a50df377942524c8';
         const txParams = {
             nonce: '0x08',
             chainId: '0x01',
@@ -47,7 +47,7 @@ describe('tx send', () => {
         };
         const tx = new Tx(txParams);
         tx.signatureData = (new TxSignature()).sign(tx.hash(false), PRIVATE_KEY).serialize();
-        expect(tx.serialize().toString('hex')).toEqual(VALID_SIGNED_TX);
+        expect(tx.serializeToString()).toEqual(VALID_SIGNED_TX);
     });
 });
 
@@ -77,7 +77,7 @@ describe('tx send (php test)', () => {
     tx.signatureData = (new TxSignature()).sign(tx.hash(false), PHP_PRIVATE_KEY).serialize();
 
     test('tx signature', () => {
-        const VALID_SIGNED_TX = 'f8700180018001a0df8094fe60014a6e9ac91618f5d1cab3fd58cded61ee99880de0b6b3a7640000808001b845f8431ca0162716f7786cec5ebe82bced83240fc159b57d01ae205ad4f1105fc7a1f75374a05079ef73cbb04cb43592d405067de2399d02ba6bdc180f95f698d2ba39f6e285';
-        expect(tx.serialize().toString('hex')).toEqual(VALID_SIGNED_TX);
+        const VALID_SIGNED_TX = '0xf8700180018001a0df8094fe60014a6e9ac91618f5d1cab3fd58cded61ee99880de0b6b3a7640000808001b845f8431ca0162716f7786cec5ebe82bced83240fc159b57d01ae205ad4f1105fc7a1f75374a05079ef73cbb04cb43592d405067de2399d02ba6bdc180f95f698d2ba39f6e285';
+        expect(tx.serializeToString()).toEqual(VALID_SIGNED_TX);
     });
 });
