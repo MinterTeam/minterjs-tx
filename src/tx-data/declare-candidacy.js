@@ -7,20 +7,17 @@ class TxDataDeclareCandidacy {
         const fields = [
             {
                 name: 'address',
-                allowZero: true,
                 length: 20,
                 default: Buffer.from([]),
             },
             {
                 name: 'publicKey',
-                allowZero: true,
                 length: 32,
                 default: Buffer.from([]),
             },
             {
                 name: 'commission',
                 length: 1,
-                allowZero: true,
                 allowLess: true,
                 default: Buffer.from([]),
             },
@@ -33,7 +30,6 @@ class TxDataDeclareCandidacy {
             {
                 name: 'stake',
                 length: 32,
-                allowZero: true,
                 allowLess: true,
                 default: Buffer.from([]),
             }];

@@ -7,12 +7,10 @@ class TxDataRedeemCheck {
         const fields = [
             {
                 name: 'check',
-                allowZero: true,
                 default: Buffer.from([]),
             },
             {
                 name: 'proof',
-                allowZero: true,
                 length: 65,
                 default: Buffer.from([]),
             }];

@@ -12,7 +12,6 @@ class TxDataChangeCoinOwner {
                 default: Buffer.from([]),
             }, {
                 name: 'newOwner',
-                allowZero: true,
                 length: 20,
                 default: Buffer.from([]),
             }];

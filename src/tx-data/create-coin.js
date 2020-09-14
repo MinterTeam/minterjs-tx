@@ -17,25 +17,21 @@ class TxDataCreateCoin {
             }, {
                 name: 'initialAmount',
                 length: 32,
-                allowZero: true,
                 allowLess: true,
                 default: Buffer.from([]),
             }, {
                 name: 'initialReserve',
                 length: 32,
-                allowZero: true,
                 allowLess: true,
                 default: Buffer.from([]),
             }, {
                 name: 'constantReserveRatio',
                 length: 1,
-                allowZero: true,
                 allowLess: true,
                 default: Buffer.from([]),
             }, {
                 name: 'maxSupply',
                 length: 32,
-                allowZero: true,
                 allowLess: true,
                 default: Buffer.from([]),
             }];

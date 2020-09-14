@@ -8,18 +8,15 @@ class TxDataSend {
             {
                 name: 'coin',
                 length: 4,
-                allowZero: true,
                 allowLess: true,
                 default: Buffer.from([]),
             }, {
                 name: 'to',
-                allowZero: true,
                 length: 20,
                 default: Buffer.from([]),
             }, {
                 name: 'value',
                 length: 32,
-                allowZero: true,
                 allowLess: true,
                 default: Buffer.from([]),
             }];

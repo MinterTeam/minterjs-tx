@@ -8,28 +8,24 @@ class TxDataBuy {
             {
                 name: 'coinToBuy',
                 length: 4,
-                allowZero: true,
                 allowLess: true,
                 default: Buffer.from([]),
             },
             {
                 name: 'valueToBuy',
                 length: 32,
-                allowZero: true,
                 allowLess: true,
                 default: Buffer.from([]),
             },
             {
                 name: 'coinToSell',
                 length: 4,
-                allowZero: true,
                 allowLess: true,
                 default: Buffer.from([]),
             },
             {
                 name: 'maximumValueToSell',
                 length: 32,
-                allowZero: true,
                 allowLess: true,
                 default: Buffer.from([]),
             }];

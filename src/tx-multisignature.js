@@ -8,7 +8,6 @@ class TxMultisignature {
         const fields = [
             {
                 name: 'multisig',
-                allowZero: true,
                 length: 20,
                 default: Buffer.from([]),
             }, {

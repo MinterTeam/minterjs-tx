@@ -14,14 +14,12 @@ class TxDataSellAll {
             {
                 name: 'coinToBuy',
                 length: 4,
-                allowZero: true,
                 allowLess: true,
                 default: Buffer.from([]),
             },
             {
                 name: 'minimumValueToBuy',
                 length: 32,
-                allowZero: true,
                 allowLess: true,
                 default: Buffer.from([]),
             }];

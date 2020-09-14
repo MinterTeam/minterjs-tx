@@ -9,7 +9,6 @@ class TxDataPriceVote {
                 name: 'price',
                 length: 32,
                 allowLess: true,
-                allowZero: true,
                 default: Buffer.from([]),
             }];
 

@@ -31,7 +31,6 @@ class Tx {
         }, {
             name: 'gasCoin',
             length: 4,
-            allowZero: true,
             allowLess: true,
             default: Buffer.from([]),
         }, {
@@ -42,7 +41,6 @@ class Tx {
         }, {
             name: 'data',
             alias: 'input',
-            allowZero: true,
             default: Buffer.from([]),
         }, {
             name: 'payload',
@@ -55,11 +53,9 @@ class Tx {
         }, {
             name: 'signatureType',
             length: 1,
-            allowLess: true,
             default: Buffer.from([]),
         }, {
             name: 'signatureData',
-            allowZero: true,
             default: Buffer.from([]),
         }];
 

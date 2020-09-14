@@ -7,7 +7,6 @@ class TxDataDelegate {
         const fields = [
             {
                 name: 'publicKey',
-                allowZero: true,
                 length: 32,
                 default: Buffer.from([]),
             },
@@ -15,13 +14,11 @@ class TxDataDelegate {
                 name: 'coin',
                 length: 4,
                 allowLess: true,
-                allowZero: true,
                 default: Buffer.from([]),
             },
             {
                 name: 'stake',
                 length: 32,
-                allowZero: true,
                 allowLess: true,
                 default: Buffer.from([]),
             }];

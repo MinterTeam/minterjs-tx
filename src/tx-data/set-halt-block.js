@@ -7,7 +7,7 @@ class TxDataSetHaltBlock {
         const fields = [
             {
                 name: 'publicKey',
-                allowZero: true,
+                length: 32,
                 default: Buffer.from([]),
             },
             {

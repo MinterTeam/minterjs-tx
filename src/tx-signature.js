@@ -8,18 +8,15 @@ class TxSignature {
         const fields = [
             {
                 name: 'v',
-                allowZero: true,
                 default: Buffer.from([0x1c]),
             }, {
                 name: 'r',
                 length: 32,
-                allowZero: true,
                 allowLess: true,
                 default: Buffer.from([]),
             }, {
                 name: 's',
                 length: 32,
-                allowZero: true,
                 allowLess: true,
                 default: Buffer.from([]),
             }];
