@@ -19,7 +19,7 @@ import TxDataDelegate from './tx-data/delegate.js';
 import TxDataUnbond from './tx-data/unbond.js';
 import TxDataRedeemCheck from './tx-data/redeem-check.js';
 import TxDataCreateMultisig from './tx-data/create-multisig.js';
-import TxDataEditMultisigOwners from './tx-data/edit-multisig-owners.js';
+import TxDataEditMultisig from './tx-data/edit-multisig.js';
 import TxDataSetHaltBlock from './tx-data/set-halt-block.js';
 import TxDataPriceVote from './tx-data/price-vote.js';
 import {coinToBuffer, bufferToCoin} from './helpers.js';
@@ -84,7 +84,7 @@ export {
     TxDataUnbond,
     TxDataRedeemCheck,
     TxDataCreateMultisig,
-    TxDataEditMultisigOwners,
+    TxDataEditMultisig,
     TxDataSetHaltBlock,
     TxDataPriceVote,
     MinterTx,

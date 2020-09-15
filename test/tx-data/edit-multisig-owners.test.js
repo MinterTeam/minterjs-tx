@@ -1,9 +1,9 @@
-import {TxDataEditMultisigOwners} from '~/src';
+import {TxDataEditMultisig} from '~/src';
 import decodeToArray from '../decode-to-array';
 
-describe('TxDataEditMultisigOwners', () => {
+describe('TxDataEditMultisig', () => {
     test('rlp encoded fields', () => {
-        const txData = new TxDataEditMultisigOwners({
+        const txData = new TxDataEditMultisig({
             addresses: ['0xee81347211c72524338f9680072af90744333146', '0xee81347211c72524338f9680072af90744333145', '0xee81347211c72524338f9680072af90744333144'],
             weights: [1, 3, 5],
             threshold: 7,
@@ -22,7 +22,7 @@ describe('TxDataEditMultisigOwners', () => {
     });
 
     test('rlp encoded fields 2', () => {
-        const txData = new TxDataEditMultisigOwners({
+        const txData = new TxDataEditMultisig({
             addresses: ['0xee81347211c72524338f9680072af90744333146', '0xee81347211c72524338f9680072af90744333145', '0xee81347211c72524338f9680072af90744333144'],
             weights: [33, 55, 557],
             threshold: 350,
@@ -41,7 +41,7 @@ describe('TxDataEditMultisigOwners', () => {
     });
 
     test('correct 0 weight', () => {
-        const txData = new TxDataEditMultisigOwners({
+        const txData = new TxDataEditMultisig({
             addresses: ['0xee81347211c72524338f9680072af90744333146', '0xee81347211c72524338f9680072af90744333145'],
             weights: [1, 0],
             threshold: 7,
@@ -60,12 +60,12 @@ describe('TxDataEditMultisigOwners', () => {
     });
 
     test('data from rlp', () => {
-        const txData = new TxDataEditMultisigOwners({
+        const txData = new TxDataEditMultisig({
             addresses: ['0xee81347211c72524338f9680072af90744333146', '0xee81347211c72524338f9680072af90744333145', '0xee81347211c72524338f9680072af90744333144'],
             weights: [1, 3, 5],
             threshold: 7,
         });
-        const txDataFromRlp = new TxDataEditMultisigOwners(txData.serialize());
+        const txDataFromRlp = new TxDataEditMultisig(txData.serialize());
 
         expect(txData.list)
             .toEqual(txDataFromRlp.list);

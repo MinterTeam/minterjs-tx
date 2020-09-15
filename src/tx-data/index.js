@@ -16,7 +16,7 @@ import TxDataDelegate from './delegate.js';
 import TxDataUnbond from './unbond.js';
 import TxDataRedeemCheck from './redeem-check.js';
 import TxDataCreateMultisig from './create-multisig.js';
-import TxDataEditMultisigOwners from './edit-multisig-owners.js';
+import TxDataEditMultisig from './edit-multisig.js';
 import TxDataPriceVote from './price-vote.js';
 
 import {TX_TYPE, normalizeTxType} from '../tx-types.js';
@@ -39,7 +39,7 @@ const TX_DATA_CONSTRUCTOR = {
     [TX_TYPE.SET_HALT_BLOCK]: TxDataSetHaltBlock,
     [TX_TYPE.RECREATE_COIN]: TxDataRecreateCoin,
     [TX_TYPE.EDIT_COIN_OWNER]: TxDataEditCoinOwner,
-    [TX_TYPE.EDIT_MULTISIG_OWNERS]: TxDataEditMultisigOwners,
+    [TX_TYPE.EDIT_MULTISIG]: TxDataEditMultisig,
     [TX_TYPE.PRICE_VOTE]: TxDataPriceVote,
     [TX_TYPE.EDIT_CANDIDATE_PUBLIC_KEY]: TxDataEditCandidatePublicKey,
 };
