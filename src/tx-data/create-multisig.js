@@ -2,19 +2,15 @@ import defineProperties from '../define-properties.js';
 
 class TxDataCreateMultisig {
     constructor(data) {
-        data = data || {};
         // Define Properties
         const fields = [
             {
                 name: 'threshold',
-                default: Buffer.from([]),
             }, {
                 name: 'weights',
-                default: Buffer.from([]),
                 allowNonBinaryArray: true,
             }, {
                 name: 'addresses',
-                default: Buffer.from([]),
                 allowNonBinaryArray: true,
             }];
 

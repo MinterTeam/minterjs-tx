@@ -1,6 +1,6 @@
 import defineProperties from '../define-properties.js';
 
-class TxDataSetHaltBlock {
+class TxDataEditCandidatePublicKey {
     constructor(data) {
         // Define Properties
         const fields = [
@@ -9,10 +9,10 @@ class TxDataSetHaltBlock {
                 length: 32,
             },
             {
-                name: 'height',
+                name: 'newPublicKey',
                 length: 32,
-                allowLess: true,
-            }];
+            },
+        ];
 
         /**
          * Returns the rlp encoding of the transaction
@@ -26,4 +26,4 @@ class TxDataSetHaltBlock {
     }
 }
 
-export default TxDataSetHaltBlock;
+export default TxDataEditCandidatePublicKey;

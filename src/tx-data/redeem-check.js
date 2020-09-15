@@ -2,17 +2,14 @@ import defineProperties from '../define-properties.js';
 
 class TxDataRedeemCheck {
     constructor(data) {
-        data = data || {};
         // Define Properties
         const fields = [
             {
                 name: 'check',
-                default: Buffer.from([]),
             },
             {
                 name: 'proof',
                 length: 65,
-                default: Buffer.from([]),
             }];
 
         /**

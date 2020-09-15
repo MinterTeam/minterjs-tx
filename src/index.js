@@ -8,9 +8,11 @@ import TxDataSell from './tx-data/sell.js';
 import TxDataBuy from './tx-data/buy.js';
 import TxDataSellAll from './tx-data/sell-all.js';
 import TxDataCreateCoin from './tx-data/create-coin.js';
-import TxDataChangeCoinOwner from './tx-data/change-coin-owner.js';
+import TxDataRecreateCoin from './tx-data/recreate-coin.js';
+import TxDataEditCoinOwner from './tx-data/edit-coin-owner.js';
 import TxDataDeclareCandidacy from './tx-data/declare-candidacy.js';
 import TxDataEditCandidate from './tx-data/edit-candidate.js';
+import TxDataEditCandidatePublicKey from './tx-data/edit-candidate-public-key.js';
 import TxDataSetCandidateOn from './tx-data/set-candidate-on.js';
 import TxDataSetCandidateOff from './tx-data/set-candidate-off.js';
 import TxDataDelegate from './tx-data/delegate.js';
@@ -71,9 +73,11 @@ export {
     TxDataSellAll,
     TxDataBuy,
     TxDataCreateCoin,
-    TxDataChangeCoinOwner,
+    TxDataRecreateCoin,
+    TxDataEditCoinOwner,
     TxDataDeclareCandidacy,
     TxDataEditCandidate,
+    TxDataEditCandidatePublicKey,
     TxDataSetCandidateOn,
     TxDataSetCandidateOff,
     TxDataDelegate,

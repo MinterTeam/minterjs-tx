@@ -2,13 +2,11 @@ import defineProperties from '../define-properties.js';
 
 class TxDataSetCandidateOn {
     constructor(data) {
-        data = data || {};
         // Define Properties
         const fields = [
             {
                 name: 'publicKey',
                 length: 32,
-                default: Buffer.from([]),
             }];
 
         /**

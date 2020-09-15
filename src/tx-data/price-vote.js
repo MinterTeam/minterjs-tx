@@ -2,14 +2,12 @@ import defineProperties from '../define-properties.js';
 
 class TxDataPriceVote {
     constructor(data) {
-        data = data || {};
         // Define Properties
         const fields = [
             {
                 name: 'price',
                 length: 32,
                 allowLess: true,
-                default: Buffer.from([]),
             }];
 
         /**

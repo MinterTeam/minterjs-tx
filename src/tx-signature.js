@@ -13,12 +13,10 @@ class TxSignature {
                 name: 'r',
                 length: 32,
                 allowLess: true,
-                default: Buffer.from([]),
             }, {
                 name: 's',
                 length: 32,
                 allowLess: true,
-                default: Buffer.from([]),
             }];
 
         /**

@@ -1,19 +1,15 @@
 import defineProperties from '../define-properties.js';
 
-class TxDataChangeCoinOwner {
+class TxDataEditCoinOwner {
     constructor(data) {
-        data = data || {};
         // Define Properties
         const fields = [
             {
                 name: 'symbol',
-                allowZero: true,
                 length: 10,
-                default: Buffer.from([]),
             }, {
                 name: 'newOwner',
                 length: 20,
-                default: Buffer.from([]),
             }];
 
         /**
@@ -28,4 +24,4 @@ class TxDataChangeCoinOwner {
     }
 }
 
-export default TxDataChangeCoinOwner;
+export default TxDataEditCoinOwner;

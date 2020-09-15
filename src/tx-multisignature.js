@@ -9,10 +9,8 @@ class TxMultisignature {
             {
                 name: 'multisig',
                 length: 20,
-                default: Buffer.from([]),
             }, {
                 name: 'signatures',
-                default: Buffer.from([]),
                 allowNonBinaryArray: true,
                 nonBinaryArrayTransform(item) {
                     return (new TxSignature(item)).raw;

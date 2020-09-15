@@ -17,31 +17,23 @@ class Tx {
             name: 'nonce',
             length: 32,
             allowLess: true,
-            default: Buffer.from([]),
         }, {
             name: 'chainId',
             length: 1,
-            allowLess: true,
-            default: Buffer.from([]),
         }, {
             name: 'gasPrice',
             length: 32,
             allowLess: true,
-            default: Buffer.from([]),
         }, {
             name: 'gasCoin',
             length: 4,
             allowLess: true,
-            default: Buffer.from([]),
         }, {
             name: 'type',
             length: 1,
-            allowLess: true,
-            default: Buffer.from([]),
         }, {
             name: 'data',
             alias: 'input',
-            default: Buffer.from([]),
         }, {
             name: 'payload',
             allowZero: true,
@@ -53,6 +45,7 @@ class Tx {
         }, {
             name: 'signatureType',
             length: 1,
+            allowLess: true,
             default: Buffer.from([]),
         }, {
             name: 'signatureData',

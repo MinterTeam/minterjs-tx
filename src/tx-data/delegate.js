@@ -2,25 +2,21 @@ import defineProperties from '../define-properties.js';
 
 class TxDataDelegate {
     constructor(data) {
-        data = data || {};
         // Define Properties
         const fields = [
             {
                 name: 'publicKey',
                 length: 32,
-                default: Buffer.from([]),
             },
             {
                 name: 'coin',
                 length: 4,
                 allowLess: true,
-                default: Buffer.from([]),
             },
             {
                 name: 'stake',
                 length: 32,
                 allowLess: true,
-                default: Buffer.from([]),
             }];
 
         /**
