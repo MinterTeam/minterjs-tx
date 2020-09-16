@@ -9,6 +9,8 @@ class TxDataRedeemCheck {
             },
             {
                 name: 'proof',
+                // allow DataRedeemCheck without proof (it will be filled later from password)
+                allowZero: true,
                 length: 65,
             }];
 
