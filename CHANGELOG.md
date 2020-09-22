@@ -1,10 +1,11 @@
-## wip
+## 9.0.0
+Support of minter-go-node v1.2 aka Chili
 - **BREAKING** change coin tickers to coin id. Affected: Tx, Buy, DeclareCandidacy, Delegate, Sell, SellAll, Send, Multisend, Unbond
-- **BREAKING** add `controlAddress` and `newPublicKey` fields to EditCandidateData
+- **BREAKING** add `controlAddress` field to EditCandidateData
 - **BREAKING** remove `TX_TYPE_...` types, use `TX_TYPE` instead. E.g. replace `TX_TYPE_SEND` with `TX_TYPE.SEND`
 - **BREAKING** remove `formatCoin`, use `coinToBuffer` instead 
 - Deprecate `Minter` prefixed classes. E.g. use TxDataSend instead of MinterTxDataSend 
-- Add `TxDataEditMultisig`, `TxDataSetHaltBlock`, `TxDataEditCoinOwner`, `TxDataPriceVote`, `TxDataEditCandidatePublicKey`
+- Add `TxDataEditMultisig`, `TxDataSetHaltBlock`, `TxDataRecreateCoin`, `TxDataEditCoinOwner`, `TxDataPriceVote`, `TxDataEditCandidatePublicKey`
 - Add `serializeToString()` method to Tx and TxData
 - `TxData...` now can be initialized empty
 
@@ -18,7 +19,7 @@
 - move tx-types and helpers to minterjs-util and reexport them back, it fixes cyclic dependency
 
 ## 8.0.0 - 2020-03-06
-Release to support minter-go-node v1.1 aka Texas
+Support of minter-go-node v1.1 aka Texas
 - fix `Tx` fields when multisignature is used 
 - accept Mx prefixed besides 0x prefixed strings in `defineProperties`
 - **BREAKING** rename data's `pubKey` fields to `publicKey`
