@@ -57,7 +57,7 @@ describe('define', () => {
         });
     });
 
-    it('it should accept rlp encoded intial data', () => {
+    it('should accept rlp encoded initial data', () => {
         const someOb = {};
         const data = {
             aword: '0x01',
@@ -91,18 +91,18 @@ describe('define', () => {
         assert.deepEqual(someOb.toJSON(), expectedArray, 'should produce the correctly object');
     });
 
-    it('it should not accept invalid values in the constuctor', () => {
+    it('should not accept invalid values in the constructor', () => {
         const someOb = {};
         assert.throws(() => {
             defineProperties(someOb, fields, 5);
         }, 'should throw on nonsensical data');
 
         assert.throws(() => {
-            defineProperties(someOb, fields, Array(6));
+            defineProperties(someOb, fields, new Array(6));
         }, 'should throw on invalid arrays');
     });
 
-    it('alias should work ', () => {
+    it('alias should work', () => {
         const someOb = {};
         const data = {
             aword: '0x01',

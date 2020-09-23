@@ -2,7 +2,7 @@
 
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
+  // parser: 'babel-eslint',
   // parserOptions: {
   //   sourceType: 'module'
   // },
@@ -10,8 +10,14 @@ module.exports = {
     browser: true,
     jest: true,
   },
-  // https://github.com/standard/standard/blob/master/docs/RULES-en.md
-  extends: 'airbnb-base',
+  plugins: [
+    'jest',
+    'security',
+    'unicorn',
+  ],
+  extends: [
+    'airbnb-base',
+  ],
   settings: {
     'import/resolver': {
       alias: [
@@ -58,6 +64,22 @@ module.exports = {
   },
   overrides: [
     {
+      files: ['src/**/*'],
+      extends: [
+        'plugin:security/recommended',
+        'plugin:unicorn/recommended',
+      ],
+      rules: {
+        // full path import is per spec
+        'unicorn/import-index': 0,
+        // IE11 support needed
+        'unicorn/prefer-includes': 0,
+        // allow lowercase hex number
+        'unicorn/number-literal-case': 0,
+        'unicorn/prefer-optional-catch-binding': 0,
+      }
+    },
+    {
       files: ['examples/**/*', 'test/**/*'],
       rules: {
         'import/no-extraneous-dependencies': 0,
@@ -66,6 +88,9 @@ module.exports = {
     },
     {
       files: ['test/**/*'],
+      extends: [
+        'plugin:jest/recommended',
+      ],
       rules: {
         'import/extensions': 0,
       }

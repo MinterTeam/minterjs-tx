@@ -4,14 +4,13 @@ export default function decodeToArray(serializedTxData) {
     if (Array.isArray(serializedTxData)) {
         serializedTxData = Buffer.from(serializedTxData);
     }
-    return rlp.decode(serializedTxData).reduce((accumulator, item) => {
+    return rlp.decode(serializedTxData).map((item) => {
         // if underlying data is non binary array
         // for create-multisig.test.js
         if (Array.isArray(item)) {
             item = rlp.encode(item);
         }
         // convert underlying buffer to array
-        accumulator.push([...item]);
-        return accumulator;
-    }, []);
+        return [...item];
+    });
 }

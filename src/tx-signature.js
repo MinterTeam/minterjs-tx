@@ -32,12 +32,12 @@ class TxSignature {
 
     /**
      * sign a transaction with a given a private key
-     * @param msgHash
+     * @param messageHash
      * @param {Buffer} privateKey
      */
-    sign(msgHash, privateKey) {
-        const sig = ecsign(msgHash, privateKey);
-        Object.assign(this, sig);
+    sign(messageHash, privateKey) {
+        const rsvSig = ecsign(messageHash, privateKey);
+        Object.assign(this, rsvSig);
 
         return this;
     }

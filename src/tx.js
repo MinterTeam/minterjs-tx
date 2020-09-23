@@ -133,6 +133,7 @@ class Tx {
      * @return {Buffer}
      */
     getSenderPublicKey() {
+        // eslint-disable-next-line unicorn/explicit-length-check
         if (!this._senderPublicKey || !this._senderPublicKey.length) {
             if (!this.verifySignature()) {
                 throw new Error('Invalid Signature');
@@ -149,16 +150,16 @@ class Tx {
         if (this.isSignatureTypeSingle()) {
             // Single signature
             const vrs = rlp.decode(this.signatureData);
-            const msgHash = this.hash(false);
+            const messageHash = this.hash(false);
 
-            return this._verifySignature(msgHash, vrs);
+            return this._verifySignature(messageHash, vrs);
         } else {
             // Multi signature
             const multiSignature = rlp.decode(this.signatureData);
-            const msgHash = this.hash(false);
+            const messageHash = this.hash(false);
             // eslint-disable-next-line consistent-return
             multiSignature[1].forEach((item) => {
-                if (!this._verifySignature(msgHash, item)) {
+                if (!this._verifySignature(messageHash, item)) {
                     return false;
                 }
             });
@@ -166,7 +167,7 @@ class Tx {
         }
     }
 
-    _verifySignature(msgHash, vrs) {
+    _verifySignature(messageHash, vrs) {
         // All transaction signatures whose s-value is greater than secp256k1n/2 are considered invalid.
         if (new BN(vrs[2]).cmp(N_DIV_2) === 1) {
             return false;
@@ -174,13 +175,13 @@ class Tx {
 
         try {
             const v = bufferToInt(vrs[0]);
-            const senderPublicKey = ecrecover(msgHash, v, vrs[1], vrs[2]);
+            const senderPublicKey = ecrecover(messageHash, v, vrs[1], vrs[2]);
             if (this.isSignatureTypeSingle()) {
                 this._senderPublicKey = senderPublicKey;
             }
 
             return !!senderPublicKey;
-        } catch (e) {
+        } catch (error) {
             return false;
         }
     }

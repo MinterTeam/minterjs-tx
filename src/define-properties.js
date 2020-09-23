@@ -4,6 +4,7 @@ import {stripHexPrefix} from 'ethjs-util';
 import assert from 'assert';
 import {toBuffer} from 'minterjs-util';
 
+// eslint-disable-next-line unicorn/prevent-abbreviations
 const _typeof = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol' ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === 'function' && obj.constructor === Symbol && obj !== Symbol.prototype ? 'symbol' : typeof obj; };
 
 /**
@@ -24,6 +25,7 @@ export default function definePropertiesNonBinary(self, fields, data) {
 
     // attach the `toJSON`
     self.toJSON = function (label) {
+        /* eslint-disable unicorn/prevent-abbreviations */
         if (label) {
             const obj = {};
             self._fields.forEach((field) => {
@@ -69,10 +71,10 @@ export default function definePropertiesNonBinary(self, fields, data) {
                     v = Buffer.from([]);
                 }
 
-                if (field.allowLess && field.length) {
+                if (field.allowLess && field.length > 0) {
                     v = unpadBuffer(v);
                     assert(field.length >= v.length, `The field ${field.name} must not have more ${field.length} bytes`);
-                } else if (!(field.allowZero && v.length === 0) && field.length) {
+                } else if (!(field.allowZero && v.length === 0) && field.length > 0) {
                     assert(field.length === v.length, `The field ${field.name} must have byte length of ${field.length}`);
                 }
             }
