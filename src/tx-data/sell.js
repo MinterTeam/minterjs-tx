@@ -1,6 +1,6 @@
 import defineProperties from '../define-properties.js';
 
-class TxDataSell {
+export default class TxDataSell {
     constructor(data) {
         // Define Properties
         const fields = [
@@ -36,5 +36,3 @@ class TxDataSell {
         defineProperties(this, fields, data);
     }
 }
-
-export default TxDataSell;

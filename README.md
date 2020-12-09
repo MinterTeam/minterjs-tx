@@ -8,7 +8,7 @@
 ## Warning
 This module is LOW LEVEL and not supposed to be used by regular developers. It is supposed to be used inside SDKs or for advanced use cases.
 
-Consider using [minter-js-sdk](https://github.com/MinterTeam/minter-js-sdk) to have full-featured solution.
+Consider using [minter-js-sdk](https://github.com/MinterTeam/minter-js-sdk) instead to have full-featured solution.
 
 ## About
 A low level module for creating, manipulating and signing Minter transactions.
@@ -158,20 +158,31 @@ const publicKey = tx.getSenderPublicKey();
 
 
 ### Tx types
-`TX_TYPE.SEND`:              `'0x01'`
-`TX_TYPE.SELL`:              `'0x02'`
-`TX_TYPE.SELL_ALL`:          `'0x03'`
-`TX_TYPE.BUY`:               `'0x04'`
-`TX_TYPE.CREATE_COIN`:       `'0x05'`
-`TX_TYPE.DECLARE_CANDIDACY`: `'0x06'`
-`TX_TYPE.DELEGATE`:          `'0x07'`
-`TX_TYPE.UNBOND`:            `'0x08'`
-`TX_TYPE.REDEEM_CHECK`:      `'0x09'`
-`TX_TYPE.SET_CANDIDATE_ON`:  `'0x0A'`
-`TX_TYPE.SET_CANDIDATE_OFF`: `'0x0B'`
-`TX_TYPE.CREATE_MULTISIG`:   `'0x0C'`
-`TX_TYPE.MULTISEND`:         `'0x0D'`
-`TX_TYPE.EDIT_CANDIDATE`:    `'0x0E'`
+`TX_TYPE.SEND`:                 `'0x01'`
+`TX_TYPE.SELL`:                 `'0x02'`
+`TX_TYPE.SELL_ALL`:             `'0x03'`
+`TX_TYPE.BUY`:                  `'0x04'`
+`TX_TYPE.CREATE_COIN`:          `'0x05'`
+`TX_TYPE.DECLARE_CANDIDACY`:    `'0x06'`
+`TX_TYPE.DELEGATE`:             `'0x07'`
+`TX_TYPE.UNBOND`:               `'0x08'`
+`TX_TYPE.REDEEM_CHECK`:         `'0x09'`
+`TX_TYPE.SET_CANDIDATE_ON`:     `'0x0A'`
+`TX_TYPE.SET_CANDIDATE_OFF`:    `'0x0B'`
+`TX_TYPE.CREATE_MULTISIG`:      `'0x0C'`
+`TX_TYPE.MULTISEND`:            `'0x0D'`
+`TX_TYPE.EDIT_CANDIDATE`:       `'0x0E'`
+`TX_TYPE.SET_HALT_BLOCK`:       `'0x0F'`
+`TX_TYPE.RECREATE_COIN`:        `'0x10'`
+`TX_TYPE.EDIT_COIN_OWNER`:      `'0x11'`
+`TX_TYPE.EDIT_MULTISIG`:        `'0x12'`
+`TX_TYPE.PRICE_VOTE`:           `'0x13'`
+`TX_TYPE.EDIT_CANDIDATE_PUBLIC_KEY`: `'0x14'`
+`TX_TYPE.ADD_SWAP_POOL`:        `'0x15'`
+`TX_TYPE.REMOVE_SWAP_POOL`:     `'0x16'`
+`TX_TYPE.SELL_SWAP_POOL`:       `'0x17'`
+`TX_TYPE.BUY_SWAP_POOL`:        `'0x18'`
+`TX_TYPE.SELL_ALL_SWAP_POOL`:   `'0x19'`
 
 ### Tx data
 

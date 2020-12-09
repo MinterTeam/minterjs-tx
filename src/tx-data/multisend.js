@@ -1,7 +1,7 @@
 import defineProperties from '../define-properties.js';
 import TxDataSend from './send.js';
 
-class TxDataMultisend {
+export default class TxDataMultisend {
     constructor(data) {
         // Define Properties
         const fields = [
@@ -24,5 +24,3 @@ class TxDataMultisend {
         defineProperties(this, fields, data);
     }
 }
-
-export default TxDataMultisend;

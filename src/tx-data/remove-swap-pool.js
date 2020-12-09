@@ -1,21 +1,35 @@
 import defineProperties from '../define-properties.js';
 
-export default class TxDataSend {
+export default class TxDataRemoveSwapPool {
     constructor(data) {
         // Define Properties
         const fields = [
             {
-                name: 'coin',
+                name: 'coin0',
                 length: 4,
                 allowLess: true,
-            }, {
-                name: 'to',
-                length: 20,
-            }, {
-                name: 'value',
+            },
+            {
+                name: 'coin1',
+                length: 4,
+                allowLess: true,
+            },
+            {
+                name: 'liquidity',
                 length: 32,
                 allowLess: true,
-            }];
+            },
+            {
+                name: 'minimumVolume0',
+                length: 32,
+                allowLess: true,
+            },
+            {
+                name: 'minimumVolume1',
+                length: 32,
+                allowLess: true,
+            },
+        ];
 
         /**
          * Returns the rlp encoding of the transaction

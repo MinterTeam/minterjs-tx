@@ -1,6 +1,6 @@
 import defineProperties from '../define-properties.js';
 
-class TxDataRedeemCheck {
+export default class TxDataRedeemCheck {
     constructor(data) {
         // Define Properties
         const fields = [
@@ -25,5 +25,3 @@ class TxDataRedeemCheck {
         defineProperties(this, fields, data);
     }
 }
-
-export default TxDataRedeemCheck;

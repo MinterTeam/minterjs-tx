@@ -1,6 +1,6 @@
 import defineProperties from '../define-properties.js';
 
-class TxDataCreateCoin {
+export default class TxDataCreateCoin {
     constructor(data) {
         // Define Properties
         const fields = [
@@ -39,5 +39,3 @@ class TxDataCreateCoin {
         defineProperties(this, fields, data);
     }
 }
-
-export default TxDataCreateCoin;

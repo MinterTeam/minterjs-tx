@@ -1,6 +1,6 @@
 import defineProperties from '../define-properties.js';
 
-class TxDataCreateMultisig {
+export default class TxDataCreateMultisig {
     constructor(data) {
         // Define Properties
         const fields = [
@@ -25,5 +25,3 @@ class TxDataCreateMultisig {
         defineProperties(this, fields, data);
     }
 }
-
-export default TxDataCreateMultisig;

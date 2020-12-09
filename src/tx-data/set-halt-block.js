@@ -1,6 +1,6 @@
 import defineProperties from '../define-properties.js';
 
-class TxDataSetHaltBlock {
+export default class TxDataSetHaltBlock {
     constructor(data) {
         // Define Properties
         const fields = [
@@ -25,5 +25,3 @@ class TxDataSetHaltBlock {
         defineProperties(this, fields, data);
     }
 }
-
-export default TxDataSetHaltBlock;

@@ -18,6 +18,11 @@ import TxDataRedeemCheck from './redeem-check.js';
 import TxDataCreateMultisig from './create-multisig.js';
 import TxDataEditMultisig from './edit-multisig.js';
 import TxDataPriceVote from './price-vote.js';
+import TxDataAddSwapPool from './add-swap-pool.js';
+import TxDataRemoveSwapPool from './remove-swap-pool.js';
+import TxDataBuySwapPool from './buy-swap-pool.js';
+import TxDataSellSwapPool from './sell-swap-pool.js';
+import TxDataSellAllSwapPool from './sell-all-swap-pool.js';
 
 import {TX_TYPE, normalizeTxType} from '../tx-types.js';
 
@@ -42,6 +47,11 @@ const TX_DATA_CONSTRUCTOR = {
     [TX_TYPE.EDIT_MULTISIG]: TxDataEditMultisig,
     [TX_TYPE.PRICE_VOTE]: TxDataPriceVote,
     [TX_TYPE.EDIT_CANDIDATE_PUBLIC_KEY]: TxDataEditCandidatePublicKey,
+    [TX_TYPE.ADD_SWAP_POOL]: TxDataAddSwapPool,
+    [TX_TYPE.REMOVE_SWAP_POOL]: TxDataRemoveSwapPool,
+    [TX_TYPE.BUY_SWAP_POOL]: TxDataBuySwapPool,
+    [TX_TYPE.SELL_SWAP_POOL]: TxDataSellSwapPool,
+    [TX_TYPE.SELL_ALL_SWAP_POOL]: TxDataSellAllSwapPool,
 };
 
 /**
@@ -49,7 +59,7 @@ const TX_DATA_CONSTRUCTOR = {
  * @param data
  * @param {TX_TYPE|number|string|Buffer|Uint8Array} txType
  * @constructor
- * @return {TxDataSend|TxDataMultisend|TxDataSell|TxDataSellAll|TxDataBuy|TxDataCreateCoin|TxDataDeclareCandidacy|TxDataEditCandidate|TxDataSetCandidateOn|TxDataSetCandidateOff|TxDataDelegate|TxDataUnbond|TxDataRedeemCheck|TxDataCreateMultisig}
+ * @return {TxDataSend|TxDataMultisend|TxDataSell|TxDataSellAll|TxDataBuy|TxDataCreateCoin|TxDataDeclareCandidacy|TxDataEditCandidate|TxDataSetCandidateOn|TxDataSetCandidateOff|TxDataDelegate|TxDataUnbond|TxDataRedeemCheck|TxDataCreateMultisig|TxDataSetHaltBlock|TxDataRecreateCoin|TxDataEditCoinOwner|TxDataEditMultisig|TxDataPriceVote|TxDataEditCandidatePublicKey|TxDataAddSwapPool|TxDataRemoveSwapPool|TxDataBuySwapPool|TxDataSellSwapPool|TxDataSellAllSwapPool}
  */
 export default function TxData(data, txType) {
     txType = normalizeTxType(txType);

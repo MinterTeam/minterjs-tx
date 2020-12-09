@@ -1,6 +1,6 @@
 import defineProperties from '../define-properties.js';
 
-class TxDataSetCandidateOn {
+export default class TxDataSetCandidateOn {
     constructor(data) {
         // Define Properties
         const fields = [
@@ -20,5 +20,3 @@ class TxDataSetCandidateOn {
         defineProperties(this, fields, data);
     }
 }
-
-export default TxDataSetCandidateOn;

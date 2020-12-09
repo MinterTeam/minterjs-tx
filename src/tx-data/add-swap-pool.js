@@ -1,14 +1,30 @@
 import defineProperties from '../define-properties.js';
 
-export default class TxDataPriceVote {
+export default class TxDataAddSwapPool {
     constructor(data) {
         // Define Properties
         const fields = [
             {
-                name: 'price',
+                name: 'coin0',
+                length: 4,
+                allowLess: true,
+            },
+            {
+                name: 'coin1',
+                length: 4,
+                allowLess: true,
+            },
+            {
+                name: 'volume0',
                 length: 32,
                 allowLess: true,
-            }];
+            },
+            {
+                name: 'maximumVolume1',
+                length: 32,
+                allowLess: true,
+            },
+        ];
 
         /**
          * Returns the rlp encoding of the transaction

@@ -1,3 +1,7 @@
+## WIP
+- add swap tx data types
+- **BREAKING** remove deprecated aliases
+
 ## 9.0.0
 Support of minter-go-node v1.2 aka Chili
 - **BREAKING** change coin tickers to coin id. Affected: Tx, Buy, DeclareCandidacy, Delegate, Sell, SellAll, Send, Multisend, Unbond
