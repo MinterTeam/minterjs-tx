@@ -50,6 +50,7 @@ module.exports = {
     'no-use-before-define' : 0,
     // allow single line imports
     'object-curly-newline': 0,
+    'prefer-arrow-callback': 0,
     // allow Object.assign()
     'prefer-object-spread': 0,
     'prefer-const': 0,
@@ -70,6 +71,8 @@ module.exports = {
         'plugin:unicorn/recommended',
       ],
       rules: {
+        'security/detect-object-injection': 0,
+        'unicorn/better-regex': 0,
         // full path import is per spec
         'unicorn/import-index': 0,
         // IE11 support needed
@@ -77,7 +80,17 @@ module.exports = {
         // allow lowercase hex number
         'unicorn/number-literal-case': 0,
         'unicorn/prefer-optional-catch-binding': 0,
-      }
+        'unicorn/prevent-abbreviations': ['error', {
+          replacements: {
+            'params': false,
+          },
+          whitelist: {
+            'resData': true,
+            'txParams': true,
+            'txProps': true,
+          }
+        }],
+      },
     },
     {
       files: ['examples/**/*', 'test/**/*'],
@@ -92,6 +105,7 @@ module.exports = {
         'plugin:jest/recommended',
       ],
       rules: {
+        'no-unused-vars': 0,
         'import/extensions': 0,
       }
     },
