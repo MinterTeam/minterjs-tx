@@ -1,15 +1,17 @@
-import {TxDataSell} from '~/src';
+import {TX_TYPE, TxData, TxDataSell} from '~/src';
 import decodeToArray from '../decode-to-array';
 
 describe('TxDataSell', () => {
-    test('rlp encoded fields', () => {
-        const serializedTxData = (new TxDataSell({
-            coinToSell: 0,
-            valueToSell: 1000,
-            coinToBuy: 1,
-            minimumValueToBuy: 5,
-        })).serialize();
+    const params = {
+        coinToSell: 0,
+        valueToSell: 1000,
+        coinToBuy: 1,
+        minimumValueToBuy: 5,
+    };
 
+    const serializedTxData = (new TxDataSell(params)).serialize();
+
+    test('rlp encoded fields', () => {
         expect(decodeToArray(serializedTxData))
             .toEqual([
                 [],
@@ -17,5 +19,9 @@ describe('TxDataSell', () => {
                 [1],
                 [5],
             ]);
+    });
+
+    test('TxData', () => {
+        expect(TxData(params, TX_TYPE.SELL).serialize()).toEqual(serializedTxData);
     });
 });

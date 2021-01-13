@@ -1,28 +1,36 @@
 import {toBuffer, convertToPip} from 'minterjs-util';
-import {TxDataMultisend} from '~/src';
+import {TX_TYPE, TxData, TxDataMultisend} from '~/src';
 import decodeToArray from '../decode-to-array';
 
 describe('TxDataMultisend', () => {
-    test('rlp encoded fields', () => {
-        const serializedTxData = (new TxDataMultisend({
+    describe('default', () => {
+        const params = {
             list: [{
                 coin: 0,
                 to: toBuffer('Mx7633980c000139dd3bd24a3f54e06474fa941e16'),
                 value: 10,
             }],
-        })).serialize();
+        };
 
-        const tx = decodeToArray(serializedTxData);
-        const rlpList = tx[0];
-        let list = decodeToArray(rlpList);
-        list = list.map((listItem) => decodeToArray(listItem));
-        tx[0] = list;
-        expect(tx)
-            .toEqual([
-                [
-                    [[], [118, 51, 152, 12, 0, 1, 57, 221, 59, 210, 74, 63, 84, 224, 100, 116, 250, 148, 30, 22], [10]],
-                ],
-            ]);
+        const serializedTxData = (new TxDataMultisend(params)).serialize();
+
+        test('rlp encoded fields', () => {
+            const tx = decodeToArray(serializedTxData);
+            const rlpList = tx[0];
+            let list = decodeToArray(rlpList);
+            list = list.map((listItem) => decodeToArray(listItem));
+            tx[0] = list;
+            expect(tx)
+                .toEqual([
+                    [
+                        [[], [118, 51, 152, 12, 0, 1, 57, 221, 59, 210, 74, 63, 84, 224, 100, 116, 250, 148, 30, 22], [10]],
+                    ],
+                ]);
+        });
+
+        test('TxData', () => {
+            expect(TxData(params, TX_TYPE.MULTISEND).serialize()).toEqual(serializedTxData);
+        });
     });
 
     test('rlp encoded fields (from php sdk)', () => {

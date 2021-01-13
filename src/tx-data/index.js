@@ -6,14 +6,20 @@ import TxDataSellAll from './sell-all.js';
 import TxDataCreateCoin from './create-coin.js';
 import TxDataRecreateCoin from './recreate-coin.js';
 import TxDataEditCoinOwner from './edit-coin-owner.js';
+import TxDataCreateToken from './create-token.js';
+import TxDataRecreateToken from './recreate-token.js';
+import TxDataMintToken from './mint-token.js';
+import TxDataBurnToken from './burn-token.js';
 import TxDataDeclareCandidacy from './declare-candidacy.js';
 import TxDataEditCandidate from './edit-candidate.js';
 import TxDataEditCandidatePublicKey from './edit-candidate-public-key.js';
+import TxDataEditCandidateCommission from './edit-candidate-commission.js';
 import TxDataSetHaltBlock from './set-halt-block.js';
 import TxDataSetCandidateOn from './set-candidate-on.js';
 import TxDataSetCandidateOff from './set-candidate-off.js';
 import TxDataDelegate from './delegate.js';
 import TxDataUnbond from './unbond.js';
+import TxDataMoveStake from './move-stake.js';
 import TxDataRedeemCheck from './redeem-check.js';
 import TxDataCreateMultisig from './create-multisig.js';
 import TxDataEditMultisig from './edit-multisig.js';
@@ -52,6 +58,12 @@ const TX_DATA_CONSTRUCTOR = {
     [TX_TYPE.BUY_SWAP_POOL]: TxDataBuySwapPool,
     [TX_TYPE.SELL_SWAP_POOL]: TxDataSellSwapPool,
     [TX_TYPE.SELL_ALL_SWAP_POOL]: TxDataSellAllSwapPool,
+    [TX_TYPE.EDIT_CANDIDATE_COMMISSION]: TxDataEditCandidateCommission,
+    [TX_TYPE.MOVE_STAKE]: TxDataMoveStake,
+    [TX_TYPE.MINT_TOKEN]: TxDataMintToken,
+    [TX_TYPE.BURN_TOKEN]: TxDataBurnToken,
+    [TX_TYPE.CREATE_TOKEN]: TxDataCreateToken,
+    [TX_TYPE.RECREATE_TOKEN]: TxDataRecreateToken,
 };
 
 /**

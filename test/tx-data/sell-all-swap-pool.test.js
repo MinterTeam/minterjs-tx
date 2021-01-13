@@ -1,19 +1,25 @@
-import {TxDataSellAllSwapPool} from '~/src';
+import {TX_TYPE, TxData, TxDataSellAllSwapPool} from '~/src';
 import decodeToArray from '../decode-to-array';
 
 describe('TxDataSellAllSwapPool', () => {
-    test('rlp encoded fields', () => {
-        const serializedTxData = (new TxDataSellAllSwapPool({
-            coinToSell: 0,
-            coinToBuy: 1,
-            minimumValueToBuy: 5,
-        })).serialize();
+    const params = {
+        coinToSell: 0,
+        coinToBuy: 1,
+        minimumValueToBuy: 5,
+    };
 
+    const serializedTxData = (new TxDataSellAllSwapPool(params)).serialize();
+
+    test('rlp encoded fields', () => {
         expect(decodeToArray(serializedTxData))
             .toEqual([
                 [],
                 [1],
                 [5],
             ]);
+    });
+
+    test('TxData', () => {
+        expect(TxData(params, TX_TYPE.SELL_ALL_SWAP_POOL).serialize()).toEqual(serializedTxData);
     });
 });

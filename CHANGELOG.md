@@ -1,5 +1,5 @@
 ## WIP
-- add swap tx data types
+- add swap, token and other v2 tx data types
 - **BREAKING** remove deprecated aliases
 
 ## 9.0.0

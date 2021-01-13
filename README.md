@@ -183,6 +183,12 @@ const publicKey = tx.getSenderPublicKey();
 `TX_TYPE.SELL_SWAP_POOL`:       `'0x17'`
 `TX_TYPE.BUY_SWAP_POOL`:        `'0x18'`
 `TX_TYPE.SELL_ALL_SWAP_POOL`:   `'0x19'`
+`TX_TYPE.EDIT_CANDIDATE_COMMISSION`: `'0x20'`
+`TX_TYPE.MOVE_STAKE`:           `'0x21'`
+`TX_TYPE.MINT_TOKEN`:           `'0x22'`
+`TX_TYPE.BURN_TOKEN`:           `'0x23'`
+`TX_TYPE.CREATE_TOKEN`:         `'0x24'`
+`TX_TYPE.RECREATE_TOKEN`:       `'0x25'`
 
 ### Tx data
 
