@@ -1,7 +1,7 @@
-import {TxDataRemoveSwapPool, TxData, TX_TYPE} from '~/src';
+import {TxDataRemoveLiquidity, TxData, TX_TYPE} from '~/src';
 import decodeToArray from '../decode-to-array';
 
-describe('TxDataRemoveSwapPool', () => {
+describe('TxDataRemoveLiquidity', () => {
     const params = {
         coin0: 123,
         coin1: 0,
@@ -10,7 +10,7 @@ describe('TxDataRemoveSwapPool', () => {
         minimumVolume1: 15,
     };
 
-    const serializedTxData = (new TxDataRemoveSwapPool(params)).serialize();
+    const serializedTxData = (new TxDataRemoveLiquidity(params)).serialize();
 
     test('rlp encoded fields', () => {
         expect(decodeToArray(serializedTxData))
@@ -24,6 +24,6 @@ describe('TxDataRemoveSwapPool', () => {
     });
 
     test('TxData', () => {
-        expect(TxData(params, TX_TYPE.REMOVE_SWAP_POOL).serialize()).toEqual(serializedTxData);
+        expect(TxData(params, TX_TYPE.REMOVE_LIQUIDITY).serialize()).toEqual(serializedTxData);
     });
 });

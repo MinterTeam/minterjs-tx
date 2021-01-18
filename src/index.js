@@ -35,8 +35,8 @@ import TxDataEditMultisig from './tx-data/edit-multisig.js';
 import TxDataSetHaltBlock from './tx-data/set-halt-block.js';
 import TxDataPriceVote from './tx-data/price-vote.js';
 
-import TxDataAddSwapPool from './tx-data/add-swap-pool.js';
-import TxDataRemoveSwapPool from './tx-data/remove-swap-pool.js';
+import TxDataAddLiquidity from './tx-data/add-liquidity.js';
+import TxDataRemoveLiquidity from './tx-data/remove-liquidity.js';
 import TxDataBuySwapPool from './tx-data/buy-swap-pool.js';
 import TxDataSellSwapPool from './tx-data/sell-swap-pool.js';
 import TxDataSellAllSwapPool from './tx-data/sell-all-swap-pool.js';
@@ -76,8 +76,8 @@ export {
     TxDataEditMultisig,
     TxDataSetHaltBlock,
     TxDataPriceVote,
-    TxDataAddSwapPool,
-    TxDataRemoveSwapPool,
+    TxDataAddLiquidity,
+    TxDataRemoveLiquidity,
     TxDataBuySwapPool,
     TxDataSellSwapPool,
     TxDataSellAllSwapPool,

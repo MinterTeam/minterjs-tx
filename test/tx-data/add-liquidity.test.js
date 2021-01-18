@@ -1,7 +1,7 @@
-import {TxDataAddSwapPool, TxData, TX_TYPE} from '~/src';
+import {TxDataAddLiquidity, TxData, TX_TYPE} from '~/src';
 import decodeToArray from '../decode-to-array';
 
-describe('TxDataAddSwapPool', () => {
+describe('TxDataAddLiquidity', () => {
     const params = {
         coin0: 123,
         coin1: 0,
@@ -9,7 +9,7 @@ describe('TxDataAddSwapPool', () => {
         maximumVolume1: 15,
     };
 
-    const serializedTxData = (new TxDataAddSwapPool(params)).serialize();
+    const serializedTxData = (new TxDataAddLiquidity(params)).serialize();
 
     test('rlp encoded fields', () => {
         expect(decodeToArray(serializedTxData))
@@ -22,6 +22,6 @@ describe('TxDataAddSwapPool', () => {
     });
 
     test('TxData', () => {
-        expect(TxData(params, TX_TYPE.ADD_SWAP_POOL).serialize()).toEqual(serializedTxData);
+        expect(TxData(params, TX_TYPE.ADD_LIQUIDITY).serialize()).toEqual(serializedTxData);
     });
 });
