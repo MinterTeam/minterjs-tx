@@ -11,7 +11,7 @@ import TxDataSellAll from './tx-data/sell-all.js';
 
 import TxDataCreateCoin from './tx-data/create-coin.js';
 import TxDataRecreateCoin from './tx-data/recreate-coin.js';
-import TxDataEditCoinOwner from './tx-data/edit-coin-owner.js';
+import TxDataEditTickerOwner from './tx-data/edit-ticker-owner.js';
 import TxDataCreateToken from './tx-data/create-token.js';
 import TxDataRecreateToken from './tx-data/recreate-token.js';
 import TxDataMintToken from './tx-data/mint-token.js';
@@ -32,9 +32,12 @@ import TxDataRedeemCheck from './tx-data/redeem-check.js';
 import TxDataCreateMultisig from './tx-data/create-multisig.js';
 import TxDataEditMultisig from './tx-data/edit-multisig.js';
 
-import TxDataSetHaltBlock from './tx-data/set-halt-block.js';
-import TxDataPriceVote from './tx-data/price-vote.js';
+import TxDataSetHaltBlock from './tx-data/vote-halt-block.js';
+import TxDataPriceVote from './tx-data/vote-price.js';
+import TxDataVoteCommission from './tx-data/vote-commission.js';
+import TxDataVoteUpdate from './tx-data/vote-update.js';
 
+import TxDataCreateSwapPool from './tx-data/create-swap-pool.js';
 import TxDataAddLiquidity from './tx-data/add-liquidity.js';
 import TxDataRemoveLiquidity from './tx-data/remove-liquidity.js';
 import TxDataBuySwapPool from './tx-data/buy-swap-pool.js';
@@ -57,7 +60,7 @@ export {
     TxDataBuy,
     TxDataCreateCoin,
     TxDataRecreateCoin,
-    TxDataEditCoinOwner,
+    TxDataEditTickerOwner,
     TxDataCreateToken,
     TxDataRecreateToken,
     TxDataMintToken,
@@ -76,6 +79,9 @@ export {
     TxDataEditMultisig,
     TxDataSetHaltBlock,
     TxDataPriceVote,
+    TxDataVoteCommission,
+    TxDataVoteUpdate,
+    TxDataCreateSwapPool,
     TxDataAddLiquidity,
     TxDataRemoveLiquidity,
     TxDataBuySwapPool,

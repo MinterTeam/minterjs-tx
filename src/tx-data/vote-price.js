@@ -1,6 +1,6 @@
 import defineProperties from '../define-properties.js';
 
-export default class TxDataPriceVote {
+export default class TxDataVotePrice {
     constructor(data) {
         // Define Properties
         const fields = [

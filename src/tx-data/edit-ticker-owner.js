@@ -1,6 +1,6 @@
 import defineProperties from '../define-properties.js';
 
-export default class TxDataEditCoinOwner {
+export default class TxDataEditTickerOwner {
     constructor(data) {
         // Define Properties
         const fields = [

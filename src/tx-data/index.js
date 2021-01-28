@@ -5,7 +5,7 @@ import TxDataBuy from './buy.js';
 import TxDataSellAll from './sell-all.js';
 import TxDataCreateCoin from './create-coin.js';
 import TxDataRecreateCoin from './recreate-coin.js';
-import TxDataEditCoinOwner from './edit-coin-owner.js';
+import TxDataEditTickerOwner from './edit-ticker-owner.js';
 import TxDataCreateToken from './create-token.js';
 import TxDataRecreateToken from './recreate-token.js';
 import TxDataMintToken from './mint-token.js';
@@ -14,7 +14,7 @@ import TxDataDeclareCandidacy from './declare-candidacy.js';
 import TxDataEditCandidate from './edit-candidate.js';
 import TxDataEditCandidatePublicKey from './edit-candidate-public-key.js';
 import TxDataEditCandidateCommission from './edit-candidate-commission.js';
-import TxDataSetHaltBlock from './set-halt-block.js';
+import TxDataSetHaltBlock from './vote-halt-block.js';
 import TxDataSetCandidateOn from './set-candidate-on.js';
 import TxDataSetCandidateOff from './set-candidate-off.js';
 import TxDataDelegate from './delegate.js';
@@ -23,7 +23,10 @@ import TxDataMoveStake from './move-stake.js';
 import TxDataRedeemCheck from './redeem-check.js';
 import TxDataCreateMultisig from './create-multisig.js';
 import TxDataEditMultisig from './edit-multisig.js';
-import TxDataPriceVote from './price-vote.js';
+import TxDataPriceVote from './vote-price.js';
+import TxDataVoteCommission from './vote-commission.js';
+import TxDataVoteUpdate from './vote-update.js';
+import TxDataCreateSwapPool from './create-swap-pool.js';
 import TxDataAddLiquidity from './add-liquidity.js';
 import TxDataRemoveLiquidity from './remove-liquidity.js';
 import TxDataBuySwapPool from './buy-swap-pool.js';
@@ -49,7 +52,7 @@ const TX_DATA_CONSTRUCTOR = {
     [TX_TYPE.CREATE_MULTISIG]: TxDataCreateMultisig,
     [TX_TYPE.SET_HALT_BLOCK]: TxDataSetHaltBlock,
     [TX_TYPE.RECREATE_COIN]: TxDataRecreateCoin,
-    [TX_TYPE.EDIT_COIN_OWNER]: TxDataEditCoinOwner,
+    [TX_TYPE.EDIT_TICKER_OWNER]: TxDataEditTickerOwner,
     [TX_TYPE.EDIT_MULTISIG]: TxDataEditMultisig,
     [TX_TYPE.PRICE_VOTE]: TxDataPriceVote,
     [TX_TYPE.EDIT_CANDIDATE_PUBLIC_KEY]: TxDataEditCandidatePublicKey,
@@ -64,6 +67,9 @@ const TX_DATA_CONSTRUCTOR = {
     [TX_TYPE.BURN_TOKEN]: TxDataBurnToken,
     [TX_TYPE.CREATE_TOKEN]: TxDataCreateToken,
     [TX_TYPE.RECREATE_TOKEN]: TxDataRecreateToken,
+    [TX_TYPE.VOTE_COMMISSION]: TxDataVoteCommission,
+    [TX_TYPE.VOTE_UPDATE]: TxDataVoteUpdate,
+    [TX_TYPE.CREATE_SWAP_POOL]: TxDataCreateSwapPool,
 };
 
 /**
@@ -71,7 +77,7 @@ const TX_DATA_CONSTRUCTOR = {
  * @param data
  * @param {TX_TYPE|number|string|Buffer|Uint8Array} txType
  * @constructor
- * @return {TxDataSend|TxDataMultisend|TxDataSell|TxDataSellAll|TxDataBuy|TxDataCreateCoin|TxDataDeclareCandidacy|TxDataEditCandidate|TxDataSetCandidateOn|TxDataSetCandidateOff|TxDataDelegate|TxDataUnbond|TxDataRedeemCheck|TxDataCreateMultisig|TxDataSetHaltBlock|TxDataRecreateCoin|TxDataEditCoinOwner|TxDataEditMultisig|TxDataPriceVote|TxDataEditCandidatePublicKey|TxDataAddLiquidity|TxDataRemoveLiquidity|TxDataBuySwapPool|TxDataSellSwapPool|TxDataSellAllSwapPool}
+ * @return {TxDataSend|TxDataMultisend|TxDataSell|TxDataSellAll|TxDataBuy|TxDataCreateCoin|TxDataDeclareCandidacy|TxDataEditCandidate|TxDataSetCandidateOn|TxDataSetCandidateOff|TxDataDelegate|TxDataUnbond|TxDataRedeemCheck|TxDataCreateMultisig|TxDataSetHaltBlock|TxDataRecreateCoin|TxDataEditTickerOwner|TxDataEditMultisig|TxDataPriceVote|TxDataEditCandidatePublicKey|TxDataAddLiquidity|TxDataRemoveLiquidity|TxDataBuySwapPool|TxDataSellSwapPool|TxDataSellAllSwapPool|TxDataVoteCommission|TxDataVoteUpdate|TxDataCreateSwapPool}
  */
 export default function TxData(data, txType) {
     txType = normalizeTxType(txType);

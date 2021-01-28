@@ -1,6 +1,6 @@
 import defineProperties from '../define-properties.js';
 
-export default class TxDataSetHaltBlock {
+export default class TxDataVoteHaltBlock {
     constructor(data) {
         // Define Properties
         const fields = [

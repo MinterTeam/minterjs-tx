@@ -1,6 +1,7 @@
 ## WIP
-- add swap, token and other v2 tx data types
+- add pool, token, vote and other v2 tx data types
 - **BREAKING** remove deprecated aliases
+- **BREAKING** rename `TxDataEditCoinOwner` to `TxDataEditTickerOwner` 
 
 ## 9.0.0
 Support of minter-go-node v1.2 aka Chili

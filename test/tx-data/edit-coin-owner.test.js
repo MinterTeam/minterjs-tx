@@ -1,13 +1,13 @@
-import {TxDataEditCoinOwner, coinToBuffer, TxData, TX_TYPE} from '~/src';
+import {TxDataEditTickerOwner, coinToBuffer, TxData, TX_TYPE} from '~/src';
 import decodeToArray from '../decode-to-array';
 
-describe('TxDataEditCoinOwner', () => {
+describe('TxDataEditTickerOwner', () => {
     const params = {
         symbol: coinToBuffer('MYCOIN'),
         newOwner: 'Mx7633980c000139dd3bd24a3f54e06474fa941e16',
     };
 
-    const serializedTxData = (new TxDataEditCoinOwner(params)).serialize();
+    const serializedTxData = (new TxDataEditTickerOwner(params)).serialize();
 
     test('rlp encoded fields', () => {
         expect(decodeToArray(serializedTxData))
@@ -18,6 +18,6 @@ describe('TxDataEditCoinOwner', () => {
     });
 
     test('TxData', () => {
-        expect(TxData(params, TX_TYPE.EDIT_COIN_OWNER).serialize()).toEqual(serializedTxData);
+        expect(TxData(params, TX_TYPE.EDIT_TICKER_OWNER).serialize()).toEqual(serializedTxData);
     });
 });
