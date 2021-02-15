@@ -3,8 +3,7 @@ import decodeToArray from '../decode-to-array';
 
 describe('TxDataSellAllSwapPool', () => {
     const params = {
-        coinToSell: 0,
-        coinToBuy: 1,
+        coins: [0, 1],
         minimumValueToBuy: 5,
     };
 
@@ -13,8 +12,7 @@ describe('TxDataSellAllSwapPool', () => {
     test('rlp encoded fields', () => {
         expect(decodeToArray(serializedTxData))
             .toEqual([
-                [],
-                [1],
+                [194, 128, 1],
                 [5],
             ]);
     });
