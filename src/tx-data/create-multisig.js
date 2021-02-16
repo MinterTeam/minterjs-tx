@@ -6,8 +6,8 @@ export default class TxDataCreateMultisig {
         const fields = [
             {
                 name: 'threshold',
-                length: 2,
-                allowLess: true,
+                // length: 2,
+                // allowLess: true,
             }, {
                 name: 'weights',
                 allowNonBinaryArray: true,
