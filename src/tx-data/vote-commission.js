@@ -44,17 +44,32 @@ export default class TxDataVoteCommission {
                 allowLess: true,
             },
             {
-                name: 'buyPool',
+                name: 'buyPoolBase',
                 length: 32,
                 allowLess: true,
             },
             {
-                name: 'sellPool',
+                name: 'buyPoolDelta',
                 length: 32,
                 allowLess: true,
             },
             {
-                name: 'sellAllPool',
+                name: 'sellPoolBase',
+                length: 32,
+                allowLess: true,
+            },
+            {
+                name: 'sellPoolDelta',
+                length: 32,
+                allowLess: true,
+            },
+            {
+                name: 'sellAllPoolBase',
+                length: 32,
+                allowLess: true,
+            },
+            {
+                name: 'sellAllPoolDelta',
                 length: 32,
                 allowLess: true,
             },
