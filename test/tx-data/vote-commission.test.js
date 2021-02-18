@@ -49,7 +49,7 @@ describe('TxDataVoteCommission', () => {
         mintToken: 12,
         voteCommission: 12,
         voteUpdate: 12,
-        createPool: 12,
+        createSwapPool: 12,
     };
 
     const serializedTxData = (new TxDataVoteCommission(params)).serialize();

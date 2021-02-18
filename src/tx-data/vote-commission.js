@@ -234,7 +234,7 @@ export default class TxDataVoteCommission {
                 allowLess: true,
             },
             {
-                name: 'createPool',
+                name: 'createSwapPool',
                 length: 32,
                 allowLess: true,
             },
