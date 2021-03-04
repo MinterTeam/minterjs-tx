@@ -1,3 +1,17 @@
-import {TX_TYPE, txTypeList, normalizeTxType} from 'minterjs-util';
+import {TX_TYPE as deprecatedTxType, txTypeList as deprecatedTxTypeList, normalizeTxType as deprecatedNormalizeTxType} from 'minterjs-util';
 
-export {TX_TYPE, txTypeList, normalizeTxType};
+/**
+ * Use minterjs-util instead
+ * @deprecated
+ */
+export const TX_TYPE = deprecatedTxType;
+/**
+ * Use minterjs-util instead
+ * @deprecated
+ */
+export const txTypeList = deprecatedTxTypeList;
+/**
+ * Use minterjs-util instead
+ * @deprecated
+ */
+export const normalizeTxType = deprecatedNormalizeTxType;

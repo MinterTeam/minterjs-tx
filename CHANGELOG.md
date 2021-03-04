@@ -2,6 +2,7 @@
 - add pool, token, vote and other v2 tx data types
 - **BREAKING** remove deprecated aliases
 - **BREAKING** rename `TxDataEditCoinOwner` to `TxDataEditTickerOwner` 
+- Deprecate reexport of `TX_TYPE`, `txTypeList`, `normalizeTxType`, `coinToBuffer`, `bufferToCoin`. Instead, use minterjs-util directly.
 
 ## 9.0.0
 Support of minter-go-node v1.2 aka Chili
