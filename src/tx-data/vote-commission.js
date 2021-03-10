@@ -183,11 +183,13 @@ export default class TxDataVoteCommission {
                 length: 32,
                 allowLess: true,
             },
+            /*
             {
                 name: 'priceVote',
                 length: 32,
                 allowLess: true,
             },
+            */
             {
                 name: 'editCandidatePublicKey',
                 length: 32,
@@ -208,11 +210,13 @@ export default class TxDataVoteCommission {
                 length: 32,
                 allowLess: true,
             },
+            /*
             {
                 name: 'moveStake',
                 length: 32,
                 allowLess: true,
             },
+            */
             {
                 name: 'burnToken',
                 length: 32,
