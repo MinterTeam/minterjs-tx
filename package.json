@@ -1,6 +1,6 @@
 {
   "name": "minterjs-tx",
-  "version": "10.0.0-alpha.9",
+  "version": "10.0.0",
   "description": "A simple module for creating, manipulating and signing Minter transactions",
   "main": "dist/cjs/index.js",
   "module": "src/index.js",
@@ -51,7 +51,7 @@
     "buffer-es6": "github:shrpne/buffer-es6#fix-internal-is-buffer",
     "ethereumjs-util": "^7.0.5",
     "ethjs-util": "^0.1.6",
-    "minterjs-util": "^0.21.0-aplha.12",
+    "minterjs-util": "^0.21.0",
     "rlp": "^2.2.6"
   },
   "devDependencies": {
