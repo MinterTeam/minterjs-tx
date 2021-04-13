@@ -1,3 +1,6 @@
+## 10.0.1 - 2021.04.13
+- Fix VoteCommission tx data
+
 ## 10.0.0 - 2021.04.09
 - add pool, token, vote and other v2 tx data types
 - **BREAKING** remove deprecated aliases

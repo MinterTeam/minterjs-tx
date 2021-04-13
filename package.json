@@ -1,6 +1,6 @@
 {
   "name": "minterjs-tx",
-  "version": "10.0.0",
+  "version": "10.0.1",
   "description": "A simple module for creating, manipulating and signing Minter transactions",
   "main": "dist/cjs/index.js",
   "module": "src/index.js",

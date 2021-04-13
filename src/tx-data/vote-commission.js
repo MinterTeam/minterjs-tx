@@ -196,6 +196,11 @@ export default class TxDataVoteCommission {
                 allowLess: true,
             },
             {
+                name: 'createSwapPool',
+                length: 32,
+                allowLess: true,
+            },
+            {
                 name: 'addLiquidity',
                 length: 32,
                 allowLess: true,
@@ -218,12 +223,12 @@ export default class TxDataVoteCommission {
             },
             */
             {
-                name: 'burnToken',
+                name: 'mintToken',
                 length: 32,
                 allowLess: true,
             },
             {
-                name: 'mintToken',
+                name: 'burnToken',
                 length: 32,
                 allowLess: true,
             },
@@ -234,11 +239,6 @@ export default class TxDataVoteCommission {
             },
             {
                 name: 'voteUpdate',
-                length: 32,
-                allowLess: true,
-            },
-            {
-                name: 'createSwapPool',
                 length: 32,
                 allowLess: true,
             },
