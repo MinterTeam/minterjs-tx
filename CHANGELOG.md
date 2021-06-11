@@ -1,3 +1,7 @@
+## WIP
+- fix `tx.verifySignature()` for multi-signatures
+- **BREAKING** add fields to VoteCommission tx data
+
 ## 10.0.1 - 2021.04.13
 - Fix VoteCommission tx data
 

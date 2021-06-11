@@ -80,11 +80,14 @@ module.exports = {
         // allow lowercase hex number
         'unicorn/number-literal-case': 0,
         'unicorn/prefer-optional-catch-binding': 0,
+        'unicorn/prefer-ternary': 0,
+        'unicorn/prefer-node-protocol': 0,
+        'unicorn/no-array-for-each': 0,
         'unicorn/prevent-abbreviations': ['error', {
           replacements: {
             'params': false,
           },
-          whitelist: {
+          allowList: {
             'resData': true,
             'txParams': true,
             'txProps': true,

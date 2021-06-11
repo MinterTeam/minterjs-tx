@@ -36,10 +36,10 @@ describe('define', () => {
         defineProperties(someOb, fields);
         // Define Properties
         someOb.r = '0x00004';
-        assert.equal(someOb.r.toString('hex'), '04');
+        expect(someOb.r.toString('hex')).toEqual('04');
 
         someOb.r = Buffer.from([0, 0, 0, 0, 4]);
-        assert.equal(someOb.r.toString('hex'), '04');
+        expect(someOb.r.toString('hex')).toEqual('04');
     });
 
     it('shouldn\'t allow wrong size for exact size requirements', () => {
@@ -112,10 +112,10 @@ describe('define', () => {
         };
 
         defineProperties(someOb, fields, data);
-        assert.equal(someOb.blah.toString('hex'), '01');
+        expect(someOb.blah.toString('hex')).toEqual('01');
         someOb.blah = '0x09';
-        assert.equal(someOb.blah.toString('hex'), '09');
-        assert.equal(someOb.aword.toString('hex'), '09');
+        expect(someOb.blah.toString('hex')).toEqual('09');
+        expect(someOb.aword.toString('hex')).toEqual('09');
     });
 
     it('alias should work #2', () => {
@@ -123,7 +123,7 @@ describe('define', () => {
         const data = { blah: '0x1' };
 
         defineProperties(someOb, fields, data);
-        assert.equal(someOb.blah.toString('hex'), '01');
-        assert.equal(someOb.aword.toString('hex'), '01');
+        expect(someOb.blah.toString('hex')).toEqual('01');
+        expect(someOb.aword.toString('hex')).toEqual('01');
     });
 });

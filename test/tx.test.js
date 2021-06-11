@@ -1,5 +1,5 @@
 import {mPrefixToHex, convertToPip} from 'minterjs-util';
-import {Tx, TxSignature, TxDataSend, TxMultisignature, TX_TYPE, coinToBuffer} from '~/src';
+import {Tx, TxSignature, TxDataSend, TxMultisignature, TX_TYPE} from '~/src';
 import decodeToArray from './decode-to-array';
 
 const PRIVATE_KEY = Buffer.from('5fa3a8b186f6cc2d748ee2d8c0eb7a905a7b73de0f2c34c5e7857c3b46f187da', 'hex');
@@ -135,5 +135,16 @@ describe('multisig', () => {
     test('tx construction', () => {
         expect(tx.serializeToString())
             .toEqual('0xf8d90101018001a0df8094376615b9a3187747dc7c32e51723515ee62e37dc880de0b6b3a76400008b637573746f6d20746578748002b8a3f8a194036525e438f62c1444c12c379e0249778a59542af88af8431ba0a19138b0622e6188d1105abb536637935048a2c5c743a3decb158038cdb478fca0465edd4258ef612e3b6c50fb238031470b4f1afc16fd7ac005f8a14430dc2a86f8431ba0a19138b0622e6188d1105abb536637935048a2c5c743a3decb158038cdb478fca0465edd4258ef612e3b6c50fb238031470b4f1afc16fd7ac005f8a14430dc2a86');
+    });
+
+    test('verifySignature', () => {
+        const invalidTx = new Tx(txParams);
+        invalidTx.signatureData = new TxMultisignature({
+            multisig: 'Mx036525e438f62c1444c12c379e0249778a59542a',
+            signatures: [signature, '0x00'],
+        }).serialize();
+
+        expect(tx.verifySignature()).toEqual(true);
+        expect(invalidTx.verifySignature()).toEqual(false);
     });
 });

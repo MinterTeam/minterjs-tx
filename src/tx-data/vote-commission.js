@@ -242,6 +242,21 @@ export default class TxDataVoteCommission {
                 length: 32,
                 allowLess: true,
             },
+            {
+                name: 'failedTx',
+                length: 32,
+                allowLess: true,
+            },
+            {
+                name: 'addLimitOrder',
+                length: 32,
+                allowLess: true,
+            },
+            {
+                name: 'removeLimitOrder',
+                length: 32,
+                allowLess: true,
+            },
         ];
 
         /**

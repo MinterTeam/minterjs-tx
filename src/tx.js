@@ -135,6 +135,7 @@ class Tx {
     getSenderPublicKey() {
         // eslint-disable-next-line unicorn/explicit-length-check
         if (!this._senderPublicKey || !this._senderPublicKey.length) {
+            // eslint-disable-next-line unicorn/no-lonely-if
             if (!this.verifySignature()) {
                 throw new Error('Invalid Signature');
             }
@@ -157,13 +158,10 @@ class Tx {
             // Multi signature
             const multiSignature = rlp.decode(this.signatureData);
             const messageHash = this.hash(false);
-            // eslint-disable-next-line consistent-return
-            multiSignature[1].forEach((item) => {
-                if (!this._verifySignature(messageHash, item)) {
-                    return false;
-                }
+            const hasErrors = multiSignature[1].some((item) => {
+                return !this._verifySignature(messageHash, item);
             });
-            return true;
+            return !hasErrors;
         }
     }
 
