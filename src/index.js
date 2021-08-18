@@ -43,6 +43,9 @@ import TxDataRemoveLiquidity from './tx-data/remove-liquidity.js';
 import TxDataBuySwapPool from './tx-data/buy-swap-pool.js';
 import TxDataSellSwapPool from './tx-data/sell-swap-pool.js';
 import TxDataSellAllSwapPool from './tx-data/sell-all-swap-pool.js';
+
+import TxDataAddLimitOrder from './tx-data/add-limit-order.js';
+import TxDataRemoveLimitOrder from './tx-data/remove-limit-order.js';
 import {coinToBuffer, bufferToCoin} from './helpers.js';
 import defineProperties from './define-properties.js';
 import {TX_TYPE, txTypeList, normalizeTxType} from './tx-types.js';
@@ -87,6 +90,8 @@ export {
     TxDataBuySwapPool,
     TxDataSellSwapPool,
     TxDataSellAllSwapPool,
+    TxDataAddLimitOrder,
+    TxDataRemoveLimitOrder,
 
     coinToBuffer,
     bufferToCoin,

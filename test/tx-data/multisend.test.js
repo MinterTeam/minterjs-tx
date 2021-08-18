@@ -1,5 +1,5 @@
-import {toBuffer, convertToPip} from 'minterjs-util';
-import {TX_TYPE, TxData, TxDataMultisend} from '~/src';
+import {TX_TYPE, toBuffer, convertToPip} from 'minterjs-util';
+import {TxData, TxDataMultisend} from '~/src';
 import decodeToArray from '../decode-to-array';
 
 describe('TxDataMultisend', () => {

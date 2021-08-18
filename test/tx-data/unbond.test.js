@@ -1,5 +1,5 @@
-import {toBuffer} from 'minterjs-util';
-import {TX_TYPE, TxData, TxDataUnbond} from '~/src';
+import {TX_TYPE, toBuffer} from 'minterjs-util';
+import {TxData, TxDataUnbond} from '~/src';
 import decodeToArray from '../decode-to-array';
 
 describe('TxDataUnbond', () => {

@@ -1,4 +1,5 @@
-import {TX_TYPE, TxData, TxDataEditMultisig} from '~/src';
+import {TX_TYPE} from 'minterjs-util';
+import {TxData, TxDataEditMultisig} from '~/src';
 import decodeToArray from '../decode-to-array';
 
 describe('TxDataEditMultisig', () => {

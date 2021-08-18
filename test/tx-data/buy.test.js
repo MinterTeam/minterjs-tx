@@ -1,5 +1,5 @@
-import {convertToPip} from 'minterjs-util';
-import {TxDataBuy, Tx, TxData, TX_TYPE, TxSignature} from '~/src';
+import {convertToPip, TX_TYPE} from 'minterjs-util';
+import {TxDataBuy, Tx, TxData, TxSignature} from '~/src';
 import decodeToArray from '../decode-to-array';
 
 describe('TxDataBuy', () => {

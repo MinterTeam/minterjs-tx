@@ -1,4 +1,5 @@
-import {TxDataCreateSwapPool, TxData, TX_TYPE} from '~/src';
+import {TX_TYPE} from 'minterjs-util';
+import {TxDataCreateSwapPool, TxData} from '~/src';
 import decodeToArray from '../decode-to-array';
 
 describe('TxDataCreateSwapPool', () => {

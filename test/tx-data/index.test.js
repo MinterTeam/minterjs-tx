@@ -1,4 +1,5 @@
-import {TxData, TX_TYPE} from '~/src';
+import {TX_TYPE} from 'minterjs-util';
+import {TxData} from '~/src';
 
 describe('TxData', () => {
     test('every tx type has corresponding constructor', () => {

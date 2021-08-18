@@ -1,3 +1,5 @@
+import {TX_TYPE, normalizeTxType} from 'minterjs-util';
+
 import TxDataSend from './send.js';
 import TxDataMultisend from './multisend.js';
 import TxDataSell from './sell.js';
@@ -32,8 +34,8 @@ import TxDataRemoveLiquidity from './remove-liquidity.js';
 import TxDataBuySwapPool from './buy-swap-pool.js';
 import TxDataSellSwapPool from './sell-swap-pool.js';
 import TxDataSellAllSwapPool from './sell-all-swap-pool.js';
-
-import {TX_TYPE, normalizeTxType} from '../tx-types.js';
+import TxDataAddLimitOrder from './add-limit-order.js';
+import TxDataRemoveLimitOrder from './remove-limit-order.js';
 
 const TX_DATA_CONSTRUCTOR = {
     [TX_TYPE.SEND]: TxDataSend,
@@ -70,6 +72,8 @@ const TX_DATA_CONSTRUCTOR = {
     [TX_TYPE.VOTE_COMMISSION]: TxDataVoteCommission,
     [TX_TYPE.VOTE_UPDATE]: TxDataVoteUpdate,
     [TX_TYPE.CREATE_SWAP_POOL]: TxDataCreateSwapPool,
+    [TX_TYPE.ADD_LIMIT_ORDER]: TxDataAddLimitOrder,
+    [TX_TYPE.REMOVE_LIMIT_ORDER]: TxDataRemoveLimitOrder,
 };
 
 /**
@@ -77,7 +81,7 @@ const TX_DATA_CONSTRUCTOR = {
  * @param data
  * @param {TX_TYPE|number|string|Buffer|Uint8Array} txType
  * @constructor
- * @return {TxDataSend|TxDataMultisend|TxDataSell|TxDataSellAll|TxDataBuy|TxDataCreateCoin|TxDataDeclareCandidacy|TxDataEditCandidate|TxDataSetCandidateOn|TxDataSetCandidateOff|TxDataDelegate|TxDataUnbond|TxDataRedeemCheck|TxDataCreateMultisig|TxDataSetHaltBlock|TxDataRecreateCoin|TxDataEditTickerOwner|TxDataEditMultisig|TxDataPriceVote|TxDataEditCandidatePublicKey|TxDataAddLiquidity|TxDataRemoveLiquidity|TxDataBuySwapPool|TxDataSellSwapPool|TxDataSellAllSwapPool|TxDataVoteCommission|TxDataVoteUpdate|TxDataCreateSwapPool}
+ * @return {TxDataSend|TxDataMultisend|TxDataSell|TxDataSellAll|TxDataBuy|TxDataCreateCoin|TxDataDeclareCandidacy|TxDataEditCandidate|TxDataSetCandidateOn|TxDataSetCandidateOff|TxDataDelegate|TxDataUnbond|TxDataRedeemCheck|TxDataCreateMultisig|TxDataSetHaltBlock|TxDataRecreateCoin|TxDataEditTickerOwner|TxDataEditMultisig|TxDataPriceVote|TxDataEditCandidatePublicKey|TxDataAddLiquidity|TxDataRemoveLiquidity|TxDataBuySwapPool|TxDataSellSwapPool|TxDataSellAllSwapPool|TxDataVoteCommission|TxDataVoteUpdate|TxDataCreateSwapPool|TxDataAddLimitOrder|TxDataRemoveLimitOrder}
  */
 export default function TxData(data, txType) {
     txType = normalizeTxType(txType);

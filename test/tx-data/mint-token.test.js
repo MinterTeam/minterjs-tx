@@ -1,4 +1,5 @@
-import {TX_TYPE, TxData, TxDataMintToken} from '~/src';
+import {TX_TYPE} from 'minterjs-util';
+import {TxData, TxDataMintToken} from '~/src';
 import decodeToArray from '../decode-to-array';
 
 describe('TxDataSend', () => {

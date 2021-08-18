@@ -1,28 +1,28 @@
 import {TX_TYPE} from 'minterjs-util';
-import {TxData, TxDataSell} from '~/src';
+import {TxDataAddLimitOrder, TxData} from '~/src';
 import decodeToArray from '../decode-to-array';
 
-describe('TxDataSell', () => {
+describe('TxDataAddLimitOrder', () => {
     const params = {
         coinToSell: 0,
-        valueToSell: 1000,
+        valueToSell: 5,
         coinToBuy: 1,
-        minimumValueToBuy: 5,
+        valueToBuy: 1000,
     };
 
-    const serializedTxData = (new TxDataSell(params)).serialize();
+    const serializedTxData = (new TxDataAddLimitOrder(params)).serialize();
 
     test('rlp encoded fields', () => {
         expect(decodeToArray(serializedTxData))
             .toEqual([
                 [],
-                [3, 232],
-                [1],
                 [5],
+                [1],
+                [3, 232],
             ]);
     });
 
     test('TxData', () => {
-        expect(TxData(params, TX_TYPE.SELL).serialize()).toEqual(serializedTxData);
+        expect(TxData(params, TX_TYPE.ADD_LIMIT_ORDER).serialize()).toEqual(serializedTxData);
     });
 });

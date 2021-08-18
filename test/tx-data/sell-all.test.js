@@ -1,4 +1,5 @@
-import {TX_TYPE, TxData, TxDataSell, TxDataSellAll} from '~/src';
+import {TX_TYPE} from 'minterjs-util';
+import {TxData, TxDataSellAll} from '~/src';
 import decodeToArray from '../decode-to-array';
 
 describe('TxDataSellAll', () => {

@@ -1,4 +1,5 @@
-import {TX_TYPE, TxData, TxDataSetHaltBlock} from '~/src';
+import {TX_TYPE} from 'minterjs-util';
+import {TxData, TxDataSetHaltBlock} from '~/src';
 import decodeToArray from '../decode-to-array';
 
 describe('TxDataVoteHaltBlock', () => {

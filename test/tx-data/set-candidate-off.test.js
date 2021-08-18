@@ -1,5 +1,5 @@
-import {toBuffer} from 'minterjs-util';
-import {TX_TYPE, TxData, TxDataSetCandidateOff} from '~/src';
+import {TX_TYPE, toBuffer} from 'minterjs-util';
+import {TxData, TxDataSetCandidateOff} from '~/src';
 import decodeToArray from '../decode-to-array';
 
 describe('TxDataSetCandidateOff', () => {

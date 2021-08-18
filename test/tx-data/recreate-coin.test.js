@@ -1,4 +1,5 @@
-import {TxDataRecreateCoin, coinToBuffer, TxData, TX_TYPE} from '~/src';
+import {TX_TYPE, coinToBuffer} from 'minterjs-util';
+import {TxDataRecreateCoin, TxData} from '~/src';
 import decodeToArray from '../decode-to-array';
 
 describe('TxDataRecreateCoin', () => {

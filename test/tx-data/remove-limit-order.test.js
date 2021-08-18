@@ -1,24 +1,22 @@
 import {TX_TYPE} from 'minterjs-util';
-import {TxData, TxDataBurnToken} from '~/src';
+import {TxData, TxDataRemoveLimitOrder} from '~/src';
 import decodeToArray from '../decode-to-array';
 
-describe('TxDataBurnToken', () => {
+describe('TxDataRemoveLimitOrder', () => {
     const params = {
-        coin: 0,
-        value: 1000,
+        id: 1000,
     };
 
-    const serializedTxData = (new TxDataBurnToken(params)).serialize();
+    const serializedTxData = (new TxDataRemoveLimitOrder(params)).serialize();
 
     test('rlp encoded fields', () => {
         expect(decodeToArray(serializedTxData))
             .toEqual([
-                [],
                 [3, 232],
             ]);
     });
 
     test('TxData', () => {
-        expect(TxData(params, TX_TYPE.BURN_TOKEN).serialize()).toEqual(serializedTxData);
+        expect(TxData(params, TX_TYPE.REMOVE_LIMIT_ORDER).serialize()).toEqual(serializedTxData);
     });
 });

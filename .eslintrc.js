@@ -2,7 +2,7 @@
 
 module.exports = {
   root: true,
-  // parser: 'babel-eslint',
+  // parser: '@babel/eslint-parser',
   // parserOptions: {
   //   sourceType: 'module'
   // },
@@ -62,6 +62,8 @@ module.exports = {
       }
     }],
     'import/extensions': ['error', 'always', {ignorePackages: true} ],
+    // named exports are not bad
+    'import/prefer-default-export': 0,
   },
   overrides: [
     {
@@ -81,8 +83,13 @@ module.exports = {
         'unicorn/number-literal-case': 0,
         'unicorn/prefer-optional-catch-binding': 0,
         'unicorn/prefer-ternary': 0,
+        // @see https://stackoverflow.com/questions/67263317/how-to-fix-eslint-error-when-using-the-node-protocol-when-importing-node-js-bui
+        // @see https://github.com/import-js/eslint-plugin-import/issues/2031
+        // waiting `node:` to be backported to node@14
         'unicorn/prefer-node-protocol': 0,
         'unicorn/no-array-for-each': 0,
+        // @see https://github.com/sindresorhus/eslint-plugin-unicorn/issues/1463
+        'unicorn/require-number-to-fixed-digits-argument': 0,
         'unicorn/prevent-abbreviations': ['error', {
           replacements: {
             'params': false,
@@ -110,6 +117,8 @@ module.exports = {
       rules: {
         'no-unused-vars': 0,
         'import/extensions': 0,
+        // 'jest-expect-message' allow multiple arguments
+        'jest/valid-expect': 0,
       }
     },
   ]

@@ -95,7 +95,7 @@ class Tx {
             items = this.raw;
         } else {
             // hash everything except signatureData
-            items = this.raw.slice(0, this.raw.length - 1);
+            items = this.raw.slice(0, -1);
         }
 
         // create hash
