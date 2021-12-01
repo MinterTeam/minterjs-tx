@@ -1,3 +1,1 @@
-import TxDataRecreateCoin from './create-coin.js';
-
-export default TxDataRecreateCoin;
+export {default} from './create-coin.js';

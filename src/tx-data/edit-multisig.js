@@ -1,3 +1,1 @@
-import TxDataEditMultisig from './create-multisig.js';
-
-export default TxDataEditMultisig;
+export {default} from './create-multisig.js';

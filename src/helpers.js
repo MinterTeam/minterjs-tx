@@ -4,9 +4,11 @@ import {coinToBuffer as deprecatedCoinToBuffer, bufferToCoin as deprecatedBuffer
  * Use minterjs-util instead
  * @deprecated
  */
+// eslint-disable-next-line unicorn/prefer-export-from
 export const coinToBuffer = deprecatedCoinToBuffer;
 /**
  * Use minterjs-util instead
  * @deprecated
  */
+// eslint-disable-next-line unicorn/prefer-export-from
 export const bufferToCoin = deprecatedBufferToCoin;

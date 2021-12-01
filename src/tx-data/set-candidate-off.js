@@ -1,3 +1,1 @@
-import TxDataSetCandidateOff from './set-candidate-on.js';
-
-export default TxDataSetCandidateOff;
+export {default} from './set-candidate-on.js';

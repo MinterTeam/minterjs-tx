@@ -1,3 +1,1 @@
-import TxDataBurnToken from './mint-token.js';
-
-export default TxDataBurnToken;
+export {default} from './mint-token.js';
