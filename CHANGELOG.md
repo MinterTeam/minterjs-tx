@@ -1,4 +1,4 @@
-## WIP
+## 11.0.0
 - fix `tx.verifySignature()` for multi-signatures
 - add `AddLimitOrder` and `RemoveLimitOrder` tx data
 - **BREAKING** add fields to VoteCommission tx data
