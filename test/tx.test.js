@@ -85,6 +85,7 @@ describe('tx', () => {
         expect(tx.getSenderAddress().toString('hex')).toEqual('7633980c000139dd3bd24a3f54e06474fa941e16');
         // improve coverage: getSenderAddress() second time takes value from cache
         expect(tx.getSenderAddress().toString('hex')).toEqual('7633980c000139dd3bd24a3f54e06474fa941e16');
+        expect(tx.getSenderAddressString()).toEqual('Mx7633980c000139dd3bd24a3f54e06474fa941e16');
     });
 
     test('tx public key', () => {

@@ -128,6 +128,10 @@ class Tx {
         return this._from;
     }
 
+    getSenderAddressString() {
+        return `Mx${this.getSenderAddress().toString('hex')}`;
+    }
+
     /**
      * returns the public key of the sender
      * @return {Buffer}

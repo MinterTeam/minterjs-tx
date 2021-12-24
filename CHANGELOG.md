@@ -1,3 +1,6 @@
+## 11.1.0 - 2021.12.24
+- Tx: add `getSenderAddressString` method
+
 ## 11.0.0 - 2021.12.01
 - fix `tx.verifySignature()` for multi-signatures
 - add `AddLimitOrder` and `RemoveLimitOrder` tx data
