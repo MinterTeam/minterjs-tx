@@ -215,13 +215,6 @@ export default class TxDataVoteCommission {
                 length: 32,
                 allowLess: true,
             },
-            /*
-            {
-                name: 'moveStake',
-                length: 32,
-                allowLess: true,
-            },
-            */
             {
                 name: 'mintToken',
                 length: 32,
@@ -254,6 +247,21 @@ export default class TxDataVoteCommission {
             },
             {
                 name: 'removeLimitOrder',
+                length: 32,
+                allowLess: true,
+            },
+            {
+                name: 'moveStake',
+                length: 32,
+                allowLess: true,
+            },
+            {
+                name: 'lockStake',
+                length: 32,
+                allowLess: true,
+            },
+            {
+                name: 'lock',
                 length: 32,
                 allowLess: true,
             },

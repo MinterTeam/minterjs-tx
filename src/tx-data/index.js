@@ -36,6 +36,8 @@ import TxDataSellSwapPool from './sell-swap-pool.js';
 import TxDataSellAllSwapPool from './sell-all-swap-pool.js';
 import TxDataAddLimitOrder from './add-limit-order.js';
 import TxDataRemoveLimitOrder from './remove-limit-order.js';
+import TxDataLockStake from './lock-stake.js';
+import TxDataLock from './lock.js';
 
 const TX_DATA_CONSTRUCTOR = {
     [TX_TYPE.SEND]: TxDataSend,
@@ -74,6 +76,8 @@ const TX_DATA_CONSTRUCTOR = {
     [TX_TYPE.CREATE_SWAP_POOL]: TxDataCreateSwapPool,
     [TX_TYPE.ADD_LIMIT_ORDER]: TxDataAddLimitOrder,
     [TX_TYPE.REMOVE_LIMIT_ORDER]: TxDataRemoveLimitOrder,
+    [TX_TYPE.LOCK_STAKE]: TxDataLockStake,
+    [TX_TYPE.LOCK]: TxDataLock,
 };
 
 /**
@@ -81,7 +85,7 @@ const TX_DATA_CONSTRUCTOR = {
  * @param data
  * @param {TX_TYPE|number|string|Buffer|Uint8Array} txType
  * @constructor
- * @return {TxDataSend|TxDataMultisend|TxDataSell|TxDataSellAll|TxDataBuy|TxDataCreateCoin|TxDataDeclareCandidacy|TxDataEditCandidate|TxDataSetCandidateOn|TxDataSetCandidateOff|TxDataDelegate|TxDataUnbond|TxDataRedeemCheck|TxDataCreateMultisig|TxDataSetHaltBlock|TxDataRecreateCoin|TxDataEditTickerOwner|TxDataEditMultisig|TxDataPriceVote|TxDataEditCandidatePublicKey|TxDataAddLiquidity|TxDataRemoveLiquidity|TxDataBuySwapPool|TxDataSellSwapPool|TxDataSellAllSwapPool|TxDataVoteCommission|TxDataVoteUpdate|TxDataCreateSwapPool|TxDataAddLimitOrder|TxDataRemoveLimitOrder}
+ * @return {TxDataSend|TxDataMultisend|TxDataSell|TxDataSellAll|TxDataBuy|TxDataCreateCoin|TxDataDeclareCandidacy|TxDataEditCandidate|TxDataSetCandidateOn|TxDataSetCandidateOff|TxDataDelegate|TxDataUnbond|TxDataRedeemCheck|TxDataCreateMultisig|TxDataSetHaltBlock|TxDataRecreateCoin|TxDataEditTickerOwner|TxDataEditMultisig|TxDataPriceVote|TxDataEditCandidatePublicKey|TxDataAddLiquidity|TxDataRemoveLiquidity|TxDataBuySwapPool|TxDataSellSwapPool|TxDataSellAllSwapPool|TxDataVoteCommission|TxDataVoteUpdate|TxDataCreateSwapPool|TxDataAddLimitOrder|TxDataRemoveLimitOrder|TxDataLockStake|TxDataLock}
  */
 export default function TxData(data, txType) {
     txType = normalizeTxType(txType);

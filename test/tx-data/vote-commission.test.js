@@ -45,7 +45,6 @@ describe('TxDataVoteCommission', () => {
         addLiquidity: 12,
         removeLiquidity: 12,
         editCandidateCommission: 12,
-        // moveStake: 12,
         burnToken: 12,
         mintToken: 12,
         voteCommission: 12,
@@ -54,6 +53,9 @@ describe('TxDataVoteCommission', () => {
         failedTx: 12,
         addLimitOrder: 12,
         removeLimitOrder: 12,
+        moveStake: 12,
+        lockStake: 12,
+        lock: 12,
     };
 
     const serializedTxData = (new TxDataVoteCommission(params)).serialize();
@@ -66,6 +68,9 @@ describe('TxDataVoteCommission', () => {
                 [],
                 // [12],
                 // [12],
+                [12],
+                [12],
+                [12],
                 [12],
                 [12],
                 [12],
