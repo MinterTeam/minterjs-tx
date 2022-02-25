@@ -4,6 +4,7 @@ import decodeToArray from '../decode-to-array';
 
 describe('TxDataLock', () => {
     const params = {
+        dueBlock: 123,
         coin: 0,
         value: 10,
     };
@@ -13,6 +14,7 @@ describe('TxDataLock', () => {
     test('rlp encoded fields', () => {
         expect(decodeToArray(serializedTxData))
             .toEqual([
+                [123],
                 [],
                 [10],
             ]);

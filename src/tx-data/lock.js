@@ -5,6 +5,11 @@ export default class TxDataLock {
         // Define Properties
         const fields = [
             {
+                name: 'dueBlock',
+                length: 32,
+                allowLess: true,
+            },
+            {
                 name: 'coin',
                 length: 4,
                 allowLess: true,
