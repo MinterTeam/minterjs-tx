@@ -17,4 +17,8 @@ describe('TxDataLockStake', () => {
     test('TxData', () => {
         expect(TxData(params, TX_TYPE.LOCK_STAKE).serialize()).toEqual(serializedTxData);
     });
+
+    test('TxData without arguments', () => {
+        expect(TxData(undefined, TX_TYPE.LOCK_STAKE).serialize()).toEqual(serializedTxData);
+    });
 });
