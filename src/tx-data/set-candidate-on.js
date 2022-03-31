@@ -1,7 +1,7 @@
 import defineProperties from '../define-properties.js';
 
 export default class TxDataSetCandidateOn {
-    constructor(data) {
+    constructor(data, options) {
         // Define Properties
         const fields = [
             {
@@ -17,6 +17,6 @@ export default class TxDataSetCandidateOn {
          * @name serialize
          */
         // attached serialize
-        defineProperties(this, fields, data);
+        defineProperties(this, fields, data, options);
     }
 }

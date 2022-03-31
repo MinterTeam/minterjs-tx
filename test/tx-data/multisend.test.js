@@ -89,8 +89,8 @@ describe('TxDataMultisend', () => {
             .toEqual(txDataFromRlp.list);
     });
 
-    test('empty data', () => {
-        const txData = new TxDataMultisend();
+    test('array as default value for isNonBinaryArray fields', () => {
+        const txData = new TxDataMultisend(undefined, {forceDefaultValues: true});
         const serializedTxData = (txData).serialize();
 
         expect(serializedTxData.toString('hex')).toEqual('c1c0');

@@ -22,15 +22,16 @@ describe('TxDataSellAllSwapPool', () => {
         expect(TxData(params, TX_TYPE.SELL_ALL_SWAP_POOL).serialize()).toEqual(serializedTxData);
     });
 
-    test('empty data', () => {
-        const txData = new TxDataSellAllSwapPool();
+    test('array as default value for isNonBinaryArray fields', () => {
+        const txData = new TxDataSellAllSwapPool(undefined, {forceDefaultValues: true});
         const emptySerializedTxData = (txData).serialize();
 
-        expect(emptySerializedTxData.toString('hex')).toEqual('c1c0');
+        expect(emptySerializedTxData.toString('hex')).toEqual('c2c080');
 
         expect(decodeToArray(emptySerializedTxData))
             .toEqual([
                 [192],
+                [],
             ]);
     });
 });

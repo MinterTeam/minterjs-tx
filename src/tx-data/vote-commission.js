@@ -1,7 +1,7 @@
 import defineProperties from '../define-properties.js';
 
 export default class TxDataVoteCommission {
-    constructor(data) {
+    constructor(data, options) {
         // Define Properties
         const fields = [
             {
@@ -275,6 +275,6 @@ export default class TxDataVoteCommission {
          * @name serialize
          */
         // attached serialize
-        defineProperties(this, fields, data);
+        defineProperties(this, fields, data, options);
     }
 }

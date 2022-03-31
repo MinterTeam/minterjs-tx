@@ -1,7 +1,7 @@
 import defineProperties from '../define-properties.js';
 
 export default class TxDataRemoveLimitOrder {
-    constructor(data) {
+    constructor(data, options) {
         // Define Properties
         const fields = [
             {
@@ -19,6 +19,6 @@ export default class TxDataRemoveLimitOrder {
          * @name serialize
          */
         // attached serialize
-        defineProperties(this, fields, data);
+        defineProperties(this, fields, data, options);
     }
 }

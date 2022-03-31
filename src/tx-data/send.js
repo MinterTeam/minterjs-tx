@@ -1,7 +1,7 @@
 import defineProperties from '../define-properties.js';
 
 export default class TxDataSend {
-    constructor(data) {
+    constructor(data, options) {
         // Define Properties
         const fields = [
             {
@@ -25,6 +25,6 @@ export default class TxDataSend {
          * @name serialize
          */
         // attached serialize
-        defineProperties(this, fields, data);
+        defineProperties(this, fields, data, options);
     }
 }

@@ -78,8 +78,8 @@ describe('TxDataCreateMultisig', () => {
             .toEqual(txDataFromRlp.list);
     });
 
-    test('empty data', () => {
-        const txData = new TxDataCreateMultisig();
+    test('array as default value for isNonBinaryArray fields', () => {
+        const txData = new TxDataCreateMultisig(undefined, {forceDefaultValues: true});
         const serializedTxData = (txData).serialize();
 
         expect(serializedTxData.toString('hex')).toEqual('c380c0c0');

@@ -1,7 +1,7 @@
 import defineProperties from '../define-properties.js';
 
 export default class TxDataRedeemCheck {
-    constructor(data) {
+    constructor(data, options) {
         // Define Properties
         const fields = [
             {
@@ -22,6 +22,6 @@ export default class TxDataRedeemCheck {
          * @name serialize
          */
         // attached serialize
-        defineProperties(this, fields, data);
+        defineProperties(this, fields, data, options);
     }
 }

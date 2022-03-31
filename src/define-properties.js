@@ -4,9 +4,6 @@ import {stripHexPrefix} from 'ethjs-util';
 import assert from 'assert';
 import {toBuffer} from 'minterjs-util';
 
-// eslint-disable-next-line unicorn/prevent-abbreviations
-const _typeof = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol' ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === 'function' && obj.constructor === Symbol && obj !== Symbol.prototype ? 'symbol' : typeof obj; };
-
 /**
  * Defines properties on a `Object`. It make the assumption that underlying data is binary.
  * @param {Object} self the `Object` to define properties on
@@ -14,12 +11,13 @@ const _typeof = typeof Symbol === 'function' && typeof Symbol.iterator === 'symb
  * * `name` - the name of the properties
  * * `length` - the number of bytes the field can have
  * * `allowLess` - if the field can be less than the length
- * * `allowEmpty`
+ * * `allowZero`
  * * `isNonBinaryArray` - if the field can be non binary array
  * * `nonBinaryArrayTransform` - function to transform each item of the non binary array
  * @param {*} [data] data to be validated against the definitions
+ * @param {TxDataExtraOptions} [options]
  */
-export default function definePropertiesNonBinary(self, fields, data) {
+export default function definePropertiesNonBinary(self, fields, data, options = {}) {
     self.raw = [];
     self._fields = [];
 
@@ -75,6 +73,10 @@ export default function definePropertiesNonBinary(self, fields, data) {
                     return item;
                 });
             } else {
+                if (typeof v === 'undefined' && options.forceDefaultValues && !field.allowLess && field.length > 0) {
+                    v = Buffer.alloc(field.length, 0);
+                }
+
                 v = toBuffer(v);
 
                 if (v.toString('hex') === '00' && !field.allowZero) {
@@ -85,6 +87,7 @@ export default function definePropertiesNonBinary(self, fields, data) {
                     v = unpadBuffer(v);
                     assert(field.length >= v.length, `The field ${field.name} must not have more ${field.length} bytes`);
                 } else if (!(field.allowZero && v.length === 0) && field.length > 0) {
+                    // not allowedZero and not allowLess
                     assert(field.length === v.length, `The field ${field.name} must have byte length of ${field.length}`);
                 }
             }
@@ -101,9 +104,9 @@ export default function definePropertiesNonBinary(self, fields, data) {
 
         if (field.default) {
             self[field.name] = field.default;
-        } else if (field.isNonBinaryArray) {
-            // default value for non-binary arrays
-            self[field.name] = [];
+        } else if (options.forceDefaultValues) {
+            // trigger setter, even if no data passed
+            self[field.name] = undefined;
         }
 
         // attach alias
@@ -136,14 +139,19 @@ export default function definePropertiesNonBinary(self, fields, data) {
             data.forEach((d, i) => {
                 self[self._fields[i]] = d;
             });
-        } else if ((typeof data === 'undefined' ? 'undefined' : _typeof(data)) === 'object') {
+        } else if (typeof data === 'object') {
             const keys = Object.keys(data);
             fields.forEach((field) => {
                 if (keys.indexOf(field.name) !== -1) self[field.name] = data[field.name];
                 if (keys.indexOf(field.alias) !== -1) self[field.alias] = data[field.alias];
             });
         } else {
-            throw new Error('invalid data');
+            throw new TypeError('invalid data');
         }
     }
 }
+
+/**
+ * @typedef {Object} TxDataExtraOptions
+ * @property {boolean} [forceDefaultValues]
+ */
