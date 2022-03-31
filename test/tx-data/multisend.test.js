@@ -88,4 +88,16 @@ describe('TxDataMultisend', () => {
         expect(txData.list)
             .toEqual(txDataFromRlp.list);
     });
+
+    test('empty data', () => {
+        const txData = new TxDataMultisend();
+        const serializedTxData = (txData).serialize();
+
+        expect(serializedTxData.toString('hex')).toEqual('c1c0');
+
+        expect(decodeToArray(serializedTxData))
+            .toEqual([
+                [192],
+            ]);
+    });
 });

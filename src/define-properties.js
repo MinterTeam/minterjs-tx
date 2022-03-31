@@ -15,7 +15,7 @@ const _typeof = typeof Symbol === 'function' && typeof Symbol.iterator === 'symb
  * * `length` - the number of bytes the field can have
  * * `allowLess` - if the field can be less than the length
  * * `allowEmpty`
- * * `allowNonBinaryArray` - if the field can be non binary array
+ * * `isNonBinaryArray` - if the field can be non binary array
  * * `nonBinaryArrayTransform` - function to transform each item of the non binary array
  * @param {*} [data] data to be validated against the definitions
  */
@@ -50,7 +50,14 @@ export default function definePropertiesNonBinary(self, fields, data) {
             return self.raw[i];
         }
         function setter(v) {
-            if (field.allowNonBinaryArray && Array.isArray(v)) {
+            if (typeof field.isNonBinaryArray === 'undefined' && field.allowNonBinaryArray) {
+                field.isNonBinaryArray = field.allowNonBinaryArray;
+                console.warn('allowNonBinaryArray is deprecated, use isNonBinaryArray instead');
+            }
+            if (field.isNonBinaryArray) {
+                if (!Array.isArray(v)) {
+                    throw new TypeError('Invalid value for isNonBinaryArray field');
+                }
                 if (field.nonBinaryArrayTransform && typeof field.nonBinaryArrayTransform === 'function') {
                     v = v.map((item) => field.nonBinaryArrayTransform(item));
                 } else {
@@ -91,6 +98,9 @@ export default function definePropertiesNonBinary(self, fields, data) {
 
         if (field.default) {
             self[field.name] = field.default;
+        } else if (field.isNonBinaryArray) {
+            // default value for non-binary arrays
+            self[field.name] = [];
         }
 
         // attach alias

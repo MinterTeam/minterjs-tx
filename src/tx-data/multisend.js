@@ -7,7 +7,7 @@ export default class TxDataMultisend {
         const fields = [
             {
                 name: 'list',
-                allowNonBinaryArray: true,
+                isNonBinaryArray: true,
                 nonBinaryArrayTransform(item) {
                     return (new TxDataSend(item)).raw;
                 },

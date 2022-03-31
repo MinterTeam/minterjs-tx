@@ -11,7 +11,7 @@ class TxMultisignature {
                 length: 20,
             }, {
                 name: 'signatures',
-                allowNonBinaryArray: true,
+                isNonBinaryArray: true,
                 nonBinaryArrayTransform(item) {
                     return (new TxSignature(item)).raw;
                 },

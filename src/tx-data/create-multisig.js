@@ -10,10 +10,10 @@ export default class TxDataCreateMultisig {
                 // allowLess: true,
             }, {
                 name: 'weights',
-                allowNonBinaryArray: true,
+                isNonBinaryArray: true,
             }, {
                 name: 'addresses',
-                allowNonBinaryArray: true,
+                isNonBinaryArray: true,
             }];
 
         /**

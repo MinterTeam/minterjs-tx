@@ -1,5 +1,7 @@
 ## WIP
 - add `Lock` and `LockStake` tx data
+- rename and deprecate `allowNonBinaryArray` option in favor of `isNonBinaryArray`
+- set default `[]` value for non-binary array fields
 - **BREAKING** add fields to VoteCommission tx data
 
 ## 11.1.0 - 2021.12.24

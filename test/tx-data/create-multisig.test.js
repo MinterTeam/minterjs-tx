@@ -77,4 +77,18 @@ describe('TxDataCreateMultisig', () => {
         expect(txData.list)
             .toEqual(txDataFromRlp.list);
     });
+
+    test('empty data', () => {
+        const txData = new TxDataCreateMultisig();
+        const serializedTxData = (txData).serialize();
+
+        expect(serializedTxData.toString('hex')).toEqual('c380c0c0');
+
+        expect(decodeToArray(serializedTxData))
+            .toEqual([
+                [],
+                [192],
+                [192],
+            ]);
+    });
 });

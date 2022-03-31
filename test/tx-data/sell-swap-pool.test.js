@@ -23,4 +23,16 @@ describe('TxDataSellSwapPool', () => {
     test('TxData', () => {
         expect(TxData(params, TX_TYPE.SELL_SWAP_POOL).serialize()).toEqual(serializedTxData);
     });
+
+    test('empty data', () => {
+        const txData = new TxDataSellSwapPool();
+        const emptySerializedTxData = (txData).serialize();
+
+        expect(emptySerializedTxData.toString('hex')).toEqual('c1c0');
+
+        expect(decodeToArray(emptySerializedTxData))
+            .toEqual([
+                [192],
+            ]);
+    });
 });

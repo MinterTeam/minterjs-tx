@@ -6,7 +6,7 @@ export default class TxDataSellAllSwapPool {
         const fields = [
             {
                 name: 'coins',
-                allowNonBinaryArray: true,
+                isNonBinaryArray: true,
             },
             {
                 name: 'minimumValueToBuy',
