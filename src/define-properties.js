@@ -55,6 +55,9 @@ export default function definePropertiesNonBinary(self, fields, data) {
                 console.warn('allowNonBinaryArray is deprecated, use isNonBinaryArray instead');
             }
             if (field.isNonBinaryArray) {
+                if (typeof v === 'undefined') {
+                    v = [];
+                }
                 if (!Array.isArray(v)) {
                     throw new TypeError('Invalid value for isNonBinaryArray field');
                 }
