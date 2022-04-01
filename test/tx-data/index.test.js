@@ -1,4 +1,4 @@
-import {TX_TYPE, txTypeList} from 'minterjs-util';
+import {txTypeList} from 'minterjs-util';
 import {TxData} from '~/src';
 
 const typeList = txTypeList.map((typeItem) => {
@@ -18,7 +18,6 @@ describe('TxData', () => {
     describe('every tx type works with forceDefaultValues', () => {
         test.each(typeList)('%s', ({hex: txType}) => {
             const txData = new TxData(undefined, txType, {forceDefaultValues: true});
-            console.log(txData);
             // every field has initialized value
             expect(txData.raw.length).toEqual(txData._fields.length);
         });
