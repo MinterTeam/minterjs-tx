@@ -126,4 +126,19 @@ describe('define', () => {
         expect(someOb.blah.toString('hex')).toEqual('01');
         expect(someOb.aword.toString('hex')).toEqual('01');
     });
+
+    it('storeNullAsArray', () => {
+        const someOb = defineProperties({}, [{
+            name: 'test',
+            storeNullAsArray: true,
+        }], [undefined]);
+        expect(someOb.serializeToString()).toEqual('0xc1c0');
+    });
+    it('not storeNullAsArray', () => {
+        const someOb = defineProperties({}, [{
+            name: 'test',
+            storeNullAsArray: false,
+        }], [undefined]);
+        expect(someOb.serializeToString()).toEqual('0xc180');
+    });
 });

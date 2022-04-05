@@ -5,9 +5,22 @@ import assert from 'assert';
 import {toBuffer} from 'minterjs-util';
 
 /**
+ * @typedef {Object} FieldSettings
+ * @property {string} name - the name of the properties
+ * @property {string} [alias] - alias to the name
+ * @property {*} [default] - default value
+ * @property {number} [length] - the number of bytes the field can have
+ * @property {boolean} [allowLess] - if the field can be less than the length
+ * @property {boolean} [allowZero]
+ * @property {boolean} [isNonBinaryArray] - if the field can be non binary array
+ * @property {function} [nonBinaryArrayTransform] - function to transform each item of the non binary array
+ * @property {boolean} [storeNullAsArray] - store falsy values as rlp array `0xc0` (to distinguish from `0x80` integer zero @see https://eth.wiki/en/fundamentals/rlp#examples)
+ */
+
+/**
  * Defines properties on a `Object`. It make the assumption that underlying data is binary.
  * @param {Object} self the `Object` to define properties on
- * @param {Array} fields an array fields to define. Fields can contain:
+ * @param {Array<FieldSettings>} fields an array fields to define. Fields can contain:
  * * `name` - the name of the properties
  * * `length` - the number of bytes the field can have
  * * `allowLess` - if the field can be less than the length
@@ -72,11 +85,11 @@ export default function definePropertiesNonBinary(self, fields, data, options = 
                     }
                     return item;
                 });
+            } else if (options.forceDefaultValues && typeof v === 'undefined' && !field.allowLess && field.length > 0) {
+                v = Buffer.alloc(field.length, 0);
+            } else if (field.storeNullAsArray && !v && v !== 0) {
+                v = [];
             } else {
-                if (typeof v === 'undefined' && options.forceDefaultValues && !field.allowLess && field.length > 0) {
-                    v = Buffer.alloc(field.length, 0);
-                }
-
                 v = toBuffer(v);
 
                 if (v.toString('hex') === '00' && !field.allowZero) {
@@ -120,7 +133,7 @@ export default function definePropertiesNonBinary(self, fields, data, options = 
         }
     });
 
-    // if the constuctor is passed data
+    // if the constructor is passed data
     if (data) {
         if (typeof data === 'string') {
             data = Buffer.from(stripHexPrefix(data), 'hex');
@@ -149,6 +162,8 @@ export default function definePropertiesNonBinary(self, fields, data, options = 
             throw new TypeError('invalid data');
         }
     }
+
+    return self;
 }
 
 /**
