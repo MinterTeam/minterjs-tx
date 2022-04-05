@@ -35,7 +35,7 @@ export default function definePropertiesNonBinary(self, fields, data, options = 
     self._fields = [];
 
     // attach the `toJSON`
-    self.toJSON = function (label) {
+    self.toJSON = function toJSON(label) {
         /* eslint-disable unicorn/prevent-abbreviations */
         if (label) {
             const obj = {};
@@ -85,9 +85,10 @@ export default function definePropertiesNonBinary(self, fields, data, options = 
                     }
                     return item;
                 });
-            } else if (options.forceDefaultValues && typeof v === 'undefined' && !field.allowLess && field.length > 0) {
+            } else if (typeof v === 'undefined' && options.forceDefaultValues && !field.allowLess && field.length > 0) {
+                // fill with zeros
                 v = Buffer.alloc(field.length, 0);
-            } else if (field.storeNullAsArray && !v && v !== 0) {
+            } else if (field.storeNullAsArray && ((!v && v !== 0) || (Array.isArray(v) && v.length === 0))) {
                 v = [];
             } else {
                 v = toBuffer(v);

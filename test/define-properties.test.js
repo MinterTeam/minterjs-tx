@@ -127,18 +127,37 @@ describe('define', () => {
         expect(someOb.aword.toString('hex')).toEqual('01');
     });
 
-    it('storeNullAsArray', () => {
-        const someOb = defineProperties({}, [{
-            name: 'test',
-            storeNullAsArray: true,
-        }], [undefined]);
-        expect(someOb.serializeToString()).toEqual('0xc1c0');
+    describe('storeNullAsArray', () => {
+        it('works from undefined', () => {
+            const someOb = defineProperties({}, [{
+                name: 'test',
+                storeNullAsArray: true,
+            }], [undefined]);
+            expect(someOb.serializeToString()).toEqual('0xc1c0');
+        });
+
+        it('works from empty array', () => {
+            const someOb = defineProperties({}, [{
+                name: 'test',
+                storeNullAsArray: true,
+            }], [[]]);
+            expect(someOb.serializeToString()).toEqual('0xc1c0');
+        });
     });
-    it('not storeNullAsArray', () => {
+
+    it('not storeNullAsArray for undefined', () => {
         const someOb = defineProperties({}, [{
             name: 'test',
             storeNullAsArray: false,
         }], [undefined]);
+        expect(someOb.serializeToString()).toEqual('0xc180');
+    });
+
+    it('not storeNullAsArray for empty array', () => {
+        const someOb = defineProperties({}, [{
+            name: 'test',
+            storeNullAsArray: false,
+        }], [[]]);
         expect(someOb.serializeToString()).toEqual('0xc180');
     });
 });
