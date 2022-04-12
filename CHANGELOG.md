@@ -1,7 +1,7 @@
-## WIP
+## 12.0.0 - 2022.04.12
 - add `Lock` and `LockStake` tx data
 - rename and deprecate `allowNonBinaryArray` field setting in favor of `isNonBinaryArray`
-- add `storeNullAsArray` field setting in case if `allowNonBinaryArray` was used only for falsy values and truephy values was not stored as array
+- add `storeNullAsArray` field setting in case if `allowNonBinaryArray` was used only for falsy values and truthy values was not stored as array
 - add `forceDefaultValues` option to TxData constructor
 - **BREAKING** add fields to VoteCommission tx data
 
