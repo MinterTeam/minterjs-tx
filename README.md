@@ -1,7 +1,7 @@
 # minterjs-tx
 
 [![NPM Package](https://img.shields.io/npm/v/minterjs-tx.svg?style=flat-square)](https://www.npmjs.org/package/minterjs-tx)
-[![Build Status](https://img.shields.io/travis/MinterTeam/minterjs-tx.svg?style=flat-square)](https://travis-ci.org/MinterTeam/minterjs-tx)
+[![Build Status](https://github.com/minterteam/minterjs-tx/actions/workflows/test-with-coverage.yml/badge.svg)](https://github.com/MinterTeam/minterjs-tx/actions/workflows/test-with-coverage.yml)
 [![Coverage Status](https://img.shields.io/coveralls/github/MinterTeam/minterjs-tx/master.svg?style=flat-square)](https://coveralls.io/github/MinterTeam/minterjs-tx?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/MinterTeam/minterjs-tx/blob/master/LICENSE)
 

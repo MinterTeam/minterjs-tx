@@ -8,4 +8,7 @@ module.exports = {
     transformIgnorePatterns: [
         'node_modules/(?!(minterjs-util|minterjs-tx)/)',
     ],
+    // collectCoverage: true,
+    collectCoverageFrom: ["./src/**"],
+    coverageReporters: ["lcov", "text"]
 };
