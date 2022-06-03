@@ -1,6 +1,6 @@
 {
   "name": "minterjs-tx",
-  "version": "12.0.1",
+  "version": "12.0.2",
   "description": "A simple module for creating, manipulating and signing Minter transactions",
   "main": "dist/cjs/index.js",
   "module": "src/index.js",
@@ -49,7 +49,7 @@
   "dependencies": {
     "bn.js": "^5.2.1",
     "buffer-es6": "https://git@github.com/shrpne/buffer-es6#fix-internal-is-buffer",
-    "ethereumjs-util": "^7.1.4",
+    "ethereumjs-util": "^7.1.5",
     "ethjs-util": "^0.1.6",
     "minterjs-util": "^0.24.0",
     "rlp": "^2"
@@ -74,7 +74,7 @@
     "eslint-plugin-unicorn": "^42.0.0",
     "jest": "^28.1.0",
     "jest-environment-jsdom": "^28.1.0",
-    "minterjs-wallet": "^6.1.2",
+    "minterjs-wallet": "^6.1.4",
     "pre-commit": "^1.2.2",
     "rollup": "^2.75.5",
     "rollup-plugin-node-builtins": "^2.1.2",
