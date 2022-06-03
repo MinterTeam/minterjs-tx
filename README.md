@@ -1,9 +1,9 @@
 # minterjs-tx
 
 [![NPM Package](https://img.shields.io/npm/v/minterjs-tx.svg?style=flat-square)](https://www.npmjs.org/package/minterjs-tx)
-[![Build Status](https://github.com/minterteam/minterjs-tx/actions/workflows/test-with-coverage.yml/badge.svg)](https://github.com/MinterTeam/minterjs-tx/actions/workflows/test-with-coverage.yml)
+[![Build Status](https://img.shields.io/github/workflow/status/MinterTeam/minterjs-tx/Test?label=test&style=flat-square)](https://github.com/MinterTeam/minterjs-tx/actions/workflows/test-with-coverage.yml)
 [![Coverage Status](https://img.shields.io/coveralls/github/MinterTeam/minterjs-tx/master.svg?style=flat-square)](https://coveralls.io/github/MinterTeam/minterjs-tx?branch=master)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/MinterTeam/minterjs-tx/blob/master/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square&label=license)](https://github.com/MinterTeam/minterjs-tx/blob/master/LICENSE)
 
 ## Warning
 This module is LOW LEVEL and not supposed to be used by regular developers. It is supposed to be used inside SDKs or for advanced use cases.
