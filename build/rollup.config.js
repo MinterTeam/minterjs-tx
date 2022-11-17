@@ -35,4 +35,5 @@ export default {
         format: 'umd',
         name: 'minterTx',
     },
+    strictDeprecations: true,
 };
